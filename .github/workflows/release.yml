@@ -1,9 +1,6 @@
-name: Release Build
+name: .NET Core Desktop Release
 
 on:
-    push:
-        branches:
-            - main # 或你使用的分支名称
     release:
         types: [created]
 
@@ -11,25 +8,28 @@ jobs:
     build:
         runs-on: windows-latest
         
+        env:
+            Solution_Name: TargetSelector.sln # 替换为你的解决方案名称
+            Project_Directory: ./ # 项目目录，根据你的项目结构调整
+            Project_Path: TargetSelector/TargetSelector.csproj # 替换为你的项目文件路径
+            Output_Path: bin/Release/net8.0/ # 编译输出路径
+        
         steps:
             - uses: actions/checkout@v3
 
             - name: Setup .NET
               uses: actions/setup-dotnet@v3
               with:
-                  dotnet-version: 8.0.x
+                  dotnet-version: 8.0.x # 或你使用的 .NET 版本
 
             - name: Restore dependencies
-              run: dotnet restore
+              run: dotnet restore $env:Project_Path
 
             - name: Build
-              run: dotnet build -c Release
+              run: dotnet build $env:Project_Path -c Release
 
-            - name: Check Release files # 检查文件是否存在
-              run: ls -l ./bin/Release/net8.0/
-
-            - name: Zip Release files # 打包步骤
-              run: 7z a -tzip TargetSelector.zip ./bin/Release/net8.0/*
+            - name: Zip Release files
+              run: 7z a -tzip TargetSelector.zip $env:Output_Path/* # 将 Release 文件打包成 TargetSelector.zip
 
             - name: Upload Release Asset
               id: upload-release-asset
@@ -38,6 +38,6 @@ jobs:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               with:
                   upload_url: ${{ github.event.release.upload_url }}
-                  asset_path: ./latest.zip # 上传 zip 文件
-                  asset_name: latest.zip
+                  asset_path: ./TargetSelector.zip
+                  asset_name: TargetSelector.zip
                   asset_content_type: application/zip
