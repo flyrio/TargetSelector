@@ -38,6 +38,6 @@ jobs:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               with:
                   upload_url: ${{ github.event.release.upload_url }}
-                  asset_path: ./latest.zip
+                  asset_path: D:\ShiyuviDalamudplugin\TargetSelectorHelper-master\TargetSelector\bin\Release\TargetSelector/latest.zip
                   asset_name: latest.zip
                   asset_content_type: application/zip
