@@ -83,8 +83,7 @@
         ]
       },
       "restoreLockProperties": {
-        "restorePackagesWithLockFile": "true",
-        "nuGetLockFilePath": ""
+        "restorePackagesWithLockFile": "true"
       },
       "restoreAuditProperties": {
         "enableAudit": "true",
