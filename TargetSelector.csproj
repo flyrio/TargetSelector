@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="Dalamud.Plugin.Bootstrap.targets"/>
+
+  <PropertyGroup>
+    <Version>0.0.0.1</Version>
+    <Description>TargetSelector</Description>
+    <PackageProjectUrl>https://github.com/goatcorp/SamplePlugin</PackageProjectUrl>
+    <PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+
+
+  <ItemGroup>
+    <Reference Include="ECommons">
+      <HintPath>C:\Users\10576\Downloads\AE3.0 国服 1004\AEAssistCNVersion\AEAssist\ECommons.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="packages.lock.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Windows\PvPHelper.cs" />
+    <Compile Remove="Windows\VFXHelper.cs" />
+  </ItemGroup>
+</Project>

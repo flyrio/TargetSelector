@@ -1,0 +1,25 @@
+SimplePlugin.json文档源码与解释
+{
+  // 插件作者的名字
+  "Author": "your name here",
+
+  // 插件的名称
+  "Name": "Sample Plugin",
+
+  // 一句简短的描述，会在 /xlplugins 命令中显示
+  "Punchline": "A short one-liner that shows up in /xlplugins.",
+
+  // 插件的详细描述，会在 /xlplugins 命令中显示。建议在这里列出主要的斜杠命令
+  "Description": "A description that shows up in /xlplugins. List any major slash-command(s).",
+
+  // 插件适用的游戏版本。"any" 表示适用于所有版本
+  "ApplicableVersion": "any",
+
+  // 插件的标签，用于分类和搜索
+  "Tags": [
+    "sample",
+    "plugin",
+    "goats"
+  ]
+}
+

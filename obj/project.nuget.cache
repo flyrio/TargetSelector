@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "N8P1m0CIeGA=",
+  "success": true,
+  "projectFilePath": "D:\\ShiyuviDalamudplugin\\TargetSelectorHelper-master\\TargetSelector\\TargetSelector.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\10576\\.nuget\\packages\\dalamudpackager\\2.1.13\\dalamudpackager.2.1.13.nupkg.sha512"
+  ],
+  "logs": []
+}
