@@ -1,18 +1,23 @@
+
+
 [
 	{
-  	"Author": "Shiyuvi",
-  	"Name": "PvP目标选择器",
-  	"InternalName": "TargetSelector",
-  	"Description": "需要授权使用，该K不到还是K不到",
-  	"AssemblyVersion": "0.0.0.1",
-  	"RepoUrl": "https://github.com/flyrio/PvPTargetSelector",
-  	"ApplicableVersion": "any",
- 	 "DalamudApiLevel": 10,
- 	 "Tags": [
- 	   "PvP",
- 	   "Auto"
-  	],
-  	"DownloadLinkInstall": "https://github.com/flyrio/PvPTargetSelector/raw/refs/heads/main/latest.zip",
-  	"DownloadLinkUpdate": "https://github.com/flyrio/PvPTargetSelector/raw/refs/heads/main/latest.zip"
+		"Author": "Shiyuvi",
+		"Name": "PvP目标选择器",
+		"InternalName": "TargetSelector",
+		"Description": "需要授权使用，该K不到还是K不到",
+		"AssemblyVersion": "0.2.26",
+		"RepoUrl": "https://github.com/flyrio/PvPTargetSelector",
+		"ApplicableVersion": "any",
+		"DalamudApiLevel": 10,
+		"TestingDalamudApiLevel": 10,
+		"Tags": [
+ 	   	"PvP",
+ 	  	 "Auto"
+		],
+		"IconUrl": "https://github.com/ktisis-tools/Ktisis/raw/main/icon.png",
+		"DownloadLinkInstall": "https://github.com/flyrio/PvPTargetSelector/raw/refs/heads/main/latest.zip",
+		"DownloadLinkTesting": "https://github.com/flyrio/PvPTargetSelector/raw/refs/heads/main/latest.zip",
+		"DownloadLinkUpdate": "https://github.com/flyrio/PvPTargetSelector/raw/refs/heads/main/latest.zip"
 	}
 ]
