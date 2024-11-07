@@ -1,33 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="Dalamud.Plugin.Bootstrap.targets"/>
+    <Import Project="Dalamud.Plugin.Bootstrap.targets"/>
 
-  <PropertyGroup>
-    <Version>0.0.0.1</Version>
-    <Description>TargetSelector</Description>
-    <PackageProjectUrl>https://github.com/goatcorp/SamplePlugin</PackageProjectUrl>
-    <PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
-    <IsPackable>false</IsPackable>
-  </PropertyGroup>
+    <PropertyGroup>
+        <Version>0.0.0.1</Version>
+        <Description>TargetSelector</Description>
+        <PackageProjectUrl>https://github.com/goatcorp/SamplePlugin</PackageProjectUrl>
+        <PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
+        <IsPackable>false</IsPackable>
 
+        <!-- 添加以下基本配置 -->
+        <TargetFramework>net8.0-windows</TargetFramework> <!-- 或其他适合的目标框架 -->
+        <Platforms>x64</Platforms>
+        <Configurations>Debug;Release</Configurations>
+        <OutputType>Library</OutputType>
+        <LangVersion>latest</LangVersion>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
 
+    <!-- 添加 Debug 配置 -->
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+        <DebugType>full</DebugType>
+        <DebugSymbols>true</DebugSymbols>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <Reference Include="ECommons">
-      <HintPath>C:\Users\10576\Downloads\AE3.0 国服 1004\AEAssistCNVersion\AEAssist\ECommons.dll</HintPath>
-    </Reference>
-  </ItemGroup>
+    <!-- 添加 Release 配置 -->
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+        <DebugType>pdbonly</DebugType>
+        <Optimize>true</Optimize>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="packages.lock.json" />
-  </ItemGroup>
+    <ItemGroup>
+        <Reference Include="ECommons">
+            <HintPath>C:\Users\10576\Downloads\AE3.0 国服 1004\AEAssistCNVersion\AEAssist\ECommons.dll</HintPath>
+        </Reference>
+    </ItemGroup>
 
-  <ItemGroup>
-    <Compile Remove="Windows\PvPHelper.cs" />
-    <Compile Remove="Windows\VFXHelper.cs" />
-  </ItemGroup>
+    <ItemGroup>
+        <None Remove="packages.lock.json" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <Content Include=".github\workflows\release.yml" />
-  </ItemGroup>
+    <ItemGroup>
+        <Compile Remove="Windows\PvPHelper.cs" />
+        <Compile Remove="Windows\VFXHelper.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include=".github\workflows\release.yml" />
+    </ItemGroup>
 </Project>
