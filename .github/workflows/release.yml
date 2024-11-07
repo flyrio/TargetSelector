@@ -1,0 +1,64 @@
+name: Release Build
+
+on:
+    push:
+        branches:
+            - main # 或你使用的分支名称
+
+jobs:
+    build:
+        runs-on: windows-latest # 根据你的项目选择合适的运行环境
+        
+        steps:
+            - uses: actions/checkout@v3
+
+            - name: Setup .NET
+              uses: actions/setup-dotnet@v3
+              with:
+                  dotnet-version: 8.0.x # 或你使用的 .NET 版本
+
+            - name: Restore dependencies
+              run: dotnet restore
+
+            - name: Build
+              run: dotnet build -c Release
+
+            - name: Upload artifacts
+              uses: actions/upload-artifact@v3
+              with:
+                  name: release-files
+                  path: bin/Release/net8.0/ # 或你编译后文件的路径
+
+
+            - name: Release
+              uses: softprops/action-gh-release@v1
+              if: startsWith(github.ref, 'refs/tags/')
+              with:
+                  files: |
+                      bin/Release/net8.0/* #  上传编译后的文件
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # 使用 GitHub 提供的密钥
+
+
+            - name: Create Release #创建一个release
+              id: create_release
+              uses: actions/create-release@v1
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                  tag_name: ${{ github.ref }}
+                  release_name: Release ${{ github.ref }}
+                  draft: false
+                  prerelease: false
+
+
+            - name: Upload Release Asset #上传release文件
+              id: upload-release-asset
+              uses: actions/upload-release-asset@v1
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                  upload_url: ${{ steps.create_release.outputs.upload_url }}
+                  asset_path: ./bin/Release/net8.0/ #编译后的文件路径
+                  asset_name: TargetSelector.zip
+                  asset_content_type: application/zip #根据你的文件类型修改

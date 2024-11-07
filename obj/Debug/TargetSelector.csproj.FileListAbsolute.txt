@@ -10,3 +10,4 @@ D:\ShiyuviDalamudplugin\TargetSelectorHelper-master\TargetSelector\obj\Debug\Tar
 D:\ShiyuviDalamudplugin\TargetSelectorHelper-master\TargetSelector\obj\Debug\TargetSe.06985A96.Up2Date
 D:\ShiyuviDalamudplugin\TargetSelectorHelper-master\TargetSelector\obj\Debug\TargetSelector.dll
 D:\ShiyuviDalamudplugin\TargetSelectorHelper-master\TargetSelector\obj\Debug\TargetSelector.pdb
+D:\ShiyuviDalamudplugin\TargetSelectorHelper-master\TargetSelector\obj\Debug\TargetSelector.sourcelink.json

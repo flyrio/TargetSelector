@@ -26,4 +26,8 @@
     <Compile Remove="Windows\PvPHelper.cs" />
     <Compile Remove="Windows\VFXHelper.cs" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Content Include=".github\workflows\release.yml" />
+  </ItemGroup>
 </Project>
