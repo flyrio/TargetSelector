@@ -17,6 +17,7 @@
 		],
 		"IconUrl": "https://github.com/ktisis-tools/Ktisis/raw/main/icon.png",
 		"DownloadLinkInstall": "https://github.com/flyrio/PvPTargetSelector/raw/refs/heads/main/latest.zip",
+		"DownloadLinkTesting": "https://github.com/flyrio/PvPTargetSelector/raw/refs/heads/main/latest.zip",
 		"DownloadLinkUpdate": "https://github.com/flyrio/PvPTargetSelector/raw/refs/heads/main/latest.zip"
 	}
 ]
