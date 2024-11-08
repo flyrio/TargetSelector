@@ -298,7 +298,7 @@ public class VFXHelper : IDisposable
     }
     public void OnDrawUI()
     {
-        if (!vfxHelperEnabled) // 通过 PluginInterface 访问 Plugin 实例
+        if (!vfxHelperEnabled || !core.IsPvP()) // 通过 PluginInterface 访问 Plugin 实例
         {
             return; // 如果禁用，则直接返回
         }

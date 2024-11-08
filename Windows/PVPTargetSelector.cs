@@ -155,11 +155,10 @@ public class PVPTargetSelector
                 {
                     if (member == null || !member.IsTargetable || !plugin.core.IsEnemy(member)) // 使用辅助方法
                         continue;
-                    //不死救赎3039 神圣领域1302 被保护2413 龟壳3054 地天1240 被保护1301?
-                    if ((HasAura(member, 3039u) && plugin.Configuration.排除黑骑无敌) || (HasAura(member, 2413u)  && plugin.Configuration.排除被保护目标) || (HasAura(member, 1301u) && plugin.Configuration.排除被保护目标) || (HasAura(member, 1302u) && plugin.Configuration.排除骑士无敌))
+                    if (ShouldExcludeTarget(member, plugin))
+                    {
                         continue;
-                    if ((HasAura(member, 3054u) && plugin.Configuration.排除龟壳) || (HasAura(member, 1240u) && plugin.Configuration.排除地天))
-                        continue;
+                    }
                     float distance = plugin.core.DistanceToPlayer(member);
                     if (!Core.IsTargetVisibleOrInRange(技能ID,member))
                         continue;
@@ -265,11 +264,10 @@ public class PVPTargetSelector
                     //PluginLog.Log($"目标 {member?.Name ?? "null"}: IsTargetable={member?.IsTargetable ?? false}, IsEnemy={plugin.core.IsEnemy(member)}, HasAura(1302)={plugin.core.HasAura(member, 1302)}"); // 输出目标信息，处理 member 为 null 的情况
                     if (member == null || !member.IsTargetable || !plugin.core.IsEnemy(member))
                         continue;
-                    //不死救赎3039 神圣领域1302 被保护2413 龟壳3054 地天1240 被保护1301?
-                    if ((HasAura(member, 3039u) && plugin.Configuration.排除黑骑无敌) || (HasAura(member, 2413u)  && plugin.Configuration.排除被保护目标) || (HasAura(member, 1301u) && plugin.Configuration.排除被保护目标) || (HasAura(member, 1302u) && plugin.Configuration.排除骑士无敌))
+                    if (ShouldExcludeTarget(member, plugin))
+                    {
                         continue;
-                    if ((HasAura(member, 3054u) && plugin.Configuration.排除龟壳) || (HasAura(member, 1240u) && plugin.Configuration.排除地天))
-                        continue;
+                    }
                     float distance = plugin.core.DistanceToPlayer(member);
                     if (!Core.IsTargetVisibleOrInRange(技能ID,member))
                         continue;
@@ -297,11 +295,10 @@ public class PVPTargetSelector
                 {
                     if (member == null || !member.IsTargetable || !plugin.core.IsEnemy(member))
                         continue;
-                    //不死救赎3039 神圣领域1302 被保护2413 龟壳3054 地天1240 被保护1301?
-                    if ((HasAura(member, 3039u) && plugin.Configuration.排除黑骑无敌) || (HasAura(member, 2413u)  && plugin.Configuration.排除被保护目标) || (HasAura(member, 1301u) && plugin.Configuration.排除被保护目标) || (HasAura(member, 1302u) && plugin.Configuration.排除骑士无敌))
+                    if (ShouldExcludeTarget(member, plugin))
+                    {
                         continue;
-                    if ((HasAura(member, 3054u) && plugin.Configuration.排除龟壳) || (HasAura(member, 1240u) && plugin.Configuration.排除地天))
-                        continue;
+                    }
                     float distance = plugin.core.DistanceToPlayer(member);
                     if (!Core.IsTargetVisibleOrInRange(技能ID,member))
                         continue;
@@ -311,8 +308,20 @@ public class PVPTargetSelector
                         最远距离 = distance;
                     }
                 }
-               // PluginLog.LogDebug($"Get最远目标 找到的目标: {最远的目标?.Name ?? "null"}"); // 记录找到的目标
                 return 最远的目标;
             }
+            
+            private static bool ShouldExcludeTarget(IBattleChara target, Plugin plugin)
+            {
+                // 如果配置开启且目标有对应buff，则返回true表示应该排除该目标
+                if (plugin.Configuration.排除黑骑无敌 && HasAura(target, 3039u)) return true;
+                if (plugin.Configuration.排除被保护目标 && (HasAura(target, 2413u) || HasAura(target, 1301u))) return true;
+                if (plugin.Configuration.排除骑士无敌 && HasAura(target, 1302u)) return true;
+                if (plugin.Configuration.排除龟壳 && HasAura(target, 3054u)) return true;
+                if (plugin.Configuration.排除地天 && HasAura(target, 1240u)) return true;
+
+                return false; // 不需要排除该目标
+            }
         }
+    
 }
