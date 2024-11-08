@@ -37,10 +37,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <None Remove="packages.lock.json" />
-    </ItemGroup>
-
-    <ItemGroup>
         <Compile Remove="Windows\PvPHelper.cs" />
         <Compile Remove="Windows\VFXHelper.cs" />
     </ItemGroup>
