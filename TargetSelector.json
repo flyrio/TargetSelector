@@ -4,7 +4,7 @@
 	{
 		"Author": "Shiyuvi",
 		"Name": "PvP目标选择器",
-		"InternalName": "TargetSelector",
+		"InternalName": "PvPTargetSelector",
 		"Description": "需要授权使用，该K不到还是K不到",
 		"AssemblyVersion": "0.2.27",
 		"RepoUrl": "https://github.com/flyrio/PvPTargetSelector",
@@ -16,7 +16,7 @@
  	  	 "Auto"
 		],
 		"IconUrl": "https://github.com/ktisis-tools/Ktisis/raw/main/icon.png",
-		"DownloadLinkInstall": "https://github.com/user-attachments/files/17671843/latest.zip",
-		"DownloadLinkUpdate": "https://github.com/user-attachments/files/17671843/latest.zip"
+		"DownloadLinkInstall": "https://github.com/flyrio/PvPTargetSelector/raw/refs/heads/main/latest.zip",
+		"DownloadLinkUpdate": "https://github.com/flyrio/PvPTargetSelector/raw/refs/heads/main/latest.zip"
 	}
 ]
