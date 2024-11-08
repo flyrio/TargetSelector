@@ -4,7 +4,7 @@
 	{
 		"Author": "Shiyuvi",
 		"Name": "PvP目标选择器",
-		"InternalName": "PvPTargetSelector",
+		"InternalName": "TargetSelector",
 		"Description": "需要授权使用，该K不到还是K不到",
 		"AssemblyVersion": "0.2.27",
 		"RepoUrl": "https://github.com/flyrio/PvPTargetSelector",
