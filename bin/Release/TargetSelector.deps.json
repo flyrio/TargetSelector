@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "TargetSelector/0.0.0.1": {
+      "TargetSelector/0.0.1.0": {
         "dependencies": {
           "DalamudPackager": "2.1.13",
           "ECommons": "2.2.0.2"
@@ -27,7 +27,7 @@
     }
   },
   "libraries": {
-    "TargetSelector/0.0.0.1": {
+    "TargetSelector/0.0.1.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

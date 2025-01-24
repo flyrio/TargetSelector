@@ -57,6 +57,8 @@ public sealed class Plugin : IDalamudPlugin
     public static bool vfxHelperEnabled = true;          // 默认启用
     private const string ToggleVFXHelperCommand = "/pvptogglevfx";
     private const string SetDistanceCommand = "/pvpsetdistance";
+    public static bool targetvfx = true; // 默认启用
+    public static bool focustargetvfx = true; // 默认启用
     // 插件配置
     public Configuration Configuration { get; init; }
     // 窗口系统
@@ -68,6 +70,18 @@ public sealed class Plugin : IDalamudPlugin
     {
         if (!Whitelist.IsWhitelistedUser())
             return;
+
+        if (Configuration.画家盾)
+        {
+            if (core.HasAura(core.Me,3202))
+            {
+                unsafe
+                {
+                    ActionManager.Instance()->UseAction(ActionType.GeneralAction, 39211, 274389380, 0, 0, 0, null);
+                }
+            }
+        }
+        
         
         if (!this.Configuration.选择器开关)
         {
@@ -84,9 +98,11 @@ public sealed class Plugin : IDalamudPlugin
             //PluginLog.Debug($"设置目标为：{target.Name}"); // 记录目标名称以进行调试
             this.core.SetTarget(target);
         }
-        else
+
+        var focustarget = pvpTargetSelector.GetFocusTarget();
+        if (focustarget != null)
         {
-            //PluginLog.Debug("目标为空，不设置目标。"); // 记录目标为空的时间
+            core.FocusTarget(focustarget);
         }
     }
     public Plugin()
@@ -302,11 +318,18 @@ public class VFXHelper : IDisposable
         {
             return; // 如果禁用，则直接返回
         }
+
+
         var target = TargetManager.Target;
+        var focustarget = TargetManager.FocusTarget;
 
         //if(!core.IsPvP()) return;
         if (target != null && (target.ObjectKind == ObjectKind.Player || target.ObjectKind == ObjectKind.BattleNpc))
         {
+            if (!targetvfx)
+            {
+                return;
+            }
             if (target is IBattleChara battleChara)
             {
                 var worldPos = target.Position; // 获取目标的世界坐标
@@ -344,9 +367,60 @@ public class VFXHelper : IDisposable
                                 ImDrawFlags.None,
                                 2.0f // 边框粗细);
                             );
-                            var text = $"{classJobName}";
+                            var text = $"{classJobName}  {core.DistanceToPlayerOne(focustarget)}";
                             var textSize = ImGui.CalcTextSize(text);
                             drawList.AddText(screenPos - textSize / 2 + new Vector2(0, 0), 0xFFFFFFFF, text);
+                    }
+                }
+            }
+        }
+        
+        if (focustarget != null && (focustarget.ObjectKind == ObjectKind.Player || focustarget.ObjectKind == ObjectKind.BattleNpc))
+        {
+            if (!focustargetvfx)
+            {
+                return;
+            }
+            if (focustarget is IBattleChara battleChara)
+            {
+                var worldPos = focustarget.Position; // 获取目标的世界坐标
+
+                string classJobName = "";
+                if (battleChara.ClassJob != null)
+                {
+                    classJobName = battleChara.ClassJob.GameData.Name;
+                }
+
+                var drawList = ImGui.GetBackgroundDrawList();
+
+                if (GameGui.WorldToScreen(worldPos, out var screenPos))
+                {
+                    if (!string.IsNullOrEmpty(classJobName))
+                    {
+                        // 设置一个较大的显示尺寸
+                        float displaySize = 32;   // 显示大小
+                        float displaySize1 = 128; // 显示大小
+                        Vector2 iconPos = new Vector2(screenPos.X - displaySize1 / 2, screenPos.Y - displaySize / 2);
+
+                        // 绘制测试方块
+                        drawList.AddRectFilled(
+                            iconPos,
+                            iconPos + new Vector2(displaySize1, displaySize),
+                            0x8000FF00 // 绿的
+                        );
+
+                        // 添加边框
+                        drawList.AddRect(
+                            iconPos,
+                            iconPos + new Vector2(displaySize1, displaySize),
+                            0xFFFFFF00, // 黄色边框
+                            0.0f,       // 圆角
+                            ImDrawFlags.None,
+                            2.0f // 边框粗细);
+                        );
+                        var text = $"{classJobName}  {core.DistanceToPlayerOne(focustarget)}";
+                        var textSize = ImGui.CalcTextSize(text);
+                        drawList.AddText(screenPos - textSize / 2 + new Vector2(0, 0), 0xFFFFFFFF, text);
                     }
                 }
             }

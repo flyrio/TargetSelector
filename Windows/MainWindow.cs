@@ -55,12 +55,14 @@ public class MainWindow : Window, IDisposable
     // 绘制窗口内容的方法
     public override void Draw()
     {
-        // 显示配置中的布尔值
-        //ImGui.Text($"The random config bool is {Plugin.Configuration.SomePropertyToBeSavedAndWithADefault}");
-
         ImGui.Checkbox("启用目标选择器", ref Plugin.Configuration.选择器开关);
-        int tempDistance = Plugin.Configuration.选中距离;
-        ImGui.Checkbox("vfx开关", ref TargetSelector.Plugin.vfxHelperEnabled);
+            int tempDistance = Plugin.Configuration.选中距离;
+        ImGui.Checkbox("选中特效开关", ref TargetSelector.Plugin.vfxHelperEnabled);
+        if (TargetSelector.Plugin.vfxHelperEnabled)
+        {
+            ImGui.Checkbox("当前目标选中特效", ref TargetSelector.Plugin.targetvfx);
+            ImGui.Checkbox("焦点目标选中特效", ref TargetSelector.Plugin.focustargetvfx);
+        }
         if (ImGui.SliderInt("选取目标距离", ref tempDistance, 0, 50, "%d"))
         {
             Plugin.Configuration.选中距离 = tempDistance;
@@ -70,6 +72,13 @@ public class MainWindow : Window, IDisposable
         // ImGui.SameLine();
         // ImGui.Checkbox("选中友方单位时不切换目标", ref Plugin.Configuration.选中友方单位时不切换目标);
 
+        ImGui.Checkbox("自动将最佳AOE目标设置为焦点目标", ref Plugin.Configuration.最佳AOE目标);
+        if (Plugin.Configuration.最佳AOE目标)
+        {
+            ImGui.SliderInt("目标及其周围多大半径（通常为圆形AOE伤害范围)", ref Plugin.Configuration.AOE技能伤害范围, 1, 10);
+            ImGui.SliderInt("最低目标数量", ref Plugin.Configuration.AOE数量, 1, 10);
+        }
+        
         ImGui.Checkbox("优先选中头标敌人", ref Plugin.Configuration.头标开关);
         if (Plugin.Configuration.头标开关)
         {
@@ -123,46 +132,9 @@ public class MainWindow : Window, IDisposable
         ImGui.Checkbox("排除地天", ref Plugin.Configuration.排除地天);
         ImGui.SameLine();
         ImGui.Checkbox("排除龟壳", ref Plugin.Configuration.排除龟壳);
+        
+        ImGui.Checkbox("画家盾防地天", ref Plugin.Configuration.画家盾);
     }
-            
-
-            // 在实际使用中，根据优先级选择目标
-            // public static IBattleChara? GetTargetByMarkerPriority()
-            // {
-            //     foreach (var marker in Plugin.Configuration.MarkerPriority)
-            //     {
-            //         var target = MarkerHelper.GetCharacterByMarker(marker);
-            //         if (target != null)
-            //         {
-            //             return target;
-            //         }
-            //     }
-            //     return null;
-            // }
-
-            // 创建一个按钮来显示设置
-            // if (ImGui.Button("Show Settings"))
-            // {
-            //     Plugin.ToggleConfigUI();
-            // }
-
-            // ImGui.Spacing();
-            //
-            // ImGui.Text("Have a goat:");
-            // // 获取山羊图片
-            // var goatImage = Plugin.TextureProvider.GetFromFile(GoatImagePath).GetWrapOrDefault();
-            // if (goatImage != null)
-            // {
-            //     // 如果图片加载成功，显示图片
-            //     ImGuiHelpers.ScaledIndent(55f);
-            //     ImGui.Image(goatImage.ImGuiHandle, new Vector2(goatImage.Width, goatImage.Height));
-            //     ImGuiHelpers.ScaledIndent(-55f);
-            // }
-            // else
-            // {
-            //     // 如果图片加载失败，显示错误信息
-            //     ImGui.Text("Image not found.");
-            // }
-        }
+}
     
 

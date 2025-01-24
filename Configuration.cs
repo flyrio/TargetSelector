@@ -31,6 +31,10 @@ public class Configuration : IPluginConfiguration
     public bool 排除黑骑无敌 = true;
     public bool 排除地天 = true;
     public bool 排除龟壳 = true;
+    public bool 最佳AOE目标 = true;
+    public int AOE数量 = 1;
+    public int AOE技能伤害范围 = 5;
+    public bool 画家盾 = true;
     public MainWindow.TargetSelectMode 选择模式 { get; set; } = MainWindow.TargetSelectMode.最近单位;
     
     public Dictionary<MarkerHelper.HeadMarker, bool> MarkerEnabled { get; set; } = new();

@@ -40,6 +40,12 @@ public class Core
         Svc.Targets.Target = tar;
     }
     
+    public void FocusTarget(IGameObject? tar)
+    {
+        if (tar == null || !tar.IsTargetable) return;
+        Svc.Targets.FocusTarget = tar;
+    }
+    
     public bool HasAura(IBattleChara battleCharacter, uint id, int timeLeft = 0)
     {
         if (battleCharacter == null)
@@ -93,6 +99,18 @@ public class Core
             return float.MaxValue;
         IPlayerCharacter playerCharacter = Player.Object;
         return playerCharacter == null ? float.MaxValue : Vector3.Distance(playerCharacter.Position, obj.Position) - obj.HitboxRadius;
+    }
+    
+    public float DistanceToPlayerOne(IGameObject? obj)
+    {
+        if (obj == null)
+            return float.MaxValue;
+        IPlayerCharacter playerCharacter = Player.Object;
+        if (playerCharacter == null)
+            return float.MaxValue;
+        
+        float distance = Vector3.Distance(playerCharacter.Position, obj.Position) - obj.HitboxRadius;
+        return float.Parse(distance.ToString("F1"));
     }
     
     public static class Party

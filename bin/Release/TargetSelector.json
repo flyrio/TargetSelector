@@ -1,19 +1,21 @@
 {
   "Author": "Shiyuvi",
-  "Name": "TargetSelector",
+  "Name": "PvP目标选择器",
   "InternalName": "TargetSelector",
-  "AssemblyVersion": "0.0.0.1",
+  "AssemblyVersion": "0.0.1.0",
   "Description": "需要授权使用，该K不到还是K不到",
   "ApplicableVersion": "any",
+  "RepoUrl": "https://github.com/flyrio/TargetSelector",
   "Tags": [
     "PvP",
     "Auto"
   ],
   "DalamudApiLevel": 10,
-  "LoadRequiredState": 0,
-  "LoadSync": false,
+  "LoadRequiredState": 2,
+  "LoadSync": true,
   "CanUnloadAsync": false,
   "LoadPriority": 0,
-  "Punchline": "PvP目标选择器",
+  "IconUrl": "https://github.com/ktisis-tools/Ktisis/raw/main/icon.png",
+  "Punchline": "PvP目标选择辅助工具",
   "AcceptsFeedback": true
 }

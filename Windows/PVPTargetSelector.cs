@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.ComTypes;
 using Dalamud.Game.ClientState.Conditions;
@@ -8,6 +10,7 @@ using ECommons.ExcelServices;
 using ECommons.GameFunctions;
 using ECommons.Logging;
 using FFXIVClientStructs.FFXIV.Client.Game;
+using FFXIVClientStructs.FFXIV.Common.Math;
 
 namespace TargetSelector.Windows;
 
@@ -27,8 +30,90 @@ public class PVPTargetSelector
         this.core = core;
         this.plugin = plugin;
     }
+
+    public IBattleChara? GetFocusTarget()
+    {
+        try
+        {
+            var currentTarget = CurrTarget(core.Me) as IBattleChara;
+            bool isPvP = this.core.IsPvP();
+            if (!isPvP)
+            {
+                return null;
+            }
+            if (!this.plugin.Configuration.选择器开关)
+            {
+                //PluginLog.LogDebug($"选择器开关关闭，返回 null"); // 添加日志说明原因
+                return null;
+            }
+
+            if (plugin.Configuration.最佳AOE目标)
+            {
+                var focustarget = SmartTargetCircleAOE(plugin.Configuration.AOE数量,
+                                                       plugin.Configuration.选中距离, plugin.Configuration.AOE技能伤害范围);
+                if (focustarget != null && !TargetSelector.ShouldExcludeTarget(focustarget,plugin))
+                    return focustarget;
+                return null;
+            }
+
+            return null;
+        }
+        catch
+        {
+            return null;
+        }
+    }
     
+    public IBattleChara? SmartTargetCircleAOE(int minTargetCount, 
+                                              float maxCastRange, float aoeRadius ,uint actionId = 29415) //目标为中心的圆形AOE伤害，选择最优目标（同血量选血最多的）
+    {
+        var player = Svc.ClientState.LocalPlayer;
+        var enemies = core.获取附近所有目标()?
+                          .Where(e => e != null && e.IsValid() && core.IsEnemy(e) && core.DistanceToPlayer(e) <= maxCastRange + aoeRadius && Core.IsTargetVisibleOrInRange(actionId, e))
+                          .ToList() ?? new List<IBattleChara>();
+        
+        if (!enemies.Any()) return null;
+
+        List<IBattleChara> bestTargets = new List<IBattleChara>();
+        int maxHitCount = 0;
+
+        foreach (var potentialTarget in enemies)
+        {
+            // 获取潜在目标的范围圈大小
+            float potentialTargetRadius = potentialTarget.HitboxRadius;
+
+            // 先判断潜在目标是否在施法距离内
+            if (core.DistanceToPlayer(potentialTarget) > maxCastRange + potentialTargetRadius) continue;
+
+            // 计算这个潜在目标可以击中的敌人数
+            int hitCount = enemies.Count(e => Vector3.Distance(e.Position, potentialTarget.Position) <= aoeRadius + e.HitboxRadius
+            );
+
+            // 更新最佳目标列表
+            if (hitCount > maxHitCount)
+            {
+                maxHitCount = hitCount;
+                bestTargets.Clear();
+                bestTargets.Add(potentialTarget);
+            }
+            else if (hitCount == maxHitCount)
+            {
+                bestTargets.Add(potentialTarget);
+            }
+        }
+
+        // 如果有击中足够多敌人的目标
+        if (bestTargets.Any() && maxHitCount >= minTargetCount)
+        {
+            // 从最佳目标中选择血量最多的
+            return bestTargets.OrderByDescending(t => t.CurrentHp).FirstOrDefault();
+        }
+
+        // 如果没有找到满足条件的目标，返回当前选中的目标
+        return null;
+    }
     
+
     public IBattleChara? GetTarget()
     { 
         try 
@@ -310,8 +395,8 @@ public class PVPTargetSelector
                 }
                 return 最远的目标;
             }
-            
-            private static bool ShouldExcludeTarget(IBattleChara target, Plugin plugin)
+
+            public static bool ShouldExcludeTarget(IBattleChara target, Plugin plugin)
             {
                 // 如果配置开启且目标有对应buff，则返回true表示应该排除该目标
                 if (plugin.Configuration.排除黑骑无敌 && HasAura(target, 3039u)) return true;
