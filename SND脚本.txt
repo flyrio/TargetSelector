@@ -154,6 +154,11 @@ if not HasPlugin("TextAdvance") then
     yield("/echo [FATE] 请安装TextAdvance")
 end
 
+if not HasPlugin("AutoJump") then
+    yield("/echo [FATE] 请安装AutoJump")
+    yield("/aj on")
+end
+
 --Optional Plugin Warning
 if EnableChangeInstance == true  then
     if HasPlugin("Lifestream") == false then
