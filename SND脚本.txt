@@ -156,7 +156,7 @@ end
 
 if not HasPlugin("AutoJump") then
     yield("/echo [FATE] 请安装AutoJump")
-    yield("/aj on")
+    yield("/ajon")
 end
 
 --Optional Plugin Warning
