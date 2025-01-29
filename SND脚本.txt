@@ -159,6 +159,10 @@ if not HasPlugin("AutoJump") then
     yield("/ajon")
 end
 
+if HasPlugin("AutoJump") then
+    yield("/ajon")
+end
+
 --Optional Plugin Warning
 if EnableChangeInstance == true  then
     if HasPlugin("Lifestream") == false then
