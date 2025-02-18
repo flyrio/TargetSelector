@@ -1,21 +1,43 @@
+
+
+[
 {
-  "Author": "Shiyuvi",
-  "Name": "PvP目标选择器",
-  "InternalName": "TargetSelector",
-  "AssemblyVersion": "0.0.1.2",
-  "Description": "需要授权使用，该K不到还是K不到",
-  "ApplicableVersion": "any",
-  "RepoUrl": "https://github.com/flyrio/TargetSelector",
-  "Tags": [
-    "PvP",
-    "Auto"
-  ],
-  "DalamudApiLevel": 10,
-  "LoadRequiredState": 2,
-  "LoadSync": true,
-  "CanUnloadAsync": false,
-  "LoadPriority": 0,
-  "IconUrl": "https://github.com/ktisis-tools/Ktisis/raw/main/icon.png",
-  "Punchline": "PvP目标选择辅助工具",
-  "AcceptsFeedback": true
+"Author": "Shiyuvi",
+"Name": "PvP目标选择器",
+"InternalName": "TargetSelector",
+"Description": "需要授权使用，该K不到还是K不到",
+"AssemblyVersion": "2.0.0.0",
+"RepoUrl": "https://github.com/flyrio/TargetSelector",
+"ApplicableVersion": "any",
+"DalamudApiLevel": 11,
+"TestingDalamudApiLevel": 11,
+"Tags": [
+"PvP",
+"Auto"
+],
+"IconUrl": "https://raw.githubusercontent.com/flyrio/TargetSelector/ea0297a1aeed3b04c1b42d7079f2c541b9e4516b/fox1.png",
+"DownloadLinkInstall": "https://github.com/flyrio/TargetSelector/raw/refs/heads/main/latest.zip",
+"DownloadLinkTesting": "https://github.com/flyrio/TargetSelector/raw/refs/heads/main/latest.zip",
+"DownloadLinkUpdate": "https://github.com/flyrio/TargetSelector/raw/refs/heads/main/latest.zip"
+},
+{
+"Author": "Shiyuvi",
+"Name": "Fate辅助器",
+"InternalName": "AutoJump",
+"Description": "原地卡住会尝试跳一下，会尝试每只怪摸一下，自备SND脚本，自动同步fate和自动循环；SND脚本点击浏览插件主页自提",
+		"AssemblyVersion": "2.0.0.0",
+"RepoUrl": "https://raw.githubusercontent.com/flyrio/TargetSelector/refs/heads/main/SND%E8%84%9A%E6%9C%AC.txt",
+"ApplicableVersion": "any",
+"DalamudApiLevel": 11,
+"TestingDalamudApiLevel": 11,
+"Tags": [
+"Fate",
+"Auto",
+],
+"IconUrl": "https://raw.githubusercontent.com/flyrio/TargetSelector/ea0297a1aeed3b04c1b42d7079f2c541b9e4516b/fox2.png",
+"DownloadLinkInstall": "https://github.com/flyrio/AutoJump/raw/refs/heads/main/latest.zip",
+"DownloadLinkTesting": "https://github.com/flyrio/AutoJump/raw/refs/heads/main/latest.zip",
+"DownloadLinkUpdate": "https://github.com/flyrio/AutoJump/raw/refs/heads/main/latest.zip"
 }
+
+]
