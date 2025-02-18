@@ -28,8 +28,8 @@
 		"AssemblyVersion": "1.0.0.7",
 		"RepoUrl": "https://raw.githubusercontent.com/flyrio/TargetSelector/refs/heads/main/SND%E8%84%9A%E6%9C%AC.txt",
 		"ApplicableVersion": "any",
-		"DalamudApiLevel": 10,
-		"TestingDalamudApiLevel": 10,
+		"DalamudApiLevel": 11,
+		"TestingDalamudApiLevel": 11,
 		"Tags": [
  	   	"Fate",
  	  	 "Auto",
