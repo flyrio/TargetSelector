@@ -53,6 +53,7 @@
   		"Tags": [
   		  "UI"
   		],
+		"IconUrl": "https://raw.githubusercontent.com/flyrio/TargetSelector/ea0297a1aeed3b04c1b42d7079f2c541b9e4516b/fox2.png",
 		"DownloadLinkInstall": "https://github.com/flyrio/PartyIcon/raw/refs/heads/main/latest.zip",
 		"DownloadLinkTesting": "https://github.com/flyrio/PartyIcon/raw/refs/heads/main/latest.zip",
 		"DownloadLinkUpdate": "https://github.com/flyrio/PartyIcon/raw/refs/heads/main/latest.zip"
