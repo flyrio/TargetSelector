@@ -62,7 +62,7 @@
  		"Name": "Saucy",
 		"InternalName": "Saucy",
   		"Description": "自动化某些金碟游乐场小游戏，请勿反馈到国际服版本",
-		"AssemblyVersion": "1.5.0.0",
+		"AssemblyVersion": "1.5.0.1",
  		"RepoUrl": "https://github.com/PunishXIV/Saucy",
 		"ApplicableVersion": "any",
 		"DalamudApiLevel": 11,
