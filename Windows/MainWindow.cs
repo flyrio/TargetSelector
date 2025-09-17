@@ -56,11 +56,11 @@ public class MainWindow : Window, IDisposable
     {
         ImGui.Checkbox("启用目标选择器", ref Plugin.Configuration.选择器开关);
             int tempDistance = Plugin.Configuration.选中距离;
-        ImGui.Checkbox("选中特效开关", ref TargetSelector.Plugin.vfxHelperEnabled);
-        if (TargetSelector.Plugin.vfxHelperEnabled)
+        ImGui.Checkbox("选中特效开关", ref Plugin.vfxHelperEnabled);
+        if (Plugin.vfxHelperEnabled)
         {
-            ImGui.Checkbox("当前目标选中特效", ref TargetSelector.Plugin.targetvfx);
-            ImGui.Checkbox("焦点目标选中特效", ref TargetSelector.Plugin.focustargetvfx);
+            ImGui.Checkbox("当前目标选中特效", ref Plugin.targetvfx);
+            ImGui.Checkbox("焦点目标选中特效", ref Plugin.focustargetvfx);
         }
         if (ImGui.SliderInt("选取目标距离", ref tempDistance, 0, 50, "%d"))
         {
