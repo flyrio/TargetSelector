@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Numerics;
+using Dalamud.Bindings.ImGui;
 using Dalamud.Game.ClientState.Conditions;
 using Dalamud.Interface.Windowing;
 using ECommons.DalamudServices;
 using FFXIVClientStructs.FFXIV.Client.Game;
-using ImGuiNET;
 
 namespace TargetSelector.Windows;
 
@@ -73,12 +73,12 @@ public class ConfigWindow : Window, IDisposable
         //     Configuration.Save();
         // }
         ImGui.Text($"cid{Svc.ClientState.LocalContentId}");
-        if (Whitelist.IsWhitelistedUser())
-            ImGui.Text("已授权");
-        else
-        {
-            ImGui.Text("前方的区域以后再来探索吧");
-        }
+        // if (Whitelist.IsWhitelistedUser())
+        //     ImGui.Text("已授权");
+        // else
+        // {
+        //     ImGui.Text("前方的区域以后再来探索吧");
+        // }
 
     }
 }

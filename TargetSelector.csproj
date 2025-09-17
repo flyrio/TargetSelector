@@ -1,16 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="Microsoft.NET.Sdk">
-    <Import Project="Dalamud.Plugin.Bootstrap.targets"/>
-
+<Project Sdk="Dalamud.CN.NET.Sdk/13.1.0">
     <PropertyGroup>
-        <Version>0.0.1.1</Version>
+        <Version>0.0.1.2</Version>
         <Description>TargetSelector</Description>
         <PackageProjectUrl>https://github.com/flyrio/TargetSelector</PackageProjectUrl>
         <PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
         <IsPackable>false</IsPackable>
 
         <!-- 添加以下基本配置 -->
-        <TargetFramework>net8.0-windows</TargetFramework> <!-- 或其他适合的目标框架 -->
+        <TargetFramework>net9.0</TargetFramework> <!-- 或其他适合的目标框架 -->
         <Platforms>x64</Platforms>
         <Configurations>Debug;Release</Configurations>
         <OutputType>Library</OutputType>
@@ -31,12 +28,17 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Reference Include="ECommons">
-            <HintPath>C:\Users\10576\Downloads\AE3.0 国服 1004\AEAssistCNVersion\AEAssist\ECommons.dll</HintPath>
-        </Reference>
+        <Content Include=".github\workflows\release.yml" />
     </ItemGroup>
 
     <ItemGroup>
-        <Content Include=".github\workflows\release.yml" />
+      <Reference Include="ECommons">
+        <HintPath>C:\Users\10576\Downloads\AE3.0\AEAssistCNVersion\AEAssist\ECommons.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Remove="DalamudPackager" />
+      <PackageReference Remove="DotNet.ReproducibleBuilds" />
     </ItemGroup>
 </Project>

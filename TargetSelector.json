@@ -1,0 +1,27 @@
+{
+    "Author": "Shiyuvi",
+    "Name": "PvP目标选择器",
+    "Punchline": "PvP目标选择辅助工具",
+    "Description": "该K不到还是K不到",
+    "InternalName": "TargetSelector",
+    "AssemblyVersion": "0.2.29",
+    "TestingAssemblyVersion": "0.2.29",
+    "RepoUrl": "https://github.com/flyrio/TargetSelector",
+    "ApplicableVersion": "any",
+    "DalamudApiLevel": 10,
+    "TestingDalamudApiLevel": 10,
+    "LoadRequiredState": 2,
+    "LoadSync": true,
+    "LoadPriority": 0,
+    "CanUnloadAsync": false,
+    "SupportsProfiles": false,
+    "IsTestingExclusive": false,
+    "IconUrl": "https://github.com/ktisis-tools/Ktisis/raw/main/icon.png",
+    "DownloadLinkInstall": "https://github.com/flyrio/TargetSelector/raw/refs/heads/main/latest.zip",
+    "DownloadLinkTesting": "https://github.com/flyrio/TargetSelector/raw/refs/heads/main/latest.zip",
+    "DownloadLinkUpdate": "https://github.com/flyrio/TargetSelector/raw/refs/heads/main/latest.zip",
+    "Tags": [
+        "PvP",
+        "Auto"
+    ]
+}

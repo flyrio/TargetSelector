@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Lumina.Excel.GeneratedSheets2;
 using TargetSelector.Windows;
 
 namespace TargetSelector;
@@ -19,7 +18,7 @@ public class Configuration : IPluginConfiguration
     public bool IsConfigWindowMovable { get; set; } = true;
     public bool SomePropertyToBeSavedAndWithADefault { get; set; } = true;
 
-    public bool 选择器开关 = false;
+    public bool 选择器开关 = true;
     public int 选中距离 = 50;
     public bool 限制PVP = true;
     public bool 头标开关 = true;

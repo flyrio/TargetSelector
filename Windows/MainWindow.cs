@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Numerics;
 using System.Runtime.InteropServices;
+using Dalamud.Bindings.ImGui;
 using Dalamud.Game.ClientState.Objects.Types;
 using Dalamud.Interface.Internal;
 using Dalamud.Interface.Utility;
@@ -10,8 +11,6 @@ using Dalamud.Plugin.Services;
 using ECommons.DalamudServices;
 using ECommons.Logging;
 using FFXIVClientStructs.FFXIV.Client.Game.UI;
-using ImGuiNET;
-using Lumina.Excel.GeneratedSheets2;
 
 namespace TargetSelector.Windows;
 

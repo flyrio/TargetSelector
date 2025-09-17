@@ -5,7 +5,6 @@ using System;
 using System.Linq;
 using ECommons.DalamudServices;
 using ECommons.Logging;
-using Lumina.Excel.GeneratedSheets;
 using TargetSelector.Windows;
 
 public static class MarkerHelper

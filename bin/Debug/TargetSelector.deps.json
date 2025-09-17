@@ -8,17 +8,17 @@
     ".NETCoreApp,Version=v9.0": {
       "TargetSelector/0.0.1.2": {
         "dependencies": {
-          "ECommons": "3.0.0.7"
+          "ECommons": "3.0.0.8"
         },
         "runtime": {
           "TargetSelector.dll": {}
         }
       },
-      "ECommons/3.0.0.7": {
+      "ECommons/3.0.0.8": {
         "runtime": {
           "ECommons.dll": {
-            "assemblyVersion": "3.0.0.7",
-            "fileVersion": "3.0.0.7"
+            "assemblyVersion": "3.0.0.8",
+            "fileVersion": "3.0.0.8"
           }
         }
       }
@@ -30,7 +30,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "ECommons/3.0.0.7": {
+    "ECommons/3.0.0.8": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

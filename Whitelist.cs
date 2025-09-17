@@ -18,6 +18,7 @@ public class Whitelist
             "18014449513254236",
             "18014479510447116",
             "19014409509701765",
+            "19014409518670272"
         };
 
         return whitelistedIds.Contains(Svc.ClientState.LocalContentId.ToString());

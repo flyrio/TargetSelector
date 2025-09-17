@@ -1,0 +1,13 @@
+D:\ShiyuviDalamudplugin\TargetSelectorHelper-master\TargetSelector\bin\Release\TargetSelector.deps.json
+D:\ShiyuviDalamudplugin\TargetSelectorHelper-master\TargetSelector\bin\Release\TargetSelector.dll
+D:\ShiyuviDalamudplugin\TargetSelectorHelper-master\TargetSelector\bin\Release\ECommons.dll
+D:\ShiyuviDalamudplugin\TargetSelectorHelper-master\TargetSelector\obj\Release\TargetSelector.csproj.AssemblyReference.cache
+D:\ShiyuviDalamudplugin\TargetSelectorHelper-master\TargetSelector\obj\Release\TargetSelector.GeneratedMSBuildEditorConfig.editorconfig
+D:\ShiyuviDalamudplugin\TargetSelectorHelper-master\TargetSelector\obj\Release\TargetSelector.AssemblyInfoInputs.cache
+D:\ShiyuviDalamudplugin\TargetSelectorHelper-master\TargetSelector\obj\Release\TargetSelector.AssemblyInfo.cs
+D:\ShiyuviDalamudplugin\TargetSelectorHelper-master\TargetSelector\obj\Release\TargetSelector.csproj.CoreCompileInputs.cache
+D:\ShiyuviDalamudplugin\TargetSelectorHelper-master\TargetSelector\obj\Release\TargetSelector.sourcelink.json
+D:\ShiyuviDalamudplugin\TargetSelectorHelper-master\TargetSelector\obj\Release\TargetSe.06985A96.Up2Date
+D:\ShiyuviDalamudplugin\TargetSelectorHelper-master\TargetSelector\obj\Release\TargetSelector.dll
+D:\ShiyuviDalamudplugin\TargetSelectorHelper-master\TargetSelector\bin\Release\TargetSelector.pdb
+D:\ShiyuviDalamudplugin\TargetSelectorHelper-master\TargetSelector\obj\Release\TargetSelector.pdb

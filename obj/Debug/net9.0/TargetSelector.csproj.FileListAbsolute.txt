@@ -1,0 +1,6 @@
+D:\ShiyuviDalamudplugin\TargetSelectorHelper-master\TargetSelector\obj\Debug\net9.0\TargetSelector.csproj.AssemblyReference.cache
+D:\ShiyuviDalamudplugin\TargetSelectorHelper-master\TargetSelector\obj\Debug\net9.0\TargetSelector.GeneratedMSBuildEditorConfig.editorconfig
+D:\ShiyuviDalamudplugin\TargetSelectorHelper-master\TargetSelector\obj\Debug\net9.0\TargetSelector.AssemblyInfoInputs.cache
+D:\ShiyuviDalamudplugin\TargetSelectorHelper-master\TargetSelector\obj\Debug\net9.0\TargetSelector.AssemblyInfo.cs
+D:\ShiyuviDalamudplugin\TargetSelectorHelper-master\TargetSelector\obj\Debug\net9.0\TargetSelector.csproj.CoreCompileInputs.cache
+D:\ShiyuviDalamudplugin\TargetSelectorHelper-master\TargetSelector\obj\Debug\net9.0\TargetSelector.sourcelink.json
