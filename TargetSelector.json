@@ -6,11 +6,11 @@
 		"Name": "PvP目标选择器",
 		"InternalName": "TargetSelector",
 		"Description": "该K不到还是K不到",
-		"AssemblyVersion": "2.0.0.6",
+		"AssemblyVersion": "3.0.0.1",
 		"RepoUrl": "https://github.com/flyrio/TargetSelector",
 		"ApplicableVersion": "any",
-		"DalamudApiLevel": 12,
-		"TestingDalamudApiLevel": 12,
+		"DalamudApiLevel": 13,
+		"TestingDalamudApiLevel": 13,
 		"Tags": [
  	   	"PvP",
  	  	 "Auto"
