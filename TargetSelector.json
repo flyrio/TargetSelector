@@ -21,25 +21,6 @@
 		"DownloadLinkUpdate": "https://github.com/flyrio/TargetSelector/raw/refs/heads/main/latest.zip"
 	},
 	{
-		"Author": "Shiyuvi",
-		"Name": "Fate辅助器",
-		"InternalName": "AutoJump",
-		"Description": "原地卡住会尝试跳一下，会尝试每只怪摸一下，自备SND脚本，自动同步fate和自动循环；SND脚本点击浏览插件主页自提",
-		"AssemblyVersion": "2.0.0.3",
-		"RepoUrl": "https://raw.githubusercontent.com/flyrio/TargetSelector/refs/heads/main/SND%E8%84%9A%E6%9C%AC.txt",
-		"ApplicableVersion": "any",
-		"DalamudApiLevel": 11,
-		"TestingDalamudApiLevel": 11,
-		"Tags": [
- 	   	"Fate",
- 	  	 "Auto",
-		],
-		"IconUrl": "https://raw.githubusercontent.com/flyrio/TargetSelector/ea0297a1aeed3b04c1b42d7079f2c541b9e4516b/fox2.png",
-		"DownloadLinkInstall": "https://github.com/flyrio/AutoJump/raw/refs/heads/main/latest.zip",
-		"DownloadLinkTesting": "https://github.com/flyrio/AutoJump/raw/refs/heads/main/latest.zip",
-		"DownloadLinkUpdate": "https://github.com/flyrio/AutoJump/raw/refs/heads/main/latest.zip"
-	},
-	{
   		"Author": "shdwp, Avaflow, abashby, nebel,Shiyuvi(汉化)",
  		"Name": "Party Icons",
 		"InternalName": "PartyIcons",
