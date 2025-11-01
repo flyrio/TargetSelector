@@ -5,7 +5,7 @@
   },
   "projects": {
     "D:\\ShiyuviDalamudplugin\\TargetSelectorHelper-master\\TargetSelector\\TargetSelector.csproj": {
-      "version": "0.0.1.2",
+      "version": "3.0.0.1",
       "restore": {
         "projectUniqueName": "D:\\ShiyuviDalamudplugin\\TargetSelectorHelper-master\\TargetSelector\\TargetSelector.csproj",
         "projectName": "TargetSelector",
@@ -28,11 +28,6 @@
             "targetAlias": "net9.0",
             "projectReferences": {}
           }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
         },
         "restoreLockProperties": {
           "restorePackagesWithLockFile": "true",

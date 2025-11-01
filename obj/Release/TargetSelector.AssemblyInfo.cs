@@ -13,11 +13,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TargetSelector")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("TargetSelector")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("0.0.1.2")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("0.0.1.2+ff5aa7ea7040a91e23ff4065c87dfe00a81473d7")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("3.0.0.1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("3.0.0.1+5357ef853be8c60f08f551e6eed5b27222eba3fb")]
 [assembly: System.Reflection.AssemblyProductAttribute("TargetSelector")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TargetSelector")]
-[assembly: System.Reflection.AssemblyVersionAttribute("0.0.1.2")]
+[assembly: System.Reflection.AssemblyVersionAttribute("3.0.0.1")]
 
 // 由 MSBuild WriteCodeFragment 类生成。
 
