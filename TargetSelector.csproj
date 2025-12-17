@@ -1,13 +1,13 @@
-<Project Sdk="Dalamud.CN.NET.Sdk/13.1.0">
+<Project Sdk="Dalamud.CN.NET.Sdk/14.0.0">
     <PropertyGroup>
-        <Version>3.0.0.1</Version>
+        <Version>4.0.0.0</Version>
         <Description>TargetSelector</Description>
         <PackageProjectUrl>https://github.com/flyrio/TargetSelector</PackageProjectUrl>
         <PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
         <IsPackable>false</IsPackable>
 
         <!-- 添加以下基本配置 -->
-        <TargetFramework>net9.0</TargetFramework> <!-- 或其他适合的目标框架 -->
+        <TargetFramework>net10.0-windows7.0</TargetFramework> <!-- 或其他适合的目标框架 -->
         <Platforms>x64</Platforms>
         <Configurations>Debug;Release</Configurations>
         <OutputType>Library</OutputType>
@@ -37,13 +37,12 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Reference Include="ECommons">
-        <HintPath>C:\Users\10576\Downloads\AE3.0\AEAssistCNVersion\AEAssist\ECommons.dll</HintPath>
-      </Reference>
+      <PackageReference Remove="DalamudPackager" />
+      <PackageReference Remove="DotNet.ReproducibleBuilds" />
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Remove="DalamudPackager" />
-      <PackageReference Remove="DotNet.ReproducibleBuilds" />
+      <PackageReference Include="Dalamud.CN.NET.Sdk" Version="14.0.0" />
+      <PackageReference Include="ECommons" Version="3.1.0.1" />
     </ItemGroup>
 </Project>

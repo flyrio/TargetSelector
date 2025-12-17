@@ -1,6 +1,19 @@
 {
   "version": 1,
   "dependencies": {
-    "net9.0": {}
+    "net10.0-windows7.0": {
+      "Dalamud.CN.NET.Sdk": {
+        "type": "Direct",
+        "requested": "[14.0.0, )",
+        "resolved": "14.0.0",
+        "contentHash": "zZRLxLQ2z40UfiLpcSq+et7IFVe2YvRL/7Ny0Xg9bg3kgCMW6vgT8Ix6w7H2DGB2nb7uRFKA+bnt2H1HMinaPg=="
+      },
+      "ECommons": {
+        "type": "Direct",
+        "requested": "[3.1.0.1, )",
+        "resolved": "3.1.0.1",
+        "contentHash": "FFpTsFd3jZMAX8becFBr/yPlKwkZT0PpuH3KGKPwTMQhtTJfvz4w6exiZmNwk5fuar5FhCDxjpb5BYsq87JsbQ=="
+      }
+    }
   }
 }
