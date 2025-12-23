@@ -21,11 +21,11 @@
 		"DownloadLinkUpdate": "https://github.com/flyrio/TargetSelector/raw/refs/heads/main/latest.zip"
 	},
 	{
-   	    "Author": "wozaiha,Shiyuvi（修复）",
+   	    "Author": "wozaiha,Shiyuvi（重构）",
         "Name": "DalamudACT",
 		"InternalName": "DalamudACT",
 		"Description": "非满级情况或野外有概率不精确,青魔不适用望周知",
-		"AssemblyVersion": "14.0.0.0",
+		"AssemblyVersion": "14.0.0.1",
 		"RepoUrl": "https://github.com/wozaiha/DalamudACT",
 		"ApplicableVersion": "any",
 		"DalamudApiLevel": 14,
