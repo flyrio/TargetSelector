@@ -6,7 +6,7 @@
 		"Name": "PvP目标选择器",
 		"InternalName": "TargetSelector",
 		"Description": "该K不到还是K不到",
-		"AssemblyVersion": "4.0.0.3",
+		"AssemblyVersion": "4.0.0.4",
 		"RepoUrl": "https://github.com/flyrio/TargetSelector",
 		"ApplicableVersion": "any",
 		"DalamudApiLevel": 14,
@@ -16,9 +16,9 @@
  	  	 "Auto"
 		],
 		"IconUrl": "https://raw.githubusercontent.com/flyrio/TargetSelector/ea0297a1aeed3b04c1b42d7079f2c541b9e4516b/fox1.png",
-		"DownloadLinkInstall": "https://github.com/flyrio/TargetSelector/raw/refs/heads/main/latest.zip",
-		"DownloadLinkTesting": "https://github.com/flyrio/TargetSelector/raw/refs/heads/main/latest.zip",
-		"DownloadLinkUpdate": "https://github.com/flyrio/TargetSelector/raw/refs/heads/main/latest.zip"
+		"DownloadLinkInstall": "https://github.com/flyrio/PVPTargetSelector/releases/download/build-5/latest.zip",
+		"DownloadLinkTesting": "https://github.com/flyrio/PVPTargetSelector/releases/download/build-5/latest.zip",
+		"DownloadLinkUpdate": "https://github.com/flyrio/PVPTargetSelector/releases/download/build-5/latest.zip"
 	},
 	{
    	    "Author": "wozaiha,Shiyuvi（重构）",
