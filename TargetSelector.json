@@ -21,11 +21,11 @@
 		"DownloadLinkUpdate": "https://github.com/flyrio/PVPTargetSelector/releases/download/build-5/latest.zip"
 	},
 	{
-   	    "Author": "wozaiha,Shiyuvi（重构）",
+   	    "Author": "Shiyuvi",
         "Name": "DalamudACT",
 		"InternalName": "DalamudACT",
-		"Description": "重构了算法和样式，伤害统计基本完善",
-		"AssemblyVersion": "14.0.0.7",
+		"Description": "怎么输出那么低，谁在划水",
+		"AssemblyVersion": "14.0.0.8",
 		"RepoUrl": "https://github.com/wozaiha/DalamudACT",
 		"ApplicableVersion": "any",
 		"DalamudApiLevel": 14,
