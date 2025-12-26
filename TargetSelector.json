@@ -25,7 +25,7 @@
         "Name": "DalamudACT",
 		"InternalName": "DalamudACT",
 		"Description": "重构了算法和样式，伤害统计基本完善",
-		"AssemblyVersion": "14.0.0.6",
+		"AssemblyVersion": "14.0.0.7",
 		"RepoUrl": "https://github.com/wozaiha/DalamudACT",
 		"ApplicableVersion": "any",
 		"DalamudApiLevel": 14,
