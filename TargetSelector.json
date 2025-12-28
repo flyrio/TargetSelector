@@ -81,7 +81,7 @@
  		"Name": "死亡复盘",
 		"InternalName": "DeathRecap",
   		"Description": "快速查明是什么杀死了你或你的小队成员！\n\n显示内容：\n- 治疗\n- 受到的伤害\n- 减益效果\n- 增益效果\n- 护盾\n- 伤害来源上的昏乱(Addle)、牵制(Feint)、雪仇(Reprisal)",
-		"AssemblyVersion": "1.13.3.1",
+		"AssemblyVersion": "1.13.3.2",
  		"RepoUrl": "https://github.com/flyrio/ffxiv-deathrecap-cn",
 		"ApplicableVersion": "any",
 		"DalamudApiLevel": 14,
