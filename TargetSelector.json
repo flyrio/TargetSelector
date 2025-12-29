@@ -1,9 +1,9 @@
-[
+﻿[
     {
         "Author":  "Shiyuvi",
-        "Name":  "PvP目标选择器",
+        "Name":  "PvPç›®æ ‡é€‰æ‹©å™¨",
         "InternalName":  "TargetSelector",
-        "Description":  "该K不到还是K不到",
+        "Description":  "è¯¥Kä¸åˆ°è¿˜æ˜¯Kä¸åˆ°",
         "AssemblyVersion":  "4.0.0.4",
         "RepoUrl":  "https://github.com/flyrio/TargetSelector",
         "ApplicableVersion":  "any",
@@ -13,7 +13,7 @@
                      "PvP",
                      "Auto"
                  ],
-        "IconUrl":  "https://raw.githubusercontent.com/flyrio/TargetSelector/ea0297a1aeed3b04c1b42d7079f2c541b9e4516b/fox1.png",
+        "IconUrl":  "https://raw.githubusercontent.com/flyrio/TargetSelector/main/pvp_targetselector.png",
         "DownloadLinkInstall":  "https://github.com/flyrio/PVPTargetSelector/releases/download/build-5/latest.zip",
         "DownloadLinkTesting":  "https://github.com/flyrio/PVPTargetSelector/releases/download/build-5/latest.zip",
         "DownloadLinkUpdate":  "https://github.com/flyrio/PVPTargetSelector/releases/download/build-5/latest.zip"
@@ -22,7 +22,7 @@
         "Author":  "Shiyuvi",
         "Name":  "DalamudACT",
         "InternalName":  "DalamudACT",
-        "Description":  "怎么输出那么低，谁在划水",
+        "Description":  "æ€Žä¹ˆè¾“å‡ºé‚£ä¹ˆä½Žï¼Œè°åœ¨åˆ’æ°´",
         "AssemblyVersion":  "14.0.0.8",
         "RepoUrl":  "https://github.com/wozaiha/DalamudACT",
         "ApplicableVersion":  "any",
@@ -37,10 +37,10 @@
         "DownloadLinkUpdate":  "https://github.com/flyrio/DalamudACT/releases/download/latest/DalamudACT.zip"
     },
     {
-        "Author":  "shdwp, Avaflow, abashby, nebel,Shiyuvi(汉化)",
+        "Author":  "shdwp, Avaflow, abashby, nebel,Shiyuvi(æ±‰åŒ–)",
         "Name":  "Party Icons",
         "InternalName":  "PartyIcons",
-        "Description":  "根据当前内容调整玩家姓名板。例如，您可以显示副本位置（通过监听聊天自动分配）、职业图标或带有职业图标的名称。\n\nJobIcons的作者haplo、daemitus、Loskh、wozaiha通过逆向工程实现了这一功能，没有他们这个插件将不可能实现！",
+        "Description":  "æ ¹æ®å½“å‰å†…å®¹è°ƒæ•´çŽ©å®¶å§“åæ¿ã€‚ä¾‹å¦‚ï¼Œæ‚¨å¯ä»¥æ˜¾ç¤ºå‰¯æœ¬ä½ç½®ï¼ˆé€šè¿‡ç›‘å¬èŠå¤©è‡ªåŠ¨åˆ†é…ï¼‰ã€èŒä¸šå›¾æ ‡æˆ–å¸¦æœ‰èŒä¸šå›¾æ ‡çš„åç§°ã€‚\n\nJobIconsçš„ä½œè€…haploã€daemitusã€Loskhã€wozaihaé€šè¿‡é€†å‘å·¥ç¨‹å®žçŽ°äº†è¿™ä¸€åŠŸèƒ½ï¼Œæ²¡æœ‰ä»–ä»¬è¿™ä¸ªæ’ä»¶å°†ä¸å¯èƒ½å®žçŽ°ï¼",
         "AssemblyVersion":  "4.2.0.0",
         "RepoUrl":  "https://github.com/nebel/xivPartyIcons",
         "ApplicableVersion":  "any",
@@ -55,10 +55,10 @@
         "DownloadLinkUpdate":  "https://github.com/flyrio/PartyIcon/raw/refs/heads/main/latest.zip"
     },
     {
-        "Author":  "Taurenkey (Puni.sh),Shiyuvi(汉化)",
+        "Author":  "Taurenkey (Puni.sh),Shiyuvi(æ±‰åŒ–)",
         "Name":  "Saucy",
         "InternalName":  "Saucy",
-        "Description":  "自动化某些金碟游乐场小游戏，请勿反馈到国际服版本",
+        "Description":  "è‡ªåŠ¨åŒ–æŸäº›é‡‘ç¢Ÿæ¸¸ä¹åœºå°æ¸¸æˆï¼Œè¯·å‹¿åé¦ˆåˆ°å›½é™…æœç‰ˆæœ¬",
         "AssemblyVersion":  "14.0.0.0",
         "RepoUrl":  "https://github.com/PunishXIV/Saucy",
         "ApplicableVersion":  "any",
@@ -75,10 +75,10 @@
         "DownloadLinkUpdate":  "https://github.com/flyrio/SaucyCN/releases/download/latest/latest.zip"
     },
     {
-        "Author":  "Kouzukii，Shiyuvi(汉化)",
-        "Name":  "死亡复盘",
+        "Author":  "Kouzukiiï¼ŒShiyuvi(æ±‰åŒ–)",
+        "Name":  "æ­»äº¡å¤ç›˜",
         "InternalName":  "DeathRecap",
-        "Description":  "快速查明是什么杀死了你或你的小队成员！\n\n显示内容：\n- 治疗\n- 受到的伤害\n- 减益效果\n- 增益效果\n- 护盾\n- 伤害来源上的昏乱(Addle)、牵制(Feint)、雪仇(Reprisal)",
+        "Description":  "å¿«é€ŸæŸ¥æ˜Žæ˜¯ä»€ä¹ˆæ€æ­»äº†ä½ æˆ–ä½ çš„å°é˜Ÿæˆå‘˜ï¼\n\næ˜¾ç¤ºå†…å®¹ï¼š\n- æ²»ç–—\n- å—åˆ°çš„ä¼¤å®³\n- å‡ç›Šæ•ˆæžœ\n- å¢žç›Šæ•ˆæžœ\n- æŠ¤ç›¾\n- ä¼¤å®³æ¥æºä¸Šçš„æ˜ä¹±(Addle)ã€ç‰µåˆ¶(Feint)ã€é›ªä»‡(Reprisal)",
         "AssemblyVersion":  "1.13.3.2",
         "RepoUrl":  "https://github.com/flyrio/ffxiv-deathrecap-cn",
         "ApplicableVersion":  "any",
@@ -96,9 +96,9 @@
     },
     {
         "Author":  "Shiyuvi",
-        "Name":  "插件收纳栏",
+        "Name":  "æ’ä»¶æ”¶çº³æ ",
         "InternalName":  "PluginDockStandalone",
-        "Description":  "把其他 Dalamud 插件的主界面/设置入口收纳到一个可选的悬浮图标栏里（支持折叠/锁定位置；并提供按 ImGui 窗口名隐藏悬浮窗、预设与分享码）。",
+        "Description":  "æŠŠå…¶ä»– Dalamud æ’ä»¶çš„ä¸»ç•Œé¢/è®¾ç½®å…¥å£æ”¶çº³åˆ°ä¸€ä¸ªå¯é€‰çš„æ‚¬æµ®å›¾æ ‡æ é‡Œï¼ˆæ”¯æŒæŠ˜å /é”å®šä½ç½®ï¼›å¹¶æä¾›æŒ‰ ImGui çª—å£åéšè—æ‚¬æµ®çª—ã€é¢„è®¾ä¸Žåˆ†äº«ç ï¼‰ã€‚",
         "AssemblyVersion":  "1.0.0.0",
         "RepoUrl":  "https://github.com/flyrio/PluginDockStandalone",
         "ApplicableVersion":  "any",
