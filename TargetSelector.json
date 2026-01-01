@@ -59,7 +59,7 @@
         "Name": "Saucy",
         "InternalName": "Saucy",
         "Description": "自动化某些金碟游乐场小游戏，请勿反馈到国际服版本",
-        "AssemblyVersion": "14.0.0.1",
+        "AssemblyVersion": "14.0.0.2",
         "RepoUrl": "https://github.com/PunishXIV/Saucy",
         "ApplicableVersion": "any",
         "DalamudApiLevel": 14,
@@ -70,9 +70,9 @@
             "automation"
         ],
         "IconUrl": "https://love.puni.sh/resources/saucy.png",
-        "DownloadLinkInstall": "https://github.com/flyrio/SaucyCN/releases/download/v0.1.0/SaucyCN.zip",
-        "DownloadLinkTesting": "https://github.com/flyrio/SaucyCN/releases/download/v0.1.0/SaucyCN.zip",
-        "DownloadLinkUpdate": "https://github.com/flyrio/SaucyCN/releases/download/v0.1.0/SaucyCN.zip"
+        "DownloadLinkInstall": "https://github.com/flyrio/SaucyCN/releases/download/latest/SaucyCN.zip",
+        "DownloadLinkTesting": "https://github.com/flyrio/SaucyCN/releases/download/latest/SaucyCN.zip",
+        "DownloadLinkUpdate": "https://github.com/flyrio/SaucyCN/releases/download/latest/SaucyCN.zip"
     },
     {
         "Author": "Kouzukii，Shiyuvi(汉化)",
@@ -115,6 +115,7 @@
         "DownloadLinkUpdate": "https://github.com/flyrio/PluginDockStandalone/releases/download/latest/latest.zip"
     }
 ]
+
 
 
 
