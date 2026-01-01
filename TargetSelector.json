@@ -14,9 +14,9 @@
             "Auto"
         ],
         "IconUrl": "https://raw.githubusercontent.com/flyrio/TargetSelector/main/pvp_targetselector.png",
-        "DownloadLinkInstall": "https://github.com/flyrio/PVPTargetSelector/releases/download/build-5/latest.zip",
-        "DownloadLinkTesting": "https://github.com/flyrio/PVPTargetSelector/releases/download/build-5/latest.zip",
-        "DownloadLinkUpdate": "https://github.com/flyrio/PVPTargetSelector/releases/download/build-5/latest.zip"
+        "DownloadLinkInstall": "https://github.com/flyrio/TargetSelector/releases/latest/download/latest.zip",
+        "DownloadLinkTesting": "https://github.com/flyrio/TargetSelector/releases/latest/download/latest.zip",
+        "DownloadLinkUpdate": "https://github.com/flyrio/TargetSelector/releases/latest/download/latest.zip"
     },
     {
         "Author": "Shiyuvi",
