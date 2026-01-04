@@ -115,30 +115,27 @@
         "DownloadLinkUpdate": "https://github.com/flyrio/PluginDockStandalone/releases/download/latest/latest.zip"
     },
     {
-  "Author": "Shiyuvi",
-  "Name": "死亡与状态追踪",
-  "InternalName": "DeathBuffTracker",
-  "AssemblyVersion": "0.1.0.0",
-  "Description": "追踪角色死亡与指定状态获得（如 Damage Down、Vulnerability Up）。\n支持按副本、玩家、时间范围筛选，并记录伤害来源/技能。\n事件数据以 JSON 保存，便于分析与归档。",
-  "ApplicableVersion": "any",
-  "RepoUrl": "TBD",
-  "Tags": [
-    "death",
-    "buff",
-    "log"
-  ],
-  "CategoryTags": [
-    "utility"
-  ],
-  "DalamudApiLevel": 14,
-  "LoadRequiredState": 0,
-  "LoadSync": false,
-  "CanUnloadAsync": false,
-  "LoadPriority": 0,
-  "Punchline": "记录死亡与指定状态获得，并持久保存到 JSON。",
-  "AcceptsFeedback": true
-}
+        "Author": "Shiyuvi",
+        "Name": "死亡与状态追踪",
+        "InternalName": "DeathBuffTracker",
+        "Description": "追踪角色死亡与指定状态获得（如 Damage Down、Vulnerability Up）。\n支持按副本、玩家、时间范围筛选，并记录伤害来源/技能。\n事件数据以 JSON 保存，便于分析与归档。",
+        "AssemblyVersion": "0.1.0.0",
+        "RepoUrl": "https://github.com/flyrio/DeathBuffTracker",
+        "ApplicableVersion": "any",
+        "DalamudApiLevel": 14,
+        "TestingDalamudApiLevel": 14,
+          "Tags": [
+            "death",
+             "buff",
+            "log"
+        ],
+        "IconUrl": "https://raw.githubusercontent.com/flyrio/DeathBuffTracker/main/assets/icon.png",
+        "DownloadLinkInstall": "https://github.com/flyrio/DeathBuffTracker/releases/download/latest/latest.zip",
+        "DownloadLinkTesting": "https://github.com/flyrio/DeathBuffTracker/releases/download/latest/latest.zip",
+        "DownloadLinkUpdate": "https://github.com/flyrio/DeathBuffTracker/releases/download/latest/latest.zip"
+    }
 ]
+
 
 
 
