@@ -133,8 +133,29 @@
         "DownloadLinkInstall": "https://github.com/flyrio/DeathBuffTracker/releases/download/latest/latest.zip",
         "DownloadLinkTesting": "https://github.com/flyrio/DeathBuffTracker/releases/download/latest/latest.zip",
         "DownloadLinkUpdate": "https://github.com/flyrio/DeathBuffTracker/releases/download/latest/latest.zip"
+    },
+    {
+        "Author": "Siren,Shiyuvi",
+        "Name": "Coyote-FFXiv",
+        "InternalName": "Coyote-FFXiv",
+        "Punchline": "医疗产品。",
+        "Description": "通过条件触发实现郊狼的控制，对接Coyote。",
+        "AssemblyVersion": "14.0.0.0",
+        "RepoUrl": "https://github.com/flyrio/Coyote-FFXiv",
+        "ApplicableVersion": "any",
+        "DalamudApiLevel": 14,
+        "TestingDalamudApiLevel": 14,
+          "Tags": [
+            "medical",
+            "Coyote"
+        ],
+        "IconUrl": "https://raw.githubusercontent.com/flyrio/Coyote-FFXiv/main/Data/Coyote.png",
+        "DownloadLinkInstall": "https://github.com/flyrio/Coyote-FFXiv/releases/download/latest/Coyote-FFXiv.zip",
+        "DownloadLinkTesting": "https://github.com/flyrio/Coyote-FFXiv/releases/download/latest/Coyote-FFXiv.zip",
+        "DownloadLinkUpdate": "https://github.com/flyrio/Coyote-FFXiv/releases/download/latest/Coyote-FFXiv.zip"
     }
 ]
+
 
 
 
