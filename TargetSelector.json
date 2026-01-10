@@ -23,7 +23,7 @@
         "Name": "DalamudACT",
         "InternalName": "DalamudACT",
         "Description": "怎么输出那么低，谁在划水",
-        "AssemblyVersion": "14.0.0.9",
+        "AssemblyVersion": "14.0.1.0",
         "RepoUrl": "https://github.com/wozaiha/DalamudACT",
         "ApplicableVersion": "any",
         "DalamudApiLevel": 14,
@@ -155,6 +155,7 @@
         "DownloadLinkUpdate": "https://github.com/flyrio/Coyote-FFXiv/releases/download/latest/Coyote-FFXiv.zip"
     }
 ]
+
 
 
 
