@@ -170,12 +170,13 @@
             "MitigationPolice",
             "Battle"
         ],
-        "IconUrl": "https://raw.githubusercontent.com/flyrio/Coyote-FFXiv/main/assets/icon.png",
+        "IconUrl": "https://raw.githubusercontent.com/flyrio/MitigationPolice/main/assets/icon.png",
         "DownloadLinkInstall": "https://github.com/flyrio/MitigationPolice/releases/download/latest/MitigationPolice.zip",
         "DownloadLinkTesting": "https://github.com/flyrio/MitigationPolice/releases/download/latest/MitigationPolice.zip",
         "DownloadLinkUpdate": "https://github.com/flyrio/MitigationPolice/releases/download/latest/MitigationPolice.zip"
     }
 ]
+
 
 
 
