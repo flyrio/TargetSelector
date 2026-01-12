@@ -153,8 +153,30 @@
         "DownloadLinkInstall": "https://github.com/flyrio/Coyote-FFXiv/releases/download/latest/Coyote-FFXiv.zip",
         "DownloadLinkTesting": "https://github.com/flyrio/Coyote-FFXiv/releases/download/latest/Coyote-FFXiv.zip",
         "DownloadLinkUpdate": "https://github.com/flyrio/Coyote-FFXiv/releases/download/latest/Coyote-FFXiv.zip"
+    },
+    {
+        "Author": "Shiyuvi",
+        "Name": "减伤警察",
+        "InternalName": "MitigationPolice",
+        "Punchline": "出警出警。",
+        "Description": "咕咕咕。",
+        "AssemblyVersion": "14.0.0.0",
+        "RepoUrl": "https://github.com/flyrio/Coyote-FFXiv",
+        "ApplicableVersion": "any",
+        "DalamudApiLevel": 14,
+        "TestingDalamudApiLevel": 14,
+          "Tags": [
+            "gugugu",
+            "MitigationPolice",
+            "Battle"
+        ],
+        "IconUrl": "https://raw.githubusercontent.com/flyrio/Coyote-FFXiv/main/assets/icon.png",
+        "DownloadLinkInstall": "https://github.com/flyrio/MitigationPolice/releases/download/latest/MitigationPolice.zip",
+        "DownloadLinkTesting": "https://github.com/flyrio/MitigationPolice/releases/download/latest/MitigationPolice.zip",
+        "DownloadLinkUpdate": "https://github.com/flyrio/MitigationPolice/releases/download/latest/MitigationPolice.zip"
     }
 ]
+
 
 
 
