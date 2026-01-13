@@ -160,7 +160,7 @@
         "InternalName": "MitigationPolice",
         "Punchline": "出警出警。",
         "Description": "咕咕咕。",
-        "AssemblyVersion": "14.0.0.3",
+        "AssemblyVersion": "14.0.0.4",
         "RepoUrl": "https://github.com/flyrio/MitigationPolice",
         "ApplicableVersion": "any",
         "DalamudApiLevel": 14,
@@ -176,6 +176,7 @@
         "DownloadLinkUpdate": "https://github.com/flyrio/MitigationPolice/releases/download/latest/MitigationPolice.zip"
     }
 ]
+
 
 
 
