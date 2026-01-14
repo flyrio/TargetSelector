@@ -99,7 +99,7 @@
         "Name": "插件收纳栏",
         "InternalName": "PluginDockStandalone",
         "Description": "把其他 Dalamud 插件的主界面/设置入口收纳到一个可选的悬浮图标栏里（支持折叠/锁定位置；并提供按 ImGui 窗口名隐藏悬浮窗、预设与分享码）。",
-        "AssemblyVersion": "1.0.0.9",
+        "AssemblyVersion": "1.0.1.0",
         "RepoUrl": "https://github.com/flyrio/PluginDockStandalone",
         "ApplicableVersion": "any",
         "DalamudApiLevel": 14,
@@ -176,6 +176,7 @@
         "DownloadLinkUpdate": "https://github.com/flyrio/MitigationPolice/releases/download/latest/MitigationPolice.zip"
     }
 ]
+
 
 
 
