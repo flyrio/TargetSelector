@@ -23,7 +23,7 @@
         "Name": "DalamudACT",
         "InternalName": "DalamudACT",
         "Description": "怎么输出那么低，谁在划水",
-        "AssemblyVersion": "14.0.1.3",
+        "AssemblyVersion": "14.0.1.4",
         "RepoUrl": "https://github.com/wozaiha/DalamudACT",
         "ApplicableVersion": "any",
         "DalamudApiLevel": 14,
@@ -176,6 +176,7 @@
         "DownloadLinkUpdate": "https://github.com/flyrio/MitigationPolice/releases/download/latest/MitigationPolice.zip"
     }
 ]
+
 
 
 
