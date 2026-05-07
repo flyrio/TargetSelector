@@ -32,9 +32,9 @@
             "ACT"
         ],
         "IconUrl": "https://github.com/wozaiha/DalamudACT/raw/main/DalamudACT/images/icon.png",
-        "DownloadLinkInstall": "https://github.com/flyrio/DalamudACT/releases/download/latest/DalamudACT.zip",
-        "DownloadLinkTesting": "https://github.com/flyrio/DalamudACT/releases/download/latest/DalamudACT.zip",
-        "DownloadLinkUpdate": "https://github.com/flyrio/DalamudACT/releases/download/latest/DalamudACT.zip"
+        "DownloadLinkInstall": "https://github.com/anmili2022/DalamudACT/releases/download/0.15.2.5/DalamudACT.zip",
+        "DownloadLinkTesting": "https://github.com/anmili2022/DalamudACT/releases/download/0.15.2.5/DalamudACT.zip",
+        "DownloadLinkUpdate": "https://github.com/anmili2022/DalamudACT/releases/download/0.15.2.5/DalamudACT.zip"
     },
     {
         "Author": "shdwp, Avaflow, abashby, nebel,Shiyuvi(汉化)",
@@ -50,9 +50,9 @@
             "UI"
         ],
         "IconUrl": "https://raw.githubusercontent.com/flyrio/TargetSelector/ea0297a1aeed3b04c1b42d7079f2c541b9e4516b/fox2.png",
-        "DownloadLinkInstall": "https://github.com/flyrio/PartyIcon/raw/refs/heads/main/latest.zip",
-        "DownloadLinkTesting": "https://github.com/flyrio/PartyIcon/raw/refs/heads/main/latest.zip",
-        "DownloadLinkUpdate": "https://github.com/flyrio/PartyIcon/raw/refs/heads/main/latest.zip"
+        "DownloadLinkInstall": "https://github.com/anmili2022/xivPartyIcons/releases/download/1.2.3.7/PartyIcons.zip",
+        "DownloadLinkTesting": "https://github.com/anmili2022/xivPartyIcons/releases/download/1.2.3.7/PartyIcons.zip",
+        "DownloadLinkUpdate": "https://github.com/anmili2022/xivPartyIcons/releases/download/1.2.3.7/PartyIcons.zip"
     },
     {
         "Author": "Taurenkey (Puni.sh),Shiyuvi(汉化)",
@@ -70,9 +70,9 @@
             "automation"
         ],
         "IconUrl": "https://love.puni.sh/resources/saucy.png",
-        "DownloadLinkInstall": "https://github.com/flyrio/SaucyCN/releases/download/latest/SaucyCN.zip",
-        "DownloadLinkTesting": "https://github.com/flyrio/SaucyCN/releases/download/latest/SaucyCN.zip",
-        "DownloadLinkUpdate": "https://github.com/flyrio/SaucyCN/releases/download/latest/SaucyCN.zip"
+        "DownloadLinkInstall": "https://github.com/anmili2022/SaucyCN/releases/download/v1.4.2.9/SaucyCN.zip",
+        "DownloadLinkTesting": "https://github.com/anmili2022/SaucyCN/releases/download/v1.4.2.9/SaucyCN.zip",
+        "DownloadLinkUpdate": "https://github.com/anmili2022/SaucyCN/releases/download/v1.4.2.9/SaucyCN.zip"
     },
     {
         "Author": "Kouzukii，Shiyuvi(汉化)",
@@ -110,9 +110,9 @@
             "Dock"
         ],
         "IconUrl": "https://raw.githubusercontent.com/flyrio/PluginDockStandalone/main/images/icon.png",
-        "DownloadLinkInstall": "https://github.com/flyrio/PluginDockStandalone/releases/download/latest/latest.zip",
-        "DownloadLinkTesting": "https://github.com/flyrio/PluginDockStandalone/releases/download/latest/latest.zip",
-        "DownloadLinkUpdate": "https://github.com/flyrio/PluginDockStandalone/releases/download/latest/latest.zip"
+        "DownloadLinkInstall": "https://github.com/anmili2022/PluginDockStandalone/releases/download/latest/latest.zip",
+        "DownloadLinkTesting": "https://github.com/anmili2022/PluginDockStandalone/releases/download/latest/latest.zip",
+        "DownloadLinkUpdate": "https://github.com/anmili2022/PluginDockStandalone/releases/download/latest/latest.zip"
     },
     {
         "Author": "Shiyuvi",
