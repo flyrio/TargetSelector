@@ -23,7 +23,7 @@
         "Name": "DalamudACT",
         "InternalName": "DalamudACT",
         "Description": "怎么输出那么低，谁在划水",
-        "AssemblyVersion": "0.15.2.7",
+        "AssemblyVersion": "0.15.2.8",
         "RepoUrl": "https://github.com/wozaiha/DalamudACT",
         "ApplicableVersion": "any",
         "DalamudApiLevel": 15,
