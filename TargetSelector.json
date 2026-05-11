@@ -23,7 +23,7 @@
         "Name": "DalamudACT",
         "InternalName": "DalamudACT",
         "Description": "怎么输出那么低，谁在划水",
-        "AssemblyVersion": "0.15.2.8",
+        "AssemblyVersion": "0.15.2.9",
         "RepoUrl": "https://github.com/wozaiha/DalamudACT",
         "ApplicableVersion": "any",
         "DalamudApiLevel": 15,
@@ -174,6 +174,53 @@
         "DownloadLinkInstall": "https://github.com/flyrio/MitigationPolice/releases/download/latest/MitigationPolice.zip",
         "DownloadLinkTesting": "https://github.com/flyrio/MitigationPolice/releases/download/latest/MitigationPolice.zip",
         "DownloadLinkUpdate": "https://github.com/flyrio/MitigationPolice/releases/download/latest/MitigationPolice.zip"
+    },
+    {
+        "Author": "Loskh",
+        "Name": "StarlightBreaker",
+        "InternalName": "StarlightBreaker",
+        "AssemblyVersion": "2.15.1.0",
+        "Description": "关闭屏蔽词过滤，并特殊显示聊天频道或招募板发出的屏蔽词。 Disable word-filter blocking and specially highlight filtered words from chat channels or the Party Finder.",
+        "Punchline": "关闭屏蔽词过滤，并高亮聊天和招募板里的屏蔽词。 Disable word-filter blocking and highlight filtered words in chat and Party Finder.",
+        "ApplicableVersion": "any",
+        "RepoUrl": "https://github.com/anmili2022/StarlightBreaker",
+        "DalamudApiLevel": 15,
+        "LoadRequiredState": 0,
+        "LoadSync": false,
+        "CanUnloadAsync": false,
+        "LoadPriority": 0,
+        "IconUrl": "https://raw.githubusercontent.com/anmili2022/StarlightBreaker/main/StarlightBreaker.Dalamud/icon.png",
+        "AcceptsFeedback": true,
+        "DownloadLinkInstall": "https://github.com/anmili2022/StarlightBreaker/releases/download/v2.15.1/StarlightBreaker-v2.15.1.zip",
+        "DownloadLinkUpdate": "https://github.com/anmili2022/StarlightBreaker/releases/download/v2.15.1/StarlightBreaker-v2.15.1.zip",
+        "TestingDalamudApiLevel": 15,
+        "DownloadLinkTesting": "https://github.com/anmili2022/StarlightBreaker/releases/download/v2.15.1/StarlightBreaker-v2.15.1.zip"
+    },
+    {
+        "Author": "daemitus, MidoriKami",
+        "Name": "天书概率助手",
+        "InternalName": "WondrousTailsSolver",
+        "AssemblyVersion": "3.2.2.11",
+        "Description": "在天书界面实时显示 1 线、2 线、3 线概率，并提供重排后的平均参考。 This plugin prints the probability of getting a row in Wondrous Tails to the in-game display along with the average probability of what would happen if you shuffled.",
+        "Punchline": "在天书界面实时显示连线概率。 Adds row probabilities to the Wondrous Tails display.",
+        "ApplicableVersion": "any",
+        "RepoUrl": "https://github.com/anmili2022/EzWondrousTails",
+        "Tags": [
+            "wondrous-tails",
+            "probability",
+            "utility"
+        ],
+        "DalamudApiLevel": 15,
+        "LoadRequiredState": 0,
+        "LoadSync": false,
+        "CanUnloadAsync": false,
+        "LoadPriority": 0,
+        "IconUrl": "https://raw.githubusercontent.com/anmili2022/EzWondrousTails/main/res/icon.png",
+        "AcceptsFeedback": true,
+        "DownloadLinkInstall": "https://github.com/anmili2022/EzWondrousTails/releases/download/v3.2.2.11/latest.zip",
+        "DownloadLinkUpdate": "https://github.com/anmili2022/EzWondrousTails/releases/download/v3.2.2.11/latest.zip",
+        "TestingDalamudApiLevel": 15,
+        "DownloadLinkTesting": "https://github.com/anmili2022/EzWondrousTails/releases/download/v3.2.2.11/latest.zip"
     }
 ]
 
