@@ -23,7 +23,7 @@
         "Name": "DalamudACT",
         "InternalName": "DalamudACT",
         "Description": "怎么输出那么低，谁在划水",
-        "AssemblyVersion": "0.15.2.11",
+        "AssemblyVersion": "0.15.2.12",
         "RepoUrl": "https://github.com/wozaiha/DalamudACT",
         "ApplicableVersion": "any",
         "DalamudApiLevel": 15,
@@ -32,9 +32,9 @@
             "ACT"
         ],
         "IconUrl": "https://github.com/wozaiha/DalamudACT/raw/main/DalamudACT/images/icon.png",
-        "DownloadLinkInstall": "https://github.com/anmili2022/DalamudACT/releases/download/0.15.2.11/DalamudACT.zip",
-        "DownloadLinkTesting": "https://github.com/anmili2022/DalamudACT/releases/download/0.15.2.11/DalamudACT.zip",
-        "DownloadLinkUpdate": "https://github.com/anmili2022/DalamudACT/releases/download/0.15.2.11/DalamudACT.zip"
+        "DownloadLinkInstall": "https://github.com/anmili2022/DalamudACT/releases/download/0.15.2.12/DalamudACT.zip",
+        "DownloadLinkTesting": "https://github.com/anmili2022/DalamudACT/releases/download/0.15.2.12/DalamudACT.zip",
+        "DownloadLinkUpdate": "https://github.com/anmili2022/DalamudACT/releases/download/0.15.2.12/DalamudACT.zip"
     },
     {
         "Author": "shdwp, Avaflow, abashby, nebel,Shiyuvi(汉化)",
