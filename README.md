@@ -4,7 +4,7 @@
 
 `https://raw.githubusercontent.com/flyrio/TargetSelector/main/TargetSelector.json`
 
-如果你只想快速更新，先看 `UPDATE.md`；如果要交接或新增插件，先看 `PLUGIN_HANDOFF.md`；这里保留完整说明和防乱码细节。
+如果你只想快速更新，先看 [`UPDATE.md`](UPDATE.md)；如果要交接、新增、删除或手动维护插件，先看 [`PLUGIN_HANDOFF.md`](PLUGIN_HANDOFF.md)；这里保留完整说明和防乱码细节。
 
 ## 当前文件角色
 
@@ -14,7 +14,23 @@
 2. `scripts/sync_sources.json`：上游来源配置
 3. `scripts/sync_plugin_sources.py`：同步脚本
 4. `/.github/workflows/sync-plugin-sources.yml`：GitHub Actions 自动同步工作流
-5. `PLUGIN_HANDOFF.md`：新增/交接插件收录流程
+5. [`PLUGIN_HANDOFF.md`](PLUGIN_HANDOFF.md)：新增/删除/交接插件收录流程与注意事项
+
+---
+
+## 交接文档与关键注意事项
+
+交接、新增、删除或手动维护插件前，请先阅读：
+
+[`PLUGIN_HANDOFF.md`](PLUGIN_HANDOFF.md)
+
+最容易踩坑的点：
+
+- 当前清单只保留 **Dalamud API 15** 插件，不要把已删除的 API 14 自有条目重新加回订阅源。
+- 来自 `MyDalamudRepo` 的插件：先在 `TargetSelector.json` 里有完整条目，再把 `InternalName` 加到 `scripts/sync_sources.json`；同步脚本不会自动新增条目。
+- 手动维护插件不要随便加入 `scripts/sync_sources.json`，除非确认有稳定上游 manifest 且同步脚本能处理。
+- `README.md`、`UPDATE.md`、`PLUGIN_HANDOFF.md` 保持 UTF-8 with BOM；`TargetSelector.json` 和 `scripts/sync_sources.json` 保持 UTF-8 无 BOM。
+- 不要用 PowerShell 控制台肉眼判断 JSON 中文是否乱码，必须用 Python 按 UTF-8/UTF-8-SIG 读取验证。
 
 ---
 
@@ -36,14 +52,10 @@
 
 ## 当前仓库内其他保留条目
 
-除了上面 7 个会自动同步的插件，当前 `TargetSelector.json` 里还保留这些本仓库自己的条目：
+除了上面 7 个会自动同步的插件，当前 `TargetSelector.json` 里还保留这些本仓库自己的 API 15 条目：
 
-1. `TargetSelector`
-2. `DeathRecap`
-3. `DeathBuffTracker`
-4. `Coyote-FFXiv`
-5. `MitigationPolice`
-6. `AutoFollow`
+1. `AutoFollow`
+2. `ActionTimelineReborn`
 
 ---
 

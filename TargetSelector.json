@@ -1,25 +1,6 @@
 [
     {
         "Author": "Shiyuvi",
-        "Name": "PvP目标选择器",
-        "InternalName": "TargetSelector",
-        "Description": "该K不到还是K不到",
-        "AssemblyVersion": "4.0.0.5",
-        "RepoUrl": "https://github.com/flyrio/TargetSelector",
-        "ApplicableVersion": "any",
-        "DalamudApiLevel": 14,
-        "TestingDalamudApiLevel": 14,
-        "Tags": [
-            "PvP",
-            "Auto"
-        ],
-        "IconUrl": "https://raw.githubusercontent.com/flyrio/TargetSelector/main/pvp_targetselector.png",
-        "DownloadLinkInstall": "https://github.com/flyrio/PVPTargetSelector/releases/download/build-5/latest.zip",
-        "DownloadLinkTesting": "https://github.com/flyrio/PVPTargetSelector/releases/download/build-5/latest.zip",
-        "DownloadLinkUpdate": "https://github.com/flyrio/PVPTargetSelector/releases/download/build-5/latest.zip"
-    },
-    {
-        "Author": "Shiyuvi",
         "Name": "DalamudACT",
         "InternalName": "DalamudACT",
         "Description": "怎么输出那么低，谁在划水",
@@ -75,26 +56,6 @@
         "DownloadLinkUpdate": "https://github.com/anmili2022/SaucyCN/releases/download/v1.4.2.12/SaucyCN.zip"
     },
     {
-        "Author": "Kouzukii，Shiyuvi(汉化)",
-        "Name": "死亡复盘",
-        "InternalName": "DeathRecap",
-        "Description": "快速查明是什么杀死了你或你的小队成员！\n\n显示内容：\n- 治疗\n- 受到的伤害\n- 减益效果\n- 增益效果\n- 护盾\n- 伤害来源上的昏乱(Addle)、牵制(Feint)、雪仇(Reprisal)",
-        "AssemblyVersion": "1.13.3.2",
-        "RepoUrl": "https://github.com/flyrio/ffxiv-deathrecap-cn",
-        "ApplicableVersion": "any",
-        "DalamudApiLevel": 14,
-        "TestingDalamudApiLevel": 14,
-        "Tags": [
-            "death",
-            "recap",
-            "log"
-        ],
-        "IconUrl": "https://raw.githubusercontent.com/flyrio/ffxiv-deathrecap-cn/main/images/icon.png",
-        "DownloadLinkInstall": "https://github.com/flyrio/ffxiv-deathrecap-cn/releases/download/latest/latest.zip",
-        "DownloadLinkTesting": "https://github.com/flyrio/ffxiv-deathrecap-cn/releases/download/latest/latest.zip",
-        "DownloadLinkUpdate": "https://github.com/flyrio/ffxiv-deathrecap-cn/releases/download/latest/latest.zip"
-    },
-    {
         "Author": "Shiyuvi",
         "Name": "插件收纳栏",
         "InternalName": "PluginDockStandalone",
@@ -113,67 +74,6 @@
         "DownloadLinkInstall": "https://github.com/anmili2022/PluginDockStandalone/releases/download/latest/latest.zip",
         "DownloadLinkTesting": "https://github.com/anmili2022/PluginDockStandalone/releases/download/latest/latest.zip",
         "DownloadLinkUpdate": "https://github.com/anmili2022/PluginDockStandalone/releases/download/latest/latest.zip"
-    },
-    {
-        "Author": "Shiyuvi",
-        "Name": "死亡与状态追踪",
-        "InternalName": "DeathBuffTracker",
-        "Description": "追踪角色死亡与指定状态获得（如 Damage Down、Vulnerability Up）。\n支持按副本、玩家、时间范围筛选，并记录伤害来源/技能。\n事件数据以 JSON 保存，便于分析与归档。",
-        "AssemblyVersion": "0.1.0.0",
-        "RepoUrl": "https://github.com/flyrio/DeathBuffTracker",
-        "ApplicableVersion": "any",
-        "DalamudApiLevel": 14,
-        "TestingDalamudApiLevel": 14,
-        "Tags": [
-            "death",
-            "buff",
-            "log"
-        ],
-        "IconUrl": "https://raw.githubusercontent.com/flyrio/DeathBuffTracker/main/assets/icon.png",
-        "DownloadLinkInstall": "https://github.com/flyrio/DeathBuffTracker/releases/download/latest/latest.zip",
-        "DownloadLinkTesting": "https://github.com/flyrio/DeathBuffTracker/releases/download/latest/latest.zip",
-        "DownloadLinkUpdate": "https://github.com/flyrio/DeathBuffTracker/releases/download/latest/latest.zip"
-    },
-    {
-        "Author": "Siren,Shiyuvi",
-        "Name": "Coyote-FFXiv",
-        "InternalName": "Coyote-FFXiv",
-        "Punchline": "医疗产品。",
-        "Description": "通过条件触发实现郊狼的控制，对接Coyote。",
-        "AssemblyVersion": "14.0.0.0",
-        "RepoUrl": "https://github.com/flyrio/Coyote-FFXiv",
-        "ApplicableVersion": "any",
-        "DalamudApiLevel": 14,
-        "TestingDalamudApiLevel": 14,
-        "Tags": [
-            "medical",
-            "Coyote"
-        ],
-        "IconUrl": "https://raw.githubusercontent.com/flyrio/Coyote-FFXiv/main/Data/Coyote.png",
-        "DownloadLinkInstall": "https://github.com/flyrio/Coyote-FFXiv/releases/download/latest/Coyote-FFXiv.zip",
-        "DownloadLinkTesting": "https://github.com/flyrio/Coyote-FFXiv/releases/download/latest/Coyote-FFXiv.zip",
-        "DownloadLinkUpdate": "https://github.com/flyrio/Coyote-FFXiv/releases/download/latest/Coyote-FFXiv.zip"
-    },
-    {
-        "Author": "Shiyuvi",
-        "Name": "减伤警察",
-        "InternalName": "MitigationPolice",
-        "Punchline": "出警出警。",
-        "Description": "咕咕咕。",
-        "AssemblyVersion": "14.0.0.4",
-        "RepoUrl": "https://github.com/flyrio/MitigationPolice",
-        "ApplicableVersion": "any",
-        "DalamudApiLevel": 14,
-        "TestingDalamudApiLevel": 14,
-        "Tags": [
-            "gugugu",
-            "MitigationPolice",
-            "Battle"
-        ],
-        "IconUrl": "https://github.com/flyrio/MitigationPolice/blob/main/assets/icon.png",
-        "DownloadLinkInstall": "https://github.com/flyrio/MitigationPolice/releases/download/latest/MitigationPolice.zip",
-        "DownloadLinkTesting": "https://github.com/flyrio/MitigationPolice/releases/download/latest/MitigationPolice.zip",
-        "DownloadLinkUpdate": "https://github.com/flyrio/MitigationPolice/releases/download/latest/MitigationPolice.zip"
     },
     {
         "Author": "Loskh",

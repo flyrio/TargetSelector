@@ -2,6 +2,87 @@
 
 本文档用于交接“新增/更新插件收录”的标准流程，尤其适用于像 `AutoFollow` 这种直接从独立 GitHub 仓库发布页收录的插件。
 
+## 0. 当前清单状态与交接重点
+
+截至当前工作区，`TargetSelector.json` 中共有 **9 个插件**，全部为 **Dalamud API 15**。
+
+### 0.1 当前从 `MyDalamudRepo` 自动同步的插件
+
+这 7 个插件由 `scripts/sync_sources.json` + `scripts/sync_plugin_sources.py` 管理版本号、API 等级和下载链接：
+
+1. `DalamudACT`
+2. `PluginDockStandalone`
+3. `PartyIcons`
+4. `Saucy`
+5. `StarlightBreaker`
+6. `WondrousTailsSolver`
+7. `日随伴侣卫月版`
+
+### 0.2 当前本仓库手动保留的插件
+
+这 2 个插件当前不在 `scripts/sync_sources.json` 里，按手动条目维护：
+
+1. `AutoFollow`
+2. `ActionTimelineReborn`
+
+### 0.3 已清理的 API 14 自有条目
+
+以下旧自有条目已经从 `TargetSelector.json` 删除，不要在未确认 API 15 可用版本前重新加回订阅源：
+
+1. `TargetSelector`
+2. `DeathRecap`
+3. `DeathBuffTracker`
+4. `Coyote-FFXiv`
+5. `MitigationPolice`
+
+如果以后要恢复其中任何插件，必须先确认：
+
+- 有适配当前 Dalamud 的 API 15 构建。
+- `DalamudApiLevel` 和 `TestingDalamudApiLevel` 都应为 15，或符合当时 Dalamud 官方要求。
+- `DownloadLinkInstall`、`DownloadLinkUpdate`、`DownloadLinkTesting` 都是可直接下载的 zip 链接。
+- 插件 JSON 可解析，且中文字段没有被写成 `????` 或 mojibake。
+- 恢复后同步更新 `README.md` 的“当前仓库内其他保留条目”列表。
+
+### 0.4 最重要的注意事项
+
+1. **当前订阅源只保留 API 15 插件。**
+   - 删除 API 14 条目是有意为之。
+   - 不要只因为旧仓库还有 release，就把 API 14 条目重新放回 `TargetSelector.json`。
+
+2. **同步脚本不会自动新增插件。**
+   - `scripts/sync_plugin_sources.py` 只会更新 `TargetSelector.json` 里已经存在的条目。
+   - 新增来自 `MyDalamudRepo` 的插件时，必须先补完整 JSON 条目，再改 `scripts/sync_sources.json`。
+
+3. **同步脚本只覆盖部分字段。**
+   - 会覆盖：`AssemblyVersion`、`ApplicableVersion`、`DalamudApiLevel`、`TestingDalamudApiLevel`、下载链接字段。
+   - 不会覆盖：`Name`、`Author`、`Description`、`Punchline`、`IconUrl`、`Tags`、`RepoUrl`。
+   - 如果本仓库有中文说明、图标、标签等定制内容，需要手动维护。
+
+4. **手动插件不要随便加入同步配置。**
+   - `AutoFollow`、`ActionTimelineReborn` 当前按手动条目维护。
+   - 除非确认存在稳定上游 manifest，且同步脚本能正确同步，否则不要把它们加入 `scripts/sync_sources.json`。
+
+5. **下载链接必须是直接 zip 链接。**
+   - 三个字段通常填同一个 zip：
+     - `DownloadLinkInstall`
+     - `DownloadLinkUpdate`
+     - `DownloadLinkTesting`
+   - 不要填 GitHub release 页面地址。
+
+6. **图标链接必须是可直接访问的图片。**
+   - 推荐 raw 链接。
+   - 不要填 GitHub `blob` 页面链接。
+
+7. **不要靠 PowerShell 控制台判断中文是否正常。**
+   - PowerShell 里看到乱码，不一定代表文件坏了。
+   - 必须用 Python 按 UTF-8/UTF-8-SIG 读取验证。
+
+8. **提交前必须做基础校验。**
+   - `TargetSelector.json` 能被 Python `json.loads` 解析。
+   - 当前不应出现 API 14 条目，除非明确就是要恢复且已经确认可用。
+   - `README.md`、`UPDATE.md`、`PLUGIN_HANDOFF.md` 保持 UTF-8 with BOM。
+   - `TargetSelector.json`、`scripts/sync_sources.json` 保持 UTF-8 无 BOM。
+
 ## 1. 文件与编码约定
 
 本仓库涉及插件收录时，重点关注这些文件：
@@ -41,6 +122,8 @@ python -c "from pathlib import Path; paths=['README.md','UPDATE.md','PLUGIN_HAND
 ## 2. 新增插件前先判断类型
 
 新增插件前，先判断它属于哪一种。
+
+无论哪一种，当前仓库默认只收录 **Dalamud API 15** 插件。遇到 API 14 或更旧的条目，除非已经确认当前 Dalamud 仍允许且仓库维护者明确要求保留，否则不要加入订阅源。
 
 ### 类型 A：来自 `MyDalamudRepo` 且需要自动同步
 
