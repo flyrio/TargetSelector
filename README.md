@@ -19,7 +19,7 @@
 
 ## 当前从 MyDalamudRepo 自动同步的插件
 
-目前会从 `MyDalamudRepo` 自动同步这 6 个插件：
+目前会从 `MyDalamudRepo` 自动同步这 7 个插件：
 
 1. `DalamudACT`
 2. `PluginDockStandalone`
@@ -27,6 +27,7 @@
 4. `Saucy`
 5. `StarlightBreaker`
 6. `WondrousTailsSolver`
+7. `日随伴侣卫月版`
 
 上游来源地址：
 
@@ -34,7 +35,7 @@
 
 ## 当前仓库内其他保留条目
 
-除了上面 6 个会自动同步的插件，当前 `TargetSelector.json` 里还保留这些本仓库自己的条目：
+除了上面 7 个会自动同步的插件，当前 `TargetSelector.json` 里还保留这些本仓库自己的条目：
 
 1. `TargetSelector`
 2. `DeathRecap`
@@ -123,10 +124,10 @@ git status --short --untracked-files=all
 git diff --stat
 ```
 
-建议用 Python 验证当前同步的 6 个插件版本：
+建议用 Python 验证当前同步的 7 个插件版本：
 
 ```powershell
-python --% -c "import json; from pathlib import Path; obj=json.loads(Path(r'E:\git\TargetSelector\TargetSelector.json').read_text(encoding='utf-8-sig')); names=('DalamudACT','PluginDockStandalone','PartyIcons','Saucy','StarlightBreaker','WondrousTailsSolver'); print('\\n'.join('{} {}'.format(i['InternalName'], i['AssemblyVersion']) for i in obj if i.get('InternalName') in names))"
+python --% -c "import json; from pathlib import Path; obj=json.loads(Path(r'E:\git\TargetSelector\TargetSelector.json').read_text(encoding='utf-8-sig')); names=('DalamudACT','PluginDockStandalone','PartyIcons','Saucy','StarlightBreaker','WondrousTailsSolver','日随伴侣卫月版'); print('\\n'.join('{} {}'.format(i['InternalName'], i['AssemblyVersion']) for i in obj if i.get('InternalName') in names))"
 ```
 
 ## 4. 提交并推送
@@ -248,7 +249,7 @@ git push origin main
 更稳的方式是用 Python 按 UTF-8 读取：
 
 ```powershell
-python --% -c "import json; from pathlib import Path; obj=json.loads(Path(r'E:\git\TargetSelector\TargetSelector.json').read_text(encoding='utf-8-sig')); print('\\n'.join('{}\\n{}'.format(i.get('Name'), i.get('Description')) for i in obj if i.get('InternalName') in ('DalamudACT','StarlightBreaker','WondrousTailsSolver')))"
+python --% -c "import json; from pathlib import Path; obj=json.loads(Path(r'E:\git\TargetSelector\TargetSelector.json').read_text(encoding='utf-8-sig')); print('\\n'.join('{}\\n{}'.format(i.get('Name'), i.get('Description')) for i in obj if i.get('InternalName') in ('DalamudACT','StarlightBreaker','WondrousTailsSolver','日随伴侣卫月版')))"
 ```
 
 ## 3. 优先让脚本改版本号和下载链接，不手工到处替换

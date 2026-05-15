@@ -124,9 +124,9 @@
         "ApplicableVersion": "any",
         "DalamudApiLevel": 14,
         "TestingDalamudApiLevel": 14,
-          "Tags": [
+        "Tags": [
             "death",
-             "buff",
+            "buff",
             "log"
         ],
         "IconUrl": "https://raw.githubusercontent.com/flyrio/DeathBuffTracker/main/assets/icon.png",
@@ -145,7 +145,7 @@
         "ApplicableVersion": "any",
         "DalamudApiLevel": 14,
         "TestingDalamudApiLevel": 14,
-          "Tags": [
+        "Tags": [
             "medical",
             "Coyote"
         ],
@@ -165,7 +165,7 @@
         "ApplicableVersion": "any",
         "DalamudApiLevel": 14,
         "TestingDalamudApiLevel": 14,
-          "Tags": [
+        "Tags": [
             "gugugu",
             "MitigationPolice",
             "Battle"
@@ -221,34 +221,35 @@
         "DownloadLinkUpdate": "https://github.com/anmili2022/EzWondrousTails/releases/download/v3.2.2.11/latest.zip",
         "TestingDalamudApiLevel": 15,
         "DownloadLinkTesting": "https://github.com/anmili2022/EzWondrousTails/releases/download/v3.2.2.11/latest.zip"
+    },
+    {
+        "Author": "StarHeartHunt",
+        "Name": "日随伴侣",
+        "InternalName": "日随伴侣卫月版",
+        "AssemblyVersion": "1.0.0.0",
+        "Description": "帮助你记录每日随机任务、导出报告，并实时同步到 DungeonLogger。\n\nHelp you to record your daily roulettes, export reports, and sync with DungeonLogger in real time.",
+        "ApplicableVersion": "any",
+        "Tags": [
+            "随机任务",
+            "指导者",
+            "roulette",
+            "mentor",
+            "plugin"
+        ],
+        "DalamudApiLevel": 15,
+        "LoadRequiredState": 0,
+        "LoadSync": false,
+        "CanUnloadAsync": false,
+        "LoadPriority": 0,
+        "Punchline": "自动记录每日随机任务，包括指导者随机任务。\n\nAuto record your daily roulettes including mentor roulettes.",
+        "AcceptsFeedback": true,
+        "IsHide": "False",
+        "IsTestingExclusive": "False",
+        "DownloadCount": 0,
+        "LastUpdate": "1778834563",
+        "DownloadLinkInstall": "https://github.com/anmili2022/RouletteRecorder.Dalamud/releases/download/v1.0.0.0/latest.zip",
+        "DownloadLinkTesting": "https://github.com/anmili2022/RouletteRecorder.Dalamud/releases/download/v1.0.0.0/latest.zip",
+        "DownloadLinkUpdate": "https://github.com/anmili2022/RouletteRecorder.Dalamud/releases/download/v1.0.0.0/latest.zip",
+        "RepoUrl": "https://github.com/anmili2022/RouletteRecorder.Dalamud"
     }
 ]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
