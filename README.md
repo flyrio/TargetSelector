@@ -4,7 +4,7 @@
 
 `https://raw.githubusercontent.com/flyrio/TargetSelector/main/TargetSelector.json`
 
-如果你只想快速更新，先看 `UPDATE.md`；这里保留完整说明和防乱码细节。
+如果你只想快速更新，先看 `UPDATE.md`；如果要交接或新增插件，先看 `PLUGIN_HANDOFF.md`；这里保留完整说明和防乱码细节。
 
 ## 当前文件角色
 
@@ -14,6 +14,7 @@
 2. `scripts/sync_sources.json`：上游来源配置
 3. `scripts/sync_plugin_sources.py`：同步脚本
 4. `/.github/workflows/sync-plugin-sources.yml`：GitHub Actions 自动同步工作流
+5. `PLUGIN_HANDOFF.md`：新增/交接插件收录流程
 
 ---
 
@@ -42,6 +43,7 @@
 3. `DeathBuffTracker`
 4. `Coyote-FFXiv`
 5. `MitigationPolice`
+6. `AutoFollow`
 
 ---
 
