@@ -175,9 +175,9 @@
             "vnavmesh",
             "ipc"
         ],
-        "DownloadLinkInstall": "https://github.com/wang3x/AutoFollow/releases/download/v1.4.12/AutoFollow_v1.4.12.zip",
-        "DownloadLinkTesting": "https://github.com/wang3x/AutoFollow/releases/download/v1.4.12/AutoFollow_v1.4.12.zip",
-        "DownloadLinkUpdate": "https://github.com/wang3x/AutoFollow/releases/download/v1.4.12/AutoFollow_v1.4.12.zip"
+        "DownloadLinkInstall": "https://raw.githubusercontent.com/flyrio/TargetSelector/main/packages/AutoFollow_v1.4.12.zip",
+        "DownloadLinkTesting": "https://raw.githubusercontent.com/flyrio/TargetSelector/main/packages/AutoFollow_v1.4.12.zip",
+        "DownloadLinkUpdate": "https://raw.githubusercontent.com/flyrio/TargetSelector/main/packages/AutoFollow_v1.4.12.zip"
     },
     {
         "Author": "The Combat Reborn Team",

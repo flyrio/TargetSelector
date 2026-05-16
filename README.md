@@ -14,8 +14,9 @@
 2. `scripts/sync_sources.json`：上游来源配置
 3. `scripts/sync_plugin_sources.py`：同步脚本
 4. `scripts/validate_targetselector.py`：提交前校验脚本，防止截断或非法 JSON 进入仓库
-5. `/.github/workflows/sync-plugin-sources.yml`：GitHub Actions 自动同步与校验工作流
-6. [`PLUGIN_HANDOFF.md`](PLUGIN_HANDOFF.md)：新增/删除/交接插件收录流程与注意事项
+5. `packages/`：本仓库临时托管的修复包；只有上游 release 包本身损坏时才使用
+6. `/.github/workflows/sync-plugin-sources.yml`：GitHub Actions 自动同步与校验工作流
+7. [`PLUGIN_HANDOFF.md`](PLUGIN_HANDOFF.md)：新增/删除/交接插件收录流程与注意事项
 
 ---
 
@@ -114,6 +115,18 @@ git diff --check
 
 1. `AutoFollow`
 2. `ActionTimelineReborn`
+
+### AutoFollow 临时修复包说明
+
+`AutoFollow` 的 `v1.4.12` 上游 release zip 内部曾出现 manifest 版本不一致问题：zip 里的 `AutoFollow.json` 仍写 `AssemblyVersion: 1.4.9.0`，但 `AutoFollow.dll` 实际是 `1.4.12.0`。这种包可能导致 Dalamud 安装时报“安装插件 强效跟随 失败”。
+
+因此当前 `AutoFollow` 的下载链接临时指向本仓库：
+
+`https://raw.githubusercontent.com/flyrio/TargetSelector/main/packages/AutoFollow_v1.4.12.zip`
+
+这个包只修正 zip 内 `AutoFollow.json` 的 `AssemblyVersion` 和 `RepoUrl`，不修改 `AutoFollow.dll`。上游 release 包修复后，应优先切回官方下载链接：
+
+`https://github.com/wang3x/AutoFollow/releases/download/v1.4.12/AutoFollow_v1.4.12.zip`
 
 ---
 

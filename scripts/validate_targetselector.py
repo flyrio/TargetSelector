@@ -2,8 +2,9 @@
 
 import json
 import sys
+import zipfile
 from pathlib import Path
-from urllib.parse import urlparse
+from urllib.parse import unquote, urlparse
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -64,6 +65,79 @@ def validate_url(plugin_name: str, field_name: str, value: str) -> None:
         fail(f"{plugin_name}: {field_name} is not an absolute HTTP(S) URL")
 
 
+def resolve_local_raw_url(value: str) -> Path | None:
+    parsed = urlparse(value)
+    if parsed.scheme != "https" or parsed.netloc != "raw.githubusercontent.com":
+        return None
+
+    parts = [unquote(part) for part in parsed.path.strip("/").split("/")]
+    if len(parts) < 4:
+        return None
+    owner, repo, branch = parts[:3]
+    if owner != "flyrio" or repo != "TargetSelector" or branch != "main":
+        return None
+
+    relative_path = Path(*parts[3:])
+    local_path = (REPO_ROOT / relative_path).resolve()
+    repo_root = REPO_ROOT.resolve()
+    if repo_root != local_path and repo_root not in local_path.parents:
+        fail(f"local raw URL resolves outside the repository: {value}")
+    return local_path
+
+
+def validate_local_package(plugin_name: str, item: dict) -> None:
+    install_link = item.get("DownloadLinkInstall")
+    if not isinstance(install_link, str):
+        return
+
+    package_path = resolve_local_raw_url(install_link)
+    if package_path is None:
+        return
+    if not package_path.exists():
+        fail(f"{plugin_name}: local package does not exist: {package_path.relative_to(REPO_ROOT)}")
+    if package_path.suffix.lower() != ".zip":
+        fail(f"{plugin_name}: local package must be a zip file: {package_path.relative_to(REPO_ROOT)}")
+
+    manifest_name = f"{plugin_name}.json"
+    dll_name = f"{plugin_name}.dll"
+    try:
+        with zipfile.ZipFile(package_path) as archive:
+            names = set(archive.namelist())
+            if manifest_name not in names:
+                fail(f"{plugin_name}: local package is missing {manifest_name}")
+            if dll_name not in names:
+                fail(f"{plugin_name}: local package is missing {dll_name}")
+
+            package_manifest = json.loads(
+                archive.read(manifest_name).decode("utf-8-sig")
+            )
+    except zipfile.BadZipFile as exc:
+        fail(f"{plugin_name}: local package is not a valid zip file: {exc}")
+    except json.JSONDecodeError as exc:
+        fail(
+            f"{plugin_name}: {manifest_name} inside local package is not valid JSON "
+            f"at line {exc.lineno}, column {exc.colno}: {exc.msg}"
+        )
+
+    if package_manifest.get("InternalName") != plugin_name:
+        fail(
+            f"{plugin_name}: local package manifest InternalName is "
+            f"{package_manifest.get('InternalName')!r}"
+        )
+    if package_manifest.get("AssemblyVersion") != item.get("AssemblyVersion"):
+        fail(
+            f"{plugin_name}: local package manifest AssemblyVersion "
+            f"{package_manifest.get('AssemblyVersion')!r} does not match repo "
+            f"manifest {item.get('AssemblyVersion')!r}"
+        )
+    if package_manifest.get("DalamudApiLevel") != item.get("DalamudApiLevel"):
+        fail(
+            f"{plugin_name}: local package manifest DalamudApiLevel "
+            f"{package_manifest.get('DalamudApiLevel')!r} does not match repo "
+            f"manifest {item.get('DalamudApiLevel')!r}"
+        )
+
+
 def validate_target_manifest() -> None:
     items = load_json(TARGET_PATH)
     if not isinstance(items, list):
@@ -103,6 +177,8 @@ def validate_target_manifest() -> None:
                 if not isinstance(value, str):
                     fail(f"{internal_name}: {field_name} must be a string")
                 validate_url(internal_name, field_name, value)
+
+        validate_local_package(internal_name, item)
 
 
 def validate_sync_config() -> None:
