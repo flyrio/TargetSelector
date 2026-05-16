@@ -61,7 +61,8 @@
 4. **手动插件不要随便加入同步配置。**
    - `AutoFollow`、`ActionTimelineReborn` 当前按手动条目维护。
    - 除非确认存在稳定上游 manifest，且同步脚本能正确同步，否则不要把它们加入 `scripts/sync_sources.json`。
-   - `AutoFollow` 如果继续使用本仓库 `packages/AutoFollow_*.zip` 临时修复包，必须确认 zip 内 `AutoFollow.json` 的 `AssemblyVersion` 与 `TargetSelector.json` 一致；上游 release 修复后优先切回官方 release zip。
+   - `AutoFollow` 正常情况下应优先使用官方 release zip；只有上游 release 包本身损坏时，才临时使用本仓库 `packages/AutoFollow_*.zip` 修复包。
+   - 如果临时使用本仓库 `packages/AutoFollow_*.zip`，必须确认 zip 内 `AutoFollow.json` 的 `AssemblyVersion` 与 `TargetSelector.json` 一致；上游 release 修复后优先切回官方 release zip，并删除不再使用的临时包。
 
 5. **下载链接必须是直接 zip 链接。**
    - 三个字段通常填同一个 zip：

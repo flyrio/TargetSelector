@@ -163,7 +163,7 @@
         "InternalName": "AutoFollow",
         "Punchline": "日随顶随摸鱼好帮手，跟随队友解放双手",
         "Description": "最拟真的跟随插件，基于vnavmesh寻路，自动疾跑追赶，可与其他三方输出及躲避插件协同工作。",
-        "AssemblyVersion": "1.4.12.0",
+        "AssemblyVersion": "1.5.0.0",
         "RepoUrl": "https://github.com/wang3x/AutoFollow",
         "ApplicableVersion": "any",
         "DalamudApiLevel": 15,
@@ -175,9 +175,10 @@
             "vnavmesh",
             "ipc"
         ],
-        "DownloadLinkInstall": "https://raw.githubusercontent.com/flyrio/TargetSelector/main/packages/AutoFollow_v1.4.12.zip",
-        "DownloadLinkTesting": "https://raw.githubusercontent.com/flyrio/TargetSelector/main/packages/AutoFollow_v1.4.12.zip",
-        "DownloadLinkUpdate": "https://raw.githubusercontent.com/flyrio/TargetSelector/main/packages/AutoFollow_v1.4.12.zip"
+        "DownloadLinkInstall": "https://github.com/wang3x/AutoFollow/releases/download/v1.5.0/AutoFollow_v1.5.0.zip",
+        "DownloadLinkTesting": "https://github.com/wang3x/AutoFollow/releases/download/v1.5.0/AutoFollow_v1.5.0.zip",
+        "DownloadLinkUpdate": "https://github.com/wang3x/AutoFollow/releases/download/v1.5.0/AutoFollow_v1.5.0.zip",
+        "IconUrl": "https://huiji-public.huijistatic.com/ff14/uploads/b/bb/Old000887.png"
     },
     {
         "Author": "The Combat Reborn Team",
