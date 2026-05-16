@@ -94,7 +94,12 @@
         "DownloadLinkInstall": "https://github.com/anmili2022/StarlightBreaker/releases/download/v2.15.1/StarlightBreaker-v2.15.1.zip",
         "DownloadLinkUpdate": "https://github.com/anmili2022/StarlightBreaker/releases/download/v2.15.1/StarlightBreaker-v2.15.1.zip",
         "TestingDalamudApiLevel": 15,
-        "DownloadLinkTesting": "https://github.com/anmili2022/StarlightBreaker/releases/download/v2.15.1/StarlightBreaker-v2.15.1.zip"
+        "DownloadLinkTesting": "https://github.com/anmili2022/StarlightBreaker/releases/download/v2.15.1/StarlightBreaker-v2.15.1.zip",
+        "Tags": [
+            "chat",
+            "filter",
+            "party finder"
+        ]
     },
     {
         "Author": "daemitus, MidoriKami",

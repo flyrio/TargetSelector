@@ -78,6 +78,7 @@
    - 必须用 Python 按 UTF-8/UTF-8-SIG 读取验证。
 
 8. **提交前必须做基础校验。**
+   - 优先运行 `python scripts/validate_targetselector.py`。
    - `TargetSelector.json` 能被 Python `json.loads` 解析。
    - 当前不应出现 API 14 条目，除非明确就是要恢复且已经确认可用。
    - `README.md`、`UPDATE.md`、`PLUGIN_HANDOFF.md` 保持 UTF-8 with BOM。

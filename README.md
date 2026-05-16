@@ -13,8 +13,9 @@
 1. `TargetSelector.json`：实际提供给 Dalamud 订阅的插件清单
 2. `scripts/sync_sources.json`：上游来源配置
 3. `scripts/sync_plugin_sources.py`：同步脚本
-4. `/.github/workflows/sync-plugin-sources.yml`：GitHub Actions 自动同步工作流
-5. [`PLUGIN_HANDOFF.md`](PLUGIN_HANDOFF.md)：新增/删除/交接插件收录流程与注意事项
+4. `scripts/validate_targetselector.py`：提交前校验脚本，防止截断或非法 JSON 进入仓库
+5. `/.github/workflows/sync-plugin-sources.yml`：GitHub Actions 自动同步与校验工作流
+6. [`PLUGIN_HANDOFF.md`](PLUGIN_HANDOFF.md)：新增/删除/交接插件收录流程与注意事项
 
 ---
 
@@ -136,6 +137,7 @@ no changes
 ```powershell
 git status --short --untracked-files=all
 git diff --stat
+python scripts/validate_targetselector.py
 ```
 
 建议用 Python 验证当前同步的 7 个插件版本：
@@ -147,7 +149,7 @@ python --% -c "import json; from pathlib import Path; obj=json.loads(Path(r'E:\g
 ## 4. 提交并推送
 
 ```powershell
-git add -- TargetSelector.json scripts/sync_sources.json README.md UPDATE.md
+git add -- TargetSelector.json scripts/sync_sources.json scripts/validate_targetselector.py .github/workflows/sync-plugin-sources.yml README.md UPDATE.md PLUGIN_HANDOFF.md
 git commit -m "chore: sync plugin sources"
 git push origin main
 ```

@@ -1,0 +1,60 @@
+name: Sync Plugin Sources
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 */6 * * *"
+  push:
+    paths:
+      - "TargetSelector.json"
+      - "scripts/sync_sources.json"
+      - "scripts/sync_plugin_sources.py"
+      - "scripts/validate_targetselector.py"
+      - ".github/workflows/sync-plugin-sources.yml"
+  pull_request:
+    paths:
+      - "TargetSelector.json"
+      - "scripts/sync_sources.json"
+      - "scripts/sync_plugin_sources.py"
+      - "scripts/validate_targetselector.py"
+      - ".github/workflows/sync-plugin-sources.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  validate-and-sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Validate manifests before sync
+        run: python scripts/validate_targetselector.py
+
+      - name: Sync upstream plugin fields
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: python scripts/sync_plugin_sources.py
+
+      - name: Validate manifests after sync
+        run: python scripts/validate_targetselector.py
+
+      - name: Commit synced manifest
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: |
+          if git diff --quiet -- TargetSelector.json; then
+            echo "No manifest changes to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add TargetSelector.json
+          git commit -m "chore: sync plugin sources"
+          git push
