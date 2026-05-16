@@ -35,6 +35,63 @@
 
 ---
 
+## 订阅源 JSON 损坏事故记录与处理
+
+曾经出现过一次 `TargetSelector.json` 被写成非法 JSON 的事故：库链本身可以访问，但返回内容里有字符串没有结束、插件对象没有写完、缺少 `}` / `]`，导致 Dalamud 读取订阅源时解析失败。典型表现包括：
+
+- `Description` 或 `Punchline` 字符串没有结束双引号。
+- 某个插件对象，例如 `StarlightBreaker`，只写到一半就中断。
+- 文件末尾缺少对象结束符 `}` 或数组结束符 `]`。
+- GitHub raw 链接 HTTP 状态正常，但内容不是合法 JSON。
+
+这类问题通常不是单纯网络问题，可能由以下原因造成：
+
+1. 手动编辑或脚本写回时用了错误编码，导致中文字段 mojibake，并破坏 JSON 字符串。
+2. 曾经把坏 JSON 推上 `main`，Dalamud、GitHub raw CDN、网络代理或本地缓存继续拿到旧内容。
+3. 从聊天记录、网页预览或截断片段复制 JSON，而不是直接使用仓库里的完整文件。
+
+遇到类似问题时，按下面顺序处理。
+
+### 1. 先验证本地文件
+
+```powershell
+python scripts/validate_targetselector.py
+python -m json.tool TargetSelector.json > $null
+```
+
+如果这里失败，先修 `TargetSelector.json`，不要提交，也不要推送。
+
+### 2. 再验证远端 raw 链接
+
+```powershell
+python --% -c "import json, urllib.request, hashlib; u='https://raw.githubusercontent.com/flyrio/TargetSelector/main/TargetSelector.json'; req=urllib.request.Request(u, headers={'Cache-Control':'no-cache','Pragma':'no-cache','User-Agent':'TargetSelector-check'}); data=urllib.request.urlopen(req, timeout=60).read(); obj=json.loads(data.decode('utf-8-sig')); print('remote json ok'); print('bytes', len(data)); print('lines', data.count(b'\n')+1); print('plugins', len(obj)); print('sha256', hashlib.sha256(data).hexdigest())"
+```
+
+如果本地通过但远端失败，说明修复还没有推送，或者 raw/CDN/代理还在返回旧内容。
+
+### 3. 如果远端缓存仍返回旧坏内容
+
+确认本地已经修好后，做一次实际内容变更并提交推送，让 `TargetSelector.json` 产生新的 Git blob。不要只口头确认“本地没问题”。推送后可以用带时间戳的 URL 临时绕过缓存：
+
+```text
+https://raw.githubusercontent.com/flyrio/TargetSelector/main/TargetSelector.json?t=YYYYMMDD-HHMM
+```
+
+Dalamud 里也可以临时填带时间戳的链接测试；确认缓存刷新后，再换回正式链接。
+
+### 4. 提交前强制要求
+
+每次改 `TargetSelector.json`、`scripts/sync_sources.json` 或同步脚本后，至少运行：
+
+```powershell
+python scripts/validate_targetselector.py
+git diff --check
+```
+
+`TargetSelector.json` 必须保持 UTF-8 无 BOM；`README.md`、`UPDATE.md`、`PLUGIN_HANDOFF.md` 必须保持 UTF-8 with BOM。
+
+---
+
 ## 当前从 MyDalamudRepo 自动同步的插件
 
 目前会从 `MyDalamudRepo` 自动同步这 7 个插件：
