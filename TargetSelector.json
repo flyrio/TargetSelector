@@ -158,7 +158,7 @@
         "InternalName": "AutoFollow",
         "Punchline": "vnavmesh寻路跟随，自动疾跑，与循环插件协作",
         "Description": "基于vnavmesh的智能自动跟随插件。自动疾跑追赶，通过陌语命令与循环插件协同工作。支持自定义命令、紧急停止热键、调试日志窗口。",
-        "AssemblyVersion": "1.4.5.0",
+        "AssemblyVersion": "1.4.10.0",
         "RepoUrl": "https://github.com/wang3x/AutoFollow",
         "ApplicableVersion": "any",
         "DalamudApiLevel": 15,
@@ -170,9 +170,9 @@
             "vnavmesh",
             "ipc"
         ],
-        "DownloadLinkInstall": "https://github.com/wang3x/AutoFollow/releases/download/v1.4.5/AutoFollow_v1.4.5.zip",
-        "DownloadLinkTesting": "https://github.com/wang3x/AutoFollow/releases/download/v1.4.5/AutoFollow_v1.4.5.zip",
-        "DownloadLinkUpdate": "https://github.com/wang3x/AutoFollow/releases/download/v1.4.5/AutoFollow_v1.4.5.zip"
+        "DownloadLinkInstall": "https://github.com/wang3x/AutoFollow/releases/download/v1.4.10/AutoFollow_v1.4.10.zip",
+        "DownloadLinkTesting": "https://github.com/wang3x/AutoFollow/releases/download/v1.4.10/AutoFollow_v1.4.10.zip",
+        "DownloadLinkUpdate": "https://github.com/wang3x/AutoFollow/releases/download/v1.4.10/AutoFollow_v1.4.10.zip"
     },
     {
         "Author": "The Combat Reborn Team",
