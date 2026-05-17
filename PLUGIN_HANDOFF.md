@@ -137,6 +137,85 @@ python -c "from pathlib import Path; paths=['README.md','UPDATE.md','PLUGIN_HAND
 - `scripts/sync_sources.json`：通常以 `7b0d0a` 开头，即 `{` + CRLF，无 BOM
 - `scripts/release_sources.json`：通常以 `7b0d0a` 开头，即 `{` + CRLF，无 BOM
 
+<a id="daily-update-flow"></a>
+
+## 日常更新流程（当前主流程）
+
+当前 9 个插件全部由 `scripts/release_sources.json` + `scripts/sync_github_releases.py` 管理。日常更新主流程只需要同步 GitHub Release；`scripts/sync_plugin_sources.py` 只是 MyDalamudRepo 备用 manifest 同步脚本，只有明确修改了 `scripts/sync_sources.json` 的 `plugins` 列表时才需要额外运行。
+
+### 1. 进入仓库并对齐远端
+
+```powershell
+cd E:\git\TargetSelector
+git fetch origin main
+git rebase origin/main
+```
+
+### 2. 跑 GitHub Release 主同步脚本
+
+```powershell
+python scripts/sync_github_releases.py
+```
+
+如果没有新版本，脚本应输出：
+
+```text
+no changes
+```
+
+如果有新版本，脚本会更新 `TargetSelector.json` 中对应插件的版本号、API 等级和三个下载链接字段。同步脚本会下载 release zip，读取 zip 内插件 manifest，并校验 `InternalName`、`DalamudApiLevel` 和版本匹配规则。
+
+### 3. 只有改了备用 manifest 配置时才额外运行
+
+如果这次明确修改了 `scripts/sync_sources.json`，并且给 MyDalamudRepo 备用来源加入了插件名，再额外运行：
+
+```powershell
+python scripts/sync_plugin_sources.py
+```
+
+正常日常更新不要把这一步放进主流程；当前 `scripts/sync_sources.json` 的 `plugins` 列表为空。
+
+### 4. 更新后检查
+
+```powershell
+git status --short --untracked-files=all
+git diff --stat
+python scripts/validate_targetselector.py
+git diff --check
+```
+
+建议用 Python 验证当前 9 个插件版本：
+
+```powershell
+python --% -c "import json; from pathlib import Path; obj=json.loads(Path(r'E:\git\TargetSelector\TargetSelector.json').read_text(encoding='utf-8-sig')); names=('DalamudACT','PluginDockStandalone','PartyIcons','Saucy','StarlightBreaker','WondrousTailsSolver','日随伴侣卫月版','AutoFollow','ActionTimelineReborn'); print('\n'.join('{} {}'.format(i['InternalName'], i['AssemblyVersion']) for i in obj if i.get('InternalName') in names))"
+```
+
+### 5. 提交并推送
+
+如果只是同步已有插件版本，通常至少提交这些文件：
+
+```powershell
+git add -- TargetSelector.json scripts/release_sources.json scripts/sync_github_releases.py scripts/validate_targetselector.py README.md UPDATE.md PLUGIN_HANDOFF.md
+git commit -m "chore: sync plugin sources"
+git push origin main
+```
+
+如果这次也修改了备用 manifest 配置或工作流，再把相关文件一并加入：
+
+```powershell
+git add -- scripts/sync_sources.json scripts/sync_plugin_sources.py .github/workflows/sync-plugin-sources.yml
+```
+
+### 6. 推送后验证远端库链
+
+```powershell
+python --% -c "import json, urllib.request; u='https://raw.githubusercontent.com/flyrio/TargetSelector/main/TargetSelector.json?t=YYYYMMDD-HHMM'; req=urllib.request.Request(u, headers={'Cache-Control':'no-cache','Pragma':'no-cache','User-Agent':'TargetSelector-check'}); obj=json.loads(urllib.request.urlopen(req, timeout=60).read().decode('utf-8-sig')); print('plugins', len(obj)); print('\n'.join('{} {}'.format(i['InternalName'], i['AssemblyVersion']) for i in obj))"
+```
+
+如果正式 raw 链接被缓存，可以临时在 Dalamud 里使用带时间戳参数的链接测试，确认刷新后再换回正式库链。
+
+---
+
 ## 2. 新增插件前先判断类型
 
 新增插件前，先判断它属于哪一种。

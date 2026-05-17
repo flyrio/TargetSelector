@@ -4,7 +4,7 @@
 
 `https://raw.githubusercontent.com/flyrio/TargetSelector/main/TargetSelector.json`
 
-如果你只想快速更新，先看 [`UPDATE.md`](UPDATE.md)；如果要交接、新增、删除或手动维护插件，先看 [`PLUGIN_HANDOFF.md`](PLUGIN_HANDOFF.md)；这里保留完整说明和防乱码细节。
+如果你只想快速更新，先看 [`UPDATE.md`](UPDATE.md)；如果要交接、新增、删除或手动维护插件，先看 [`PLUGIN_HANDOFF.md`](PLUGIN_HANDOFF.md)，其中新的主流程见 [`日常更新流程`](PLUGIN_HANDOFF.md#daily-update-flow)；这里保留完整说明和防乱码细节。
 
 ## 当前文件角色
 
@@ -27,6 +27,8 @@
 交接、新增、删除或手动维护插件前，请先阅读：
 
 [`PLUGIN_HANDOFF.md`](PLUGIN_HANDOFF.md)
+
+日常更新主流程见交接文档的 [`日常更新流程`](PLUGIN_HANDOFF.md#daily-update-flow)。
 
 最容易踩坑的点：
 
