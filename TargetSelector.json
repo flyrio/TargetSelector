@@ -13,9 +13,9 @@
             "ACT"
         ],
         "IconUrl": "https://github.com/wozaiha/DalamudACT/raw/main/DalamudACT/images/icon.png",
-        "DownloadLinkInstall": "https://github.com/anmili2022/DalamudACT/releases/download/latest/DalamudACT.zip",
-        "DownloadLinkTesting": "https://github.com/anmili2022/DalamudACT/releases/download/latest/DalamudACT.zip",
-        "DownloadLinkUpdate": "https://github.com/anmili2022/DalamudACT/releases/download/latest/DalamudACT.zip"
+        "DownloadLinkInstall": "https://github.com/anmili2022/DalamudACT/releases/download/0.15.2.13/DalamudACT.zip",
+        "DownloadLinkTesting": "https://github.com/anmili2022/DalamudACT/releases/download/0.15.2.13/DalamudACT.zip",
+        "DownloadLinkUpdate": "https://github.com/anmili2022/DalamudACT/releases/download/0.15.2.13/DalamudACT.zip"
     },
     {
         "Author": "shdwp, Avaflow, abashby, nebel,Shiyuvi(汉化)",
@@ -105,7 +105,7 @@
         "Author": "daemitus, MidoriKami",
         "Name": "天书概率助手",
         "InternalName": "WondrousTailsSolver",
-        "AssemblyVersion": "3.2.2.11",
+        "AssemblyVersion": "3.2.2.12",
         "Description": "在天书界面实时显示 1 线、2 线、3 线概率，并提供重排后的平均参考。 This plugin prints the probability of getting a row in Wondrous Tails to the in-game display along with the average probability of what would happen if you shuffled.",
         "Punchline": "在天书界面实时显示连线概率。 Adds row probabilities to the Wondrous Tails display.",
         "ApplicableVersion": "any",
@@ -122,16 +122,16 @@
         "LoadPriority": 0,
         "IconUrl": "https://raw.githubusercontent.com/anmili2022/EzWondrousTails/main/res/icon.png",
         "AcceptsFeedback": true,
-        "DownloadLinkInstall": "https://github.com/anmili2022/EzWondrousTails/releases/download/v3.2.2.11/latest.zip",
-        "DownloadLinkUpdate": "https://github.com/anmili2022/EzWondrousTails/releases/download/v3.2.2.11/latest.zip",
+        "DownloadLinkInstall": "https://github.com/anmili2022/EzWondrousTails/releases/download/v3.2.2.12/latest.zip",
+        "DownloadLinkUpdate": "https://github.com/anmili2022/EzWondrousTails/releases/download/v3.2.2.12/latest.zip",
         "TestingDalamudApiLevel": 15,
-        "DownloadLinkTesting": "https://github.com/anmili2022/EzWondrousTails/releases/download/v3.2.2.11/latest.zip"
+        "DownloadLinkTesting": "https://github.com/anmili2022/EzWondrousTails/releases/download/v3.2.2.12/latest.zip"
     },
     {
         "Author": "StarHeartHunt",
         "Name": "日随伴侣",
         "InternalName": "日随伴侣卫月版",
-        "AssemblyVersion": "1.0.0.0",
+        "AssemblyVersion": "1.0.1.0",
         "Description": "帮助你记录每日随机任务、导出报告，并实时同步到 DungeonLogger。\n\nHelp you to record your daily roulettes, export reports, and sync with DungeonLogger in real time.",
         "ApplicableVersion": "any",
         "Tags": [
@@ -153,9 +153,9 @@
         "IsTestingExclusive": "False",
         "DownloadCount": 0,
         "LastUpdate": "1778834563",
-        "DownloadLinkInstall": "https://github.com/anmili2022/RouletteRecorder.Dalamud/releases/download/v1.0.0.0/latest.zip",
-        "DownloadLinkTesting": "https://github.com/anmili2022/RouletteRecorder.Dalamud/releases/download/v1.0.0.0/latest.zip",
-        "DownloadLinkUpdate": "https://github.com/anmili2022/RouletteRecorder.Dalamud/releases/download/v1.0.0.0/latest.zip",
+        "DownloadLinkInstall": "https://github.com/anmili2022/RouletteRecorder.Dalamud/releases/download/v1.0.1.0/latest.zip",
+        "DownloadLinkTesting": "https://github.com/anmili2022/RouletteRecorder.Dalamud/releases/download/v1.0.1.0/latest.zip",
+        "DownloadLinkUpdate": "https://github.com/anmili2022/RouletteRecorder.Dalamud/releases/download/v1.0.1.0/latest.zip",
         "RepoUrl": "https://github.com/anmili2022/RouletteRecorder.Dalamud"
     },
     {

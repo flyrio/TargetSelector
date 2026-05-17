@@ -6,9 +6,9 @@
 
 截至当前工作区，`TargetSelector.json` 中共有 **9 个插件**，全部为 **Dalamud API 15**。
 
-### 0.1 当前从 `MyDalamudRepo` 自动同步的插件
+### 0.1 当前从 GitHub Release 自动同步的插件
 
-这 7 个插件由 `scripts/sync_sources.json` + `scripts/sync_plugin_sources.py` 管理版本号、API 等级和下载链接：
+当前 9 个插件都由 `scripts/release_sources.json` + `scripts/sync_github_releases.py` 管理版本号、API 等级和下载链接：
 
 1. `DalamudACT`
 2. `PluginDockStandalone`
@@ -17,13 +17,17 @@
 5. `StarlightBreaker`
 6. `WondrousTailsSolver`
 7. `日随伴侣卫月版`
+8. `AutoFollow`
+9. `ActionTimelineReborn`
 
-### 0.2 当前从独立 GitHub Release 自动同步的插件
+特殊配置：
 
-这 2 个插件当前不在 `scripts/sync_sources.json` 里，而是由 `scripts/release_sources.json` + `scripts/sync_github_releases.py` 管理版本号、API 等级和下载链接：
+- `PluginDockStandalone` 使用固定 `latest` tag，因此配置了 `fixed_tag`，并从 zip 内 manifest 判断版本。
+- `日随伴侣卫月版` 的 zip 内 manifest 文件名是 `RouletteRecorder.Dalamud.json`，因此配置了 `manifest_name`。
 
-1. `AutoFollow`
-2. `ActionTimelineReborn`
+### 0.2 当前 MyDalamudRepo 备用配置
+
+`scripts/sync_sources.json` 当前保留 `MyDalamudRepo` 来源，但 `plugins` 列表为空。当前没有插件再由 `scripts/sync_sources.json` 管理；只有以后确实要走上游 manifest 时，才把插件加回该配置。
 
 ### 0.3 已清理的 API 14 自有条目
 
@@ -50,18 +54,18 @@
    - 不要只因为旧仓库还有 release，就把 API 14 条目重新放回 `TargetSelector.json`。
 
 2. **同步脚本不会自动新增插件。**
-   - `scripts/sync_plugin_sources.py` 只会更新 `TargetSelector.json` 里已经存在的条目。
-   - 新增来自 `MyDalamudRepo` 的插件时，必须先补完整 JSON 条目，再改 `scripts/sync_sources.json`。
+   - `scripts/sync_github_releases.py` 和 `scripts/sync_plugin_sources.py` 都只会更新 `TargetSelector.json` 里已经存在的条目。
+   - 新增插件时，必须先补完整 JSON 条目，再优先改 `scripts/release_sources.json`；只有确认要走上游 manifest 时，才改 `scripts/sync_sources.json`。
 
 3. **同步脚本只覆盖部分字段。**
    - 会覆盖：`AssemblyVersion`、`ApplicableVersion`、`DalamudApiLevel`、`TestingDalamudApiLevel`、下载链接字段。
    - 不会覆盖：`Name`、`Author`、`Description`、`Punchline`、`IconUrl`、`Tags`、`RepoUrl`。
    - 如果本仓库有中文说明、图标、标签等定制内容，需要手动维护。
 
-4. **独立 GitHub Release 插件不要误加到上游 manifest 同步配置。**
-   - `AutoFollow`、`ActionTimelineReborn` 当前由 `scripts/release_sources.json` + `scripts/sync_github_releases.py` 自动同步。
-   - 除非确认存在稳定上游 manifest，且 `scripts/sync_plugin_sources.py` 能正确同步，否则不要把它们加入 `scripts/sync_sources.json`。
-   - 新增类似插件时，如果 release zip 命名和 tag 规则稳定，优先加入 `scripts/release_sources.json`。
+4. **现有插件统一优先走 GitHub Release 同步。**
+   - 当前 9 个插件都由 `scripts/release_sources.json` + `scripts/sync_github_releases.py` 自动同步。
+   - 除非确认存在稳定上游 manifest，且 `scripts/sync_plugin_sources.py` 能正确同步，否则不要把插件加入 `scripts/sync_sources.json`。
+   - 新增插件时，如果 release zip 命名、tag 规则和 zip 内 manifest 稳定，优先加入 `scripts/release_sources.json`。
    - `AutoFollow` 正常情况下应优先使用官方 release zip；只有上游 release 包本身损坏时，才临时使用本仓库 `packages/AutoFollow_*.zip` 修复包。
    - 如果临时使用本仓库 `packages/AutoFollow_*.zip`，必须确认 zip 内 `AutoFollow.json` 的 `AssemblyVersion` 与 `TargetSelector.json` 一致；上游 release 修复后优先切回官方 release zip，并删除不再使用的临时包。
 
@@ -85,7 +89,7 @@
    - `TargetSelector.json` 能被 Python `json.loads` 解析。
    - 当前不应出现 API 14 条目，除非明确就是要恢复且已经确认可用。
    - `README.md`、`UPDATE.md`、`PLUGIN_HANDOFF.md` 保持 UTF-8 with BOM。
-   - `TargetSelector.json`、`scripts/sync_sources.json` 保持 UTF-8 无 BOM。
+   - `TargetSelector.json`、`scripts/sync_sources.json`、`scripts/release_sources.json` 保持 UTF-8 无 BOM。
 
 ## 1. 文件与编码约定
 
@@ -97,9 +101,9 @@
    - 注意：不要用 PowerShell 控制台里看到的中文来判断文件是否乱码，控制台可能会显示异常。
 
 2. `scripts/sync_sources.json`
-   - 作用：自动同步上游来源的配置。
+   - 作用：上游 manifest 备用同步来源配置。
    - 编码：UTF-8，无 BOM。
-   - 注意：只给确实由同步脚本管理的插件添加来源，不要把所有手动收录插件都塞进去。
+   - 注意：当前 `plugins` 列表为空；只有确实要走上游 manifest 时才添加插件，不要把 GitHub Release 插件塞进去。
 
 3. `scripts/release_sources.json`
    - 作用：独立 GitHub Release 自动同步来源配置。
@@ -139,24 +143,24 @@ python -c "from pathlib import Path; paths=['README.md','UPDATE.md','PLUGIN_HAND
 
 无论哪一种，当前仓库默认只收录 **Dalamud API 15** 插件。遇到 API 14 或更旧的条目，除非已经确认当前 Dalamud 仍允许且仓库维护者明确要求保留，否则不要加入订阅源。
 
-### 类型 A：来自 `MyDalamudRepo` 且需要自动同步
+### 类型 A：独立 GitHub Release 自动同步
 
 这种插件要做两件事：
 
 1. 先把完整插件条目补进 `TargetSelector.json`。
-2. 再把该插件的 `InternalName` 加进 `scripts/sync_sources.json` 的 `plugins` 列表。
+2. 再把该插件的 release 规则加进 `scripts/release_sources.json`。
 
-原因：当前同步脚本只更新 `TargetSelector.json` 里已经存在的条目，不会自动新增条目。如果只改 `sync_sources.json`，脚本会跳过。
+原因：当前同步脚本只更新 `TargetSelector.json` 里已经存在的条目，不会自动新增条目。如果只改 `release_sources.json`，脚本会跳过。
 
-### 类型 B：独立 GitHub Release 自动同步
+### 类型 B：来自 `MyDalamudRepo` 且需要备用 manifest 同步
 
 例如：
 
 - `https://github.com/wang3x/AutoFollow`
 
-这种插件通常不要加入 `scripts/sync_sources.json`。如果它有稳定的 tag 规则、release zip 命名规则，并且 zip 内包含 `{InternalName}.json`，优先把它加入 `scripts/release_sources.json`，由 `scripts/sync_github_releases.py` 自动同步版本号、API 和下载链接。
+这种插件只有在没有稳定 GitHub Release 规则、但有稳定上游 manifest 时才使用。流程是先把完整插件条目补进 `TargetSelector.json`，再把 `InternalName` 加进 `scripts/sync_sources.json`。
 
-如果它没有稳定 release zip，才按纯手动条目维护。
+如果它既没有稳定 release zip，也没有稳定上游 manifest，才按纯手动条目维护。
 
 ## 3. 独立 GitHub Release 收录与排障流程
 
@@ -266,7 +270,7 @@ https://github.com/wang3x/AutoFollow/releases/download/v1.4.5/AutoFollow_v1.4.5.
 
 - 如果上游没有图标，不必强行填 `IconUrl`。当前仓库已有无图标条目的先例。
 - 如果补了 `IconUrl`，必须使用能直接访问的图片原始链接，避免使用 GitHub `blob` 页面链接。
-- 不要把独立手动收录插件误加到 `scripts/sync_sources.json`。
+- 不要把 GitHub Release 插件误加到 `scripts/sync_sources.json`。
 
 ## 4. 中文与 JSON 校验
 
@@ -295,8 +299,8 @@ python -c "import json; from pathlib import Path; obj=json.loads(Path('TargetSel
 新增插件后，建议同步更新文档：
 
 1. `README.md`
-   - 如果是自动同步插件，更新“当前从 MyDalamudRepo 自动同步的插件”列表和数量。
-   - 如果是手动收录插件，更新“当前仓库内其他保留条目”列表。
+   - 如果是 GitHub Release 自动同步插件，更新“当前从 GitHub Release 自动同步的插件”列表和数量。
+   - 如果是 MyDalamudRepo 备用同步或纯手动收录插件，也同步更新对应说明。
    - 保持 UTF-8 with BOM。
 
 2. `UPDATE.md`
@@ -354,7 +358,8 @@ git add -- scripts/release_sources.json scripts/sync_github_releases.py
    - 通常是通过非 UTF-8 管道传递中文导致。
    - 可以用 Unicode 转义写入，或使用明确支持 UTF-8 的编辑器/脚本。
 
-4. **误把手动插件加入同步配置**
+4. **误把 GitHub Release 插件加入上游 manifest 同步配置**
+   - 当前默认优先改 `scripts/release_sources.json`。
    - 只有确认存在稳定上游插件清单且脚本能同步时，才改 `scripts/sync_sources.json`。
 
 5. **IconUrl 填错**

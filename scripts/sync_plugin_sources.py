@@ -125,6 +125,10 @@ def main():
     desired_values = {}
 
     for source in config["sources"]:
+        plugin_names = source.get("plugins", [])
+        if not plugin_names:
+            continue
+
         source_items = fetch_json(source["url"])
         source_map = {
             item["InternalName"]: item
@@ -132,7 +136,7 @@ def main():
             if "InternalName" in item
         }
 
-        for internal_name in source["plugins"]:
+        for internal_name in plugin_names:
             target_item = target_map.get(internal_name)
             source_item = source_map.get(internal_name)
 

@@ -1,6 +1,57 @@
 {
     "sources": [
         {
+            "internal_name": "DalamudACT",
+            "git_url": "https://github.com/anmili2022/DalamudACT.git",
+            "repo": "anmili2022/DalamudACT",
+            "tag_regex": "^(?P<version>\\d+\\.\\d+\\.\\d+\\.\\d+)$",
+            "asset_name_template": "DalamudACT.zip"
+        },
+        {
+            "internal_name": "PluginDockStandalone",
+            "git_url": "https://github.com/anmili2022/PluginDockStandalone.git",
+            "repo": "anmili2022/PluginDockStandalone",
+            "fixed_tag": "latest",
+            "asset_name_template": "latest.zip",
+            "check_assembly_matches_tag": false
+        },
+        {
+            "internal_name": "PartyIcons",
+            "git_url": "https://github.com/anmili2022/xivPartyIcons.git",
+            "repo": "anmili2022/xivPartyIcons",
+            "tag_regex": "^(?P<version>\\d+\\.\\d+\\.\\d+\\.\\d+)$",
+            "asset_name_template": "PartyIcons.zip"
+        },
+        {
+            "internal_name": "Saucy",
+            "git_url": "https://github.com/anmili2022/SaucyCN.git",
+            "repo": "anmili2022/SaucyCN",
+            "tag_regex": "^v(?P<version>\\d+\\.\\d+\\.\\d+\\.\\d+)$",
+            "asset_name_template": "SaucyCN.zip"
+        },
+        {
+            "internal_name": "StarlightBreaker",
+            "git_url": "https://github.com/anmili2022/StarlightBreaker.git",
+            "repo": "anmili2022/StarlightBreaker",
+            "tag_regex": "^v(?P<version>\\d+\\.\\d+\\.\\d+)$",
+            "asset_name_template": "StarlightBreaker-v{version}.zip"
+        },
+        {
+            "internal_name": "WondrousTailsSolver",
+            "git_url": "https://github.com/anmili2022/EzWondrousTails.git",
+            "repo": "anmili2022/EzWondrousTails",
+            "tag_regex": "^v(?P<version>\\d+\\.\\d+\\.\\d+\\.\\d+)$",
+            "asset_name_template": "latest.zip"
+        },
+        {
+            "internal_name": "日随伴侣卫月版",
+            "git_url": "https://github.com/anmili2022/RouletteRecorder.Dalamud.git",
+            "repo": "anmili2022/RouletteRecorder.Dalamud",
+            "tag_regex": "^v(?P<version>\\d+\\.\\d+\\.\\d+\\.\\d+)$",
+            "asset_name_template": "latest.zip",
+            "manifest_name": "RouletteRecorder.Dalamud.json"
+        },
+        {
             "internal_name": "AutoFollow",
             "git_url": "https://github.com/wang3x/AutoFollow.git",
             "repo": "wang3x/AutoFollow",

@@ -31,8 +31,8 @@
 最容易踩坑的点：
 
 - 当前清单只保留 **Dalamud API 15** 插件，不要把已删除的 API 14 自有条目重新加回订阅源。
-- 来自 `MyDalamudRepo` 的插件：先在 `TargetSelector.json` 里有完整条目，再把 `InternalName` 加到 `scripts/sync_sources.json`；同步脚本不会自动新增条目。
-- 独立 GitHub Release 插件优先加入 `scripts/release_sources.json`，不要误加到 `scripts/sync_sources.json`；只有确认有稳定上游 manifest 且同步脚本能处理时，才放进 `scripts/sync_sources.json`。
+- 当前 9 个插件都由 `scripts/release_sources.json` + `scripts/sync_github_releases.py` 按 GitHub Release zip 自动同步。
+- `scripts/sync_sources.json` 当前保留为空的 MyDalamudRepo 备用配置；只有确认要走上游 manifest 时，才把插件加进 `scripts/sync_sources.json`。
 - `README.md`、`UPDATE.md`、`PLUGIN_HANDOFF.md` 保持 UTF-8 with BOM；`TargetSelector.json`、`scripts/sync_sources.json` 和 `scripts/release_sources.json` 保持 UTF-8 无 BOM。
 - 不要用 PowerShell 控制台肉眼判断 JSON 中文是否乱码，必须用 Python 按 UTF-8/UTF-8-SIG 读取验证。
 
@@ -95,9 +95,9 @@ git diff --check
 
 ---
 
-## 当前从 MyDalamudRepo 自动同步的插件
+## 当前从 GitHub Release 自动同步的插件
 
-目前会从 `MyDalamudRepo` 自动同步这 7 个插件：
+目前 `TargetSelector.json` 里的 9 个 API 15 插件都直接检查各自 GitHub Release 并自动同步：
 
 1. `DalamudACT`
 2. `PluginDockStandalone`
@@ -106,17 +106,8 @@ git diff --check
 5. `StarlightBreaker`
 6. `WondrousTailsSolver`
 7. `日随伴侣卫月版`
-
-上游来源地址：
-
-`https://raw.githubusercontent.com/anmili2022/MyDalamudRepo/main/pluginmaster.json`
-
-## 当前从独立 GitHub Release 自动同步的插件
-
-除了上面 7 个来自上游 manifest 的插件，目前还会直接检查各自 GitHub Release 并自动同步这 2 个插件：
-
-1. `AutoFollow`
-2. `ActionTimelineReborn`
+8. `AutoFollow`
+9. `ActionTimelineReborn`
 
 配置文件：
 
@@ -128,9 +119,22 @@ git diff --check
 
 这个脚本会用 `git ls-remote --tags` 找到匹配规则的最新 tag，拼出 release zip 下载链接，下载 zip 并读取其中的插件 manifest。只有 zip 内 manifest 的 `DalamudApiLevel` 仍为 15，且 `AssemblyVersion` 与 tag 版本一致时，才会同步版本号、API 和下载链接。
 
+特殊情况：
+
+- `PluginDockStandalone` 使用固定 `latest` tag，因此配置了 `fixed_tag`，并从 zip 内 manifest 判断版本。
+- `日随伴侣卫月版` 的 zip 内 manifest 文件名是 `RouletteRecorder.Dalamud.json`，因此配置了 `manifest_name`。
+
+## 当前 MyDalamudRepo 备用配置
+
+`/scripts/sync_sources.json` 当前保留 `MyDalamudRepo` 来源，但 `plugins` 列表为空。也就是说，当前没有插件再由上游 manifest 管理；所有 9 个现有插件都以 GitHub Release zip 为准。
+
+上游 manifest 地址仍保留在配置中，方便以后确实需要从 MyDalamudRepo 新增或恢复插件时使用：
+
+`https://raw.githubusercontent.com/anmili2022/MyDalamudRepo/main/pluginmaster.json`
+
 ## 当前仓库内其他保留条目
 
-除了上面 7 个上游 manifest 插件和 2 个 GitHub Release 插件，当前没有额外的纯手动 API 15 条目。
+除了上面 9 个 GitHub Release 插件，当前没有额外的纯手动 API 15 条目。
 
 ### AutoFollow 修复包历史说明
 
@@ -379,7 +383,7 @@ python scripts/sync_github_releases.py
 这一条非常重要：
 
 - **先补 `TargetSelector.json` 条目**
-- **再加 `scripts/sync_sources.json` 里的插件名**
+- **再优先加 `scripts/release_sources.json` 里的 release 规则**
 
 反过来做，脚本只会跳过，不会自动新增条目。
 
@@ -404,6 +408,6 @@ git push origin main
 
 如果只记 3 条，就记这三条：
 
-1. **先 rebase，再同步上游 manifest 和 GitHub Release**
-2. **新插件先补 `TargetSelector.json`，再加 `sync_sources.json`**
+1. **先 rebase，再同步 GitHub Release**
+2. **新插件先补 `TargetSelector.json`，再优先加 `release_sources.json`**
 3. **中文和版本用 Python 验证，不靠控制台肉眼猜**

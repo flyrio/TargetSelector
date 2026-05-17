@@ -6,7 +6,7 @@
 
 详细说明看 `README.md`，这里保留一份适合下次快速更新的速查版。
 
-## 当前从 MyDalamudRepo 同步的插件
+## 当前从 GitHub Release 自动同步的插件
 
 1. `DalamudACT`
 2. `PluginDockStandalone`
@@ -15,13 +15,14 @@
 5. `StarlightBreaker`
 6. `WondrousTailsSolver`
 7. `日随伴侣卫月版`
+8. `AutoFollow`
+9. `ActionTimelineReborn`
 
 ---
 
-## 当前从独立 GitHub Release 自动同步的插件
+## 当前 MyDalamudRepo 备用配置
 
-1. `AutoFollow`
-2. `ActionTimelineReborn`
+`/scripts/sync_sources.json` 当前保留 MyDalamudRepo 来源，但 `plugins` 列表为空；现有 9 个插件全部由 `/scripts/release_sources.json` 管理。
 
 ---
 
@@ -32,11 +33,11 @@
 - 每 6 小时自动检查一次
 - 也可以在 `Actions` 页面手动触发
 - 工作流文件：`/.github/workflows/sync-plugin-sources.yml`
-- 上游 manifest 同步脚本：`/scripts/sync_plugin_sources.py`
 - GitHub Release 同步脚本：`/scripts/sync_github_releases.py`
+- 上游 manifest 备用同步脚本：`/scripts/sync_plugin_sources.py`
 - 校验脚本：`/scripts/validate_targetselector.py`
-- 上游 manifest 来源配置：`/scripts/sync_sources.json`
 - GitHub Release 来源配置：`/scripts/release_sources.json`
+- 上游 manifest 备用来源配置：`/scripts/sync_sources.json`
 
 普通更新优先让自动同步跑；如果要手动处理，就照下面流程来。
 
@@ -83,12 +84,13 @@ git push origin main
 
 ---
 
-## 新增一个来自 MyDalamudRepo 的插件
+## 新增插件
 
-这个仓库新增同步插件时，要记住这两步必须都做：
+这个仓库新增同步插件时，优先走 GitHub Release 自动同步：
 
 1. **先把完整插件条目补进 `TargetSelector.json`**
-2. **再把 `InternalName` 加进 `scripts/sync_sources.json`**
+2. **再把 release 规则加进 `scripts/release_sources.json`**
+3. 只有确认要走上游 manifest 时，才改 `scripts/sync_sources.json`
 
 然后再跑：
 
@@ -97,7 +99,7 @@ python scripts/sync_plugin_sources.py
 python scripts/sync_github_releases.py
 ```
 
-如果只加同步名单、不补条目，脚本会跳过这个插件。
+如果只加同步名单、不补 `TargetSelector.json` 条目，脚本会跳过这个插件。
 
 ---
 
@@ -135,7 +137,7 @@ python --% -c "import json; from pathlib import Path; obj=json.loads(Path(r'E:\g
 
 ### 2. 优先跑脚本，不手动到处改版本号和下载链接
 
-只要插件已经接进 `scripts/sync_sources.json`，就优先跑：
+只要插件已经接进 `scripts/release_sources.json` 或备用的 `scripts/sync_sources.json`，就优先跑：
 
 ```powershell
 python scripts/sync_plugin_sources.py
@@ -147,12 +149,12 @@ python scripts/sync_github_releases.py
 这一条最容易漏：
 
 - 先补 `TargetSelector.json`
-- 再改 `scripts/sync_sources.json`
+- 再优先改 `scripts/release_sources.json`
 
 ---
 
 ## 记住这 3 条就够了
 
-1. **先 rebase，再同步上游 manifest 和 GitHub Release，再校验**
-2. **新插件先补 `TargetSelector.json`，再加 `sync_sources.json`**
+1. **先 rebase，再同步 GitHub Release，再校验**
+2. **新插件先补 `TargetSelector.json`，再优先加 `release_sources.json`**
 3. **中文和版本用 Python 验证，不靠控制台猜**

@@ -227,12 +227,29 @@ def validate_release_config(target_internal_names: set[str]) -> None:
             "internal_name",
             "git_url",
             "repo",
-            "tag_regex",
             "asset_name_template",
         )
         for field_name in required_string_fields:
             if not isinstance(source.get(field_name), str) or not source[field_name]:
                 fail(f"{label}: {field_name} must be a non-empty string")
+
+        has_tag_regex = "tag_regex" in source
+        has_fixed_tag = "fixed_tag" in source
+        if has_tag_regex == has_fixed_tag:
+            fail(f"{label}: exactly one of tag_regex or fixed_tag must be present")
+        if has_tag_regex and (
+            not isinstance(source.get("tag_regex"), str) or not source["tag_regex"]
+        ):
+            fail(f"{label}: tag_regex must be a non-empty string")
+        if has_fixed_tag and (
+            not isinstance(source.get("fixed_tag"), str) or not source["fixed_tag"]
+        ):
+            fail(f"{label}: fixed_tag must be a non-empty string")
+        fixed_version = source.get("fixed_version")
+        if fixed_version is not None and (
+            not isinstance(fixed_version, str) or not fixed_version
+        ):
+            fail(f"{label}: fixed_version must be a non-empty string when present")
 
         internal_name = source["internal_name"]
         if internal_name in seen_internal_names:
@@ -247,10 +264,11 @@ def validate_release_config(target_internal_names: set[str]) -> None:
         if not re.fullmatch(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+", source["repo"]):
             fail(f"{label}: repo must be in owner/name form")
 
-        try:
-            re.compile(source["tag_regex"])
-        except re.error as exc:
-            fail(f"{label}: tag_regex is not a valid regular expression: {exc}")
+        if has_tag_regex:
+            try:
+                re.compile(source["tag_regex"])
+            except re.error as exc:
+                fail(f"{label}: tag_regex is not a valid regular expression: {exc}")
 
         try:
             source["asset_name_template"].format(

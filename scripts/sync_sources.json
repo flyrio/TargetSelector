@@ -3,15 +3,7 @@
         {
             "name": "MyDalamudRepo",
             "url": "https://raw.githubusercontent.com/anmili2022/MyDalamudRepo/main/pluginmaster.json",
-            "plugins": [
-                "DalamudACT",
-                "PluginDockStandalone",
-                "PartyIcons",
-                "Saucy",
-                "StarlightBreaker",
-                "WondrousTailsSolver",
-                "日随伴侣卫月版"
-            ]
+            "plugins": []
         }
     ]
 }

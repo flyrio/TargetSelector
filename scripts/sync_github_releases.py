@@ -103,6 +103,13 @@ def assembly_version_matches_tag(
 
 def select_latest_tag(source: dict) -> tuple[str, str]:
     git_url = source["git_url"]
+
+    if "fixed_tag" in source:
+        tag = source["fixed_tag"]
+        if tag not in list_remote_tags(git_url):
+            fail(f"{source['internal_name']}: fixed tag {tag!r} is missing")
+        return tag, source.get("fixed_version", tag)
+
     tag_pattern = re.compile(source["tag_regex"])
     candidates = []
 
