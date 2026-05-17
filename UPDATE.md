@@ -56,7 +56,6 @@ git rebase origin/main
 ### 2. 跑同步脚本
 
 ```powershell
-python scripts/sync_plugin_sources.py
 python scripts/sync_github_releases.py
 ```
 
@@ -92,10 +91,9 @@ git push origin main
 2. **再把 release 规则加进 `scripts/release_sources.json`**
 3. 只有确认要走上游 manifest 时，才改 `scripts/sync_sources.json`
 
-然后再跑：
+然后再跑主同步脚本：
 
 ```powershell
-python scripts/sync_plugin_sources.py
 python scripts/sync_github_releases.py
 ```
 
@@ -110,7 +108,6 @@ python scripts/sync_github_releases.py
 ```powershell
 git fetch origin main
 git rebase origin/main
-python scripts/sync_plugin_sources.py
 python scripts/sync_github_releases.py
 python scripts/validate_targetselector.py
 ```
@@ -137,10 +134,9 @@ python --% -c "import json; from pathlib import Path; obj=json.loads(Path(r'E:\g
 
 ### 2. 优先跑脚本，不手动到处改版本号和下载链接
 
-只要插件已经接进 `scripts/release_sources.json` 或备用的 `scripts/sync_sources.json`，就优先跑：
+只要插件已经接进 `scripts/release_sources.json`，就优先跑：
 
 ```powershell
-python scripts/sync_plugin_sources.py
 python scripts/sync_github_releases.py
 ```
 

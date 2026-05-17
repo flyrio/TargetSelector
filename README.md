@@ -11,10 +11,10 @@
 这个仓库里和发布/同步最相关的文件有：
 
 1. `TargetSelector.json`：实际提供给 Dalamud 订阅的插件清单
-2. `scripts/sync_sources.json`：上游 manifest 来源配置
-3. `scripts/sync_plugin_sources.py`：从上游 manifest 同步版本号、API 和下载链接的脚本
-4. `scripts/release_sources.json`：独立 GitHub Release 来源配置
-5. `scripts/sync_github_releases.py`：从 GitHub Release zip 读取插件 manifest 并同步库链的脚本
+2. `scripts/release_sources.json`：当前 9 个插件的 GitHub Release 来源配置
+3. `scripts/sync_github_releases.py`：从 GitHub Release zip 读取插件 manifest 并同步库链的主同步脚本
+4. `scripts/sync_sources.json`：备用上游 manifest 来源配置，当前插件列表为空
+5. `scripts/sync_plugin_sources.py`：备用上游 manifest 同步脚本
 6. `scripts/validate_targetselector.py`：提交前校验脚本，防止截断或非法 JSON 进入仓库
 7. `packages/`：本仓库临时托管的修复包目录；只有上游 release 包本身损坏时才使用，正常情况下不应使用
 8. `/.github/workflows/sync-plugin-sources.yml`：GitHub Actions 自动同步与校验工作流
@@ -160,10 +160,10 @@ git diff --check
 - 手动触发：仓库 `Actions` 页面里的 `workflow_dispatch`
 - 定时触发：**每 6 小时** 自动检查一次
 - 工作流文件：`/.github/workflows/sync-plugin-sources.yml`
-- 上游 manifest 同步脚本：`/scripts/sync_plugin_sources.py`
-- 上游 manifest 来源配置：`/scripts/sync_sources.json`
-- GitHub Release 同步脚本：`/scripts/sync_github_releases.py`
+- GitHub Release 主同步脚本：`/scripts/sync_github_releases.py`
 - GitHub Release 来源配置：`/scripts/release_sources.json`
+- 上游 manifest 备用同步脚本：`/scripts/sync_plugin_sources.py`
+- 上游 manifest 备用来源配置：`/scripts/sync_sources.json`
 
 ### 这些脚本会同步哪些字段
 
@@ -216,11 +216,10 @@ git rebase origin/main
 ## 2. 跑同步脚本
 
 ```powershell
-python scripts/sync_plugin_sources.py
 python scripts/sync_github_releases.py
 ```
 
-如果配置没问题，而且上游没有新变化，脚本会输出：
+如果配置没问题，而且 GitHub Release 没有新变化，脚本会输出：
 
 ```text
 no changes
@@ -252,53 +251,64 @@ git push origin main
 
 ---
 
-# 新增一个来自 MyDalamudRepo 的插件
+# 新增插件的同步配置
 
-这是这个仓库和 `MyDalamudRepo` 最大的区别：
+当前默认优先走 GitHub Release 自动同步，而不是 MyDalamudRepo manifest。
 
-**只把插件名加进 `scripts/sync_sources.json` 还不够。**
+## 1. 先补 `TargetSelector.json` 完整条目
 
-因为当前同步脚本的逻辑是：
-
-- 先在 `TargetSelector.json` 里找到已有条目
-- 再只更新其中的版本号、API 和下载链接字段
-
-如果你只改了 `scripts/sync_sources.json`，但 `TargetSelector.json` 里没有对应条目，脚本会提示类似：
-
-```text
-skip: SomePlugin is not present in TargetSelector.json
-```
-
-所以新增一个来自 `MyDalamudRepo` 的插件，正确流程是：
-
-## 1. 先从 MyDalamudRepo 复制完整插件条目
-
-来源文件：
-
-`E:\git\MyDalamudRepo\pluginmaster.json`
-
-把对应插件的完整 JSON 条目复制到：
+无论走哪种同步方式，同步脚本都不会自动新增插件对象。必须先把完整插件条目补进：
 
 `E:\git\TargetSelector\TargetSelector.json`
 
-## 2. 再把插件名加进同步来源配置
+确认至少包含：
 
-编辑：
+- `InternalName`
+- `AssemblyVersion`
+- `ApplicableVersion`
+- `DalamudApiLevel`
+- `TestingDalamudApiLevel`
+- 三个下载链接字段
+- 本库需要保留的中文 `Name` / `Description` / `Punchline` 等展示字段
 
-`E:\git\TargetSelector\scripts\sync_sources.json`
+## 2. 优先把 release 规则加入 `scripts/release_sources.json`
 
-在 `MyDalamudRepo` 的 `plugins` 列表里加上对应 `InternalName`。
+如果插件有稳定的 GitHub tag、release zip 命名规则，并且 zip 内含可解析的插件 manifest，就把规则加入：
 
-## 3. 再跑一次同步脚本
+`E:\git\TargetSelector\scripts\release_sources.json`
+
+常见配置项：
+
+- `internal_name`：插件 `InternalName`
+- `git_url`：用于 `git ls-remote --tags` 的仓库地址
+- `repo`：GitHub `owner/repo`
+- `tag_regex`：版本 tag 匹配规则
+- `asset_name_template`：release zip 文件名模板
+- `manifest_name`：zip 内 manifest 文件名特殊时才填
+- `fixed_tag`：只使用固定 tag，例如 `latest` 时才填
+- `check_assembly_matches_tag`：固定 `latest` 这类 tag 通常设为 `false`
+
+## 3. 只有确实需要上游 manifest 时，才改 `scripts/sync_sources.json`
+
+`/scripts/sync_sources.json` 当前只是 MyDalamudRepo 备用配置，`plugins` 列表为空。只有没有稳定 release 规则、但确认上游 manifest 稳定可用时，才把 `InternalName` 加进去。
+
+## 4. 跑同步脚本
+
+日常主流程只需要：
 
 ```powershell
-python scripts/sync_plugin_sources.py
 python scripts/sync_github_releases.py
 ```
 
-## 4. 如果需要本仓库自己的文案/图标，再手动改
+如果你刚刚明确改了 `scripts/sync_sources.json` 的备用 manifest 插件列表，再额外跑：
 
-因为当前脚本不会覆盖：
+```powershell
+python scripts/sync_plugin_sources.py
+```
+
+## 5. 如果需要本仓库自己的文案/图标，再手动改
+
+自动同步不会覆盖：
 
 - `Name`
 - `Description`
@@ -309,11 +319,11 @@ python scripts/sync_github_releases.py
 
 如果你想保留 `TargetSelector` 仓库自己的中文文案、图标或来源地址，就在同步后再手动调整这些字段。
 
-## 5. 最后提交推送
+## 6. 最后提交推送
 
 ```powershell
-git add -- TargetSelector.json scripts/sync_sources.json README.md UPDATE.md
-git commit -m "chore: add synced plugin"
+git add -- TargetSelector.json scripts/release_sources.json scripts/sync_github_releases.py scripts/validate_targetselector.py README.md UPDATE.md PLUGIN_HANDOFF.md
+git commit -m "chore: add release synced plugin"
 git push origin main
 ```
 
@@ -328,10 +338,9 @@ git fetch origin main
 git rebase origin/main
 ```
 
-然后重新跑一次同步脚本：
+然后重新跑一次主同步脚本：
 
 ```powershell
-python scripts/sync_plugin_sources.py
 python scripts/sync_github_releases.py
 ```
 
@@ -369,10 +378,9 @@ python --% -c "import json; from pathlib import Path; obj=json.loads(Path(r'E:\g
 
 ## 3. 优先让脚本改版本号和下载链接，不手工到处替换
 
-只要是已经接入 `scripts/sync_sources.json` 或 `scripts/release_sources.json` 的插件，优先跑：
+只要是已经接入 `scripts/release_sources.json` 的插件，优先跑：
 
 ```powershell
-python scripts/sync_plugin_sources.py
 python scripts/sync_github_releases.py
 ```
 
@@ -397,7 +405,6 @@ python scripts/sync_github_releases.py
 cd E:\git\TargetSelector
 git fetch origin main
 git rebase origin/main
-python scripts/sync_plugin_sources.py
 python scripts/sync_github_releases.py
 git status --short --untracked-files=all
 git diff --stat

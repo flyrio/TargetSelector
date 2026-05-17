@@ -46,7 +46,7 @@ jobs:
       - name: Validate manifests before sync
         run: python scripts/validate_targetselector.py
 
-      - name: Sync upstream plugin fields
+      - name: Sync upstream manifest backup fields
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         run: python scripts/sync_plugin_sources.py
 
