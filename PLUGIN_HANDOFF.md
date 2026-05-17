@@ -1,6 +1,6 @@
 ﻿# TargetSelector 插件收录交接文档
 
-本文档用于交接“新增/更新插件收录”的标准流程，尤其适用于像 `AutoFollow` 这种直接从独立 GitHub 仓库发布页收录的插件。
+本文档用于交接“新增/更新插件收录”的标准流程，尤其适用于来自上游 manifest 的插件，以及像 `AutoFollow` 这种直接从独立 GitHub Release 收录的插件。
 
 ## 0. 当前清单状态与交接重点
 
@@ -18,9 +18,9 @@
 6. `WondrousTailsSolver`
 7. `日随伴侣卫月版`
 
-### 0.2 当前本仓库手动保留的插件
+### 0.2 当前从独立 GitHub Release 自动同步的插件
 
-这 2 个插件当前不在 `scripts/sync_sources.json` 里，按手动条目维护：
+这 2 个插件当前不在 `scripts/sync_sources.json` 里，而是由 `scripts/release_sources.json` + `scripts/sync_github_releases.py` 管理版本号、API 等级和下载链接：
 
 1. `AutoFollow`
 2. `ActionTimelineReborn`
@@ -58,9 +58,10 @@
    - 不会覆盖：`Name`、`Author`、`Description`、`Punchline`、`IconUrl`、`Tags`、`RepoUrl`。
    - 如果本仓库有中文说明、图标、标签等定制内容，需要手动维护。
 
-4. **手动插件不要随便加入同步配置。**
-   - `AutoFollow`、`ActionTimelineReborn` 当前按手动条目维护。
-   - 除非确认存在稳定上游 manifest，且同步脚本能正确同步，否则不要把它们加入 `scripts/sync_sources.json`。
+4. **独立 GitHub Release 插件不要误加到上游 manifest 同步配置。**
+   - `AutoFollow`、`ActionTimelineReborn` 当前由 `scripts/release_sources.json` + `scripts/sync_github_releases.py` 自动同步。
+   - 除非确认存在稳定上游 manifest，且 `scripts/sync_plugin_sources.py` 能正确同步，否则不要把它们加入 `scripts/sync_sources.json`。
+   - 新增类似插件时，如果 release zip 命名和 tag 规则稳定，优先加入 `scripts/release_sources.json`。
    - `AutoFollow` 正常情况下应优先使用官方 release zip；只有上游 release 包本身损坏时，才临时使用本仓库 `packages/AutoFollow_*.zip` 修复包。
    - 如果临时使用本仓库 `packages/AutoFollow_*.zip`，必须确认 zip 内 `AutoFollow.json` 的 `AssemblyVersion` 与 `TargetSelector.json` 一致；上游 release 修复后优先切回官方 release zip，并删除不再使用的临时包。
 
@@ -100,18 +101,27 @@
    - 编码：UTF-8，无 BOM。
    - 注意：只给确实由同步脚本管理的插件添加来源，不要把所有手动收录插件都塞进去。
 
-3. `README.md`
+3. `scripts/release_sources.json`
+   - 作用：独立 GitHub Release 自动同步来源配置。
+   - 编码：UTF-8，无 BOM。
+   - 注意：只给 release zip 命名、tag 规则和 zip 内 manifest 稳定的插件添加来源。
+
+4. `scripts/sync_github_releases.py`
+   - 作用：用 `git ls-remote --tags` 找最新 tag，下载 release zip，读取 zip 内插件 manifest，并在 API 与 tag 版本校验通过后同步版本号、API 和下载链接。
+   - 编码：UTF-8。
+
+5. `README.md`
    - 作用：完整说明文档，并链接本交接文档。
    - 编码：UTF-8 with BOM。
 
-4. `UPDATE.md`
+6. `UPDATE.md`
    - 作用：日常快速更新速查。
    - 编码：UTF-8 with BOM。
 
 建议用下面命令检查文件编码头：
 
 ```powershell
-python -c "from pathlib import Path; paths=['README.md','UPDATE.md','PLUGIN_HANDOFF.md','TargetSelector.json','scripts/sync_sources.json']; [print(s, Path(s).read_bytes()[:3].hex()) for s in paths]"
+python -c "from pathlib import Path; paths=['README.md','UPDATE.md','PLUGIN_HANDOFF.md','TargetSelector.json','scripts/sync_sources.json','scripts/release_sources.json']; [print(s, Path(s).read_bytes()[:3].hex()) for s in paths]"
 ```
 
 期望结果：
@@ -121,6 +131,7 @@ python -c "from pathlib import Path; paths=['README.md','UPDATE.md','PLUGIN_HAND
 - `PLUGIN_HANDOFF.md`：`efbbbf`
 - `TargetSelector.json`：通常以 `5b0d0a` 开头，即 `[` + CRLF，无 BOM
 - `scripts/sync_sources.json`：通常以 `7b0d0a` 开头，即 `{` + CRLF，无 BOM
+- `scripts/release_sources.json`：通常以 `7b0d0a` 开头，即 `{` + CRLF，无 BOM
 
 ## 2. 新增插件前先判断类型
 
@@ -137,15 +148,17 @@ python -c "from pathlib import Path; paths=['README.md','UPDATE.md','PLUGIN_HAND
 
 原因：当前同步脚本只更新 `TargetSelector.json` 里已经存在的条目，不会自动新增条目。如果只改 `sync_sources.json`，脚本会跳过。
 
-### 类型 B：独立仓库手动收录
+### 类型 B：独立 GitHub Release 自动同步
 
 例如：
 
 - `https://github.com/wang3x/AutoFollow`
 
-这种插件通常只需要改 `TargetSelector.json`，不要加入 `scripts/sync_sources.json`，除非你已经给它配置了稳定的上游 JSON 清单，并确认同步脚本能处理。
+这种插件通常不要加入 `scripts/sync_sources.json`。如果它有稳定的 tag 规则、release zip 命名规则，并且 zip 内包含 `{InternalName}.json`，优先把它加入 `scripts/release_sources.json`，由 `scripts/sync_github_releases.py` 自动同步版本号、API 和下载链接。
 
-## 3. 独立 GitHub 仓库手动收录流程
+如果它没有稳定 release zip，才按纯手动条目维护。
+
+## 3. 独立 GitHub Release 收录与排障流程
 
 以 `AutoFollow` 为例。
 
@@ -295,7 +308,7 @@ python -c "import json; from pathlib import Path; obj=json.loads(Path('TargetSel
 ```powershell
 git status --short --untracked-files=all
 git diff --stat
-git diff -- TargetSelector.json README.md UPDATE.md PLUGIN_HANDOFF.md
+git diff -- TargetSelector.json scripts/release_sources.json scripts/sync_github_releases.py .github/workflows/sync-plugin-sources.yml README.md UPDATE.md PLUGIN_HANDOFF.md
 ```
 
 确认：
@@ -304,11 +317,11 @@ git diff -- TargetSelector.json README.md UPDATE.md PLUGIN_HANDOFF.md
 - `TargetSelector.json` JSON 可解析。
 - 中文字段没有变成 `????`。
 - `README.md`、`UPDATE.md` 和 `PLUGIN_HANDOFF.md` 是 UTF-8 with BOM。
-- `TargetSelector.json` 和 `scripts/sync_sources.json` 是 UTF-8 无 BOM。
+- `TargetSelector.json`、`scripts/sync_sources.json` 和 `scripts/release_sources.json` 是 UTF-8 无 BOM。
 
 ## 7. 提交建议
 
-如果只是新增一个手动收录插件：
+如果只是新增一个纯手动收录插件：
 
 ```powershell
 git add -- TargetSelector.json README.md UPDATE.md PLUGIN_HANDOFF.md
@@ -316,10 +329,16 @@ git commit -m "chore: add AutoFollow plugin"
 git push origin main
 ```
 
-如果还更新了同步来源配置，则额外加入：
+如果还更新了上游 manifest 同步来源配置，则额外加入：
 
 ```powershell
 git add -- scripts/sync_sources.json
+```
+
+如果还更新了 GitHub Release 同步来源配置或脚本，则额外加入：
+
+```powershell
+git add -- scripts/release_sources.json scripts/sync_github_releases.py
 ```
 
 ## 8. 常见坑

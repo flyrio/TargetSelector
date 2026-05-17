@@ -18,6 +18,13 @@
 
 ---
 
+## 当前从独立 GitHub Release 自动同步的插件
+
+1. `AutoFollow`
+2. `ActionTimelineReborn`
+
+---
+
 ## 自动同步
 
 这个仓库会通过 GitHub Actions 的 `Sync Plugin Sources` 定时同步：
@@ -25,9 +32,11 @@
 - 每 6 小时自动检查一次
 - 也可以在 `Actions` 页面手动触发
 - 工作流文件：`/.github/workflows/sync-plugin-sources.yml`
-- 同步脚本：`/scripts/sync_plugin_sources.py`
+- 上游 manifest 同步脚本：`/scripts/sync_plugin_sources.py`
+- GitHub Release 同步脚本：`/scripts/sync_github_releases.py`
 - 校验脚本：`/scripts/validate_targetselector.py`
-- 来源配置：`/scripts/sync_sources.json`
+- 上游 manifest 来源配置：`/scripts/sync_sources.json`
+- GitHub Release 来源配置：`/scripts/release_sources.json`
 
 普通更新优先让自动同步跑；如果要手动处理，就照下面流程来。
 
@@ -47,6 +56,7 @@ git rebase origin/main
 
 ```powershell
 python scripts/sync_plugin_sources.py
+python scripts/sync_github_releases.py
 ```
 
 ### 3. 更新后检查
@@ -57,16 +67,16 @@ git diff --stat
 python scripts/validate_targetselector.py
 ```
 
-建议用 Python 验证当前同步的 7 个插件版本：
+建议用 Python 验证当前自动同步的 9 个插件版本：
 
 ```powershell
-python --% -c "import json; from pathlib import Path; obj=json.loads(Path(r'E:\git\TargetSelector\TargetSelector.json').read_text(encoding='utf-8-sig')); names=('DalamudACT','PluginDockStandalone','PartyIcons','Saucy','StarlightBreaker','WondrousTailsSolver','日随伴侣卫月版'); print('\\n'.join('{} {}'.format(i['InternalName'], i['AssemblyVersion']) for i in obj if i.get('InternalName') in names))"
+python --% -c "import json; from pathlib import Path; obj=json.loads(Path(r'E:\git\TargetSelector\TargetSelector.json').read_text(encoding='utf-8-sig')); names=('DalamudACT','PluginDockStandalone','PartyIcons','Saucy','StarlightBreaker','WondrousTailsSolver','日随伴侣卫月版','AutoFollow','ActionTimelineReborn'); print('\\n'.join('{} {}'.format(i['InternalName'], i['AssemblyVersion']) for i in obj if i.get('InternalName') in names))"
 ```
 
 ### 4. 提交并推送
 
 ```powershell
-git add -- TargetSelector.json scripts/sync_sources.json scripts/validate_targetselector.py .github/workflows/sync-plugin-sources.yml README.md UPDATE.md PLUGIN_HANDOFF.md
+git add -- TargetSelector.json scripts/sync_sources.json scripts/release_sources.json scripts/sync_plugin_sources.py scripts/sync_github_releases.py scripts/validate_targetselector.py .github/workflows/sync-plugin-sources.yml README.md UPDATE.md PLUGIN_HANDOFF.md
 git commit -m "chore: sync plugin sources"
 git push origin main
 ```
@@ -84,6 +94,7 @@ git push origin main
 
 ```powershell
 python scripts/sync_plugin_sources.py
+python scripts/sync_github_releases.py
 ```
 
 如果只加同步名单、不补条目，脚本会跳过这个插件。
@@ -98,13 +109,14 @@ python scripts/sync_plugin_sources.py
 git fetch origin main
 git rebase origin/main
 python scripts/sync_plugin_sources.py
+python scripts/sync_github_releases.py
 python scripts/validate_targetselector.py
 ```
 
 然后重新提交：
 
 ```powershell
-git add -- TargetSelector.json scripts/sync_sources.json scripts/validate_targetselector.py .github/workflows/sync-plugin-sources.yml README.md UPDATE.md PLUGIN_HANDOFF.md
+git add -- TargetSelector.json scripts/sync_sources.json scripts/release_sources.json scripts/sync_plugin_sources.py scripts/sync_github_releases.py scripts/validate_targetselector.py .github/workflows/sync-plugin-sources.yml README.md UPDATE.md PLUGIN_HANDOFF.md
 git commit -m "chore: sync plugin sources"
 git push origin main
 ```
@@ -127,6 +139,7 @@ python --% -c "import json; from pathlib import Path; obj=json.loads(Path(r'E:\g
 
 ```powershell
 python scripts/sync_plugin_sources.py
+python scripts/sync_github_releases.py
 ```
 
 ### 3. 新插件先补条目，再加同步名单
@@ -140,6 +153,6 @@ python scripts/sync_plugin_sources.py
 
 ## 记住这 3 条就够了
 
-1. **先 rebase，再同步，再校验**
+1. **先 rebase，再同步上游 manifest 和 GitHub Release，再校验**
 2. **新插件先补 `TargetSelector.json`，再加 `sync_sources.json`**
 3. **中文和版本用 Python 验证，不靠控制台猜**

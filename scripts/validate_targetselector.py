@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import json
+import re
 import sys
 import zipfile
 from pathlib import Path
@@ -10,6 +11,7 @@ from urllib.parse import unquote, urlparse
 REPO_ROOT = Path(__file__).resolve().parent.parent
 TARGET_PATH = REPO_ROOT / "TargetSelector.json"
 SYNC_CONFIG_PATH = REPO_ROOT / "scripts" / "sync_sources.json"
+RELEASE_CONFIG_PATH = REPO_ROOT / "scripts" / "release_sources.json"
 
 REQUIRED_FIELDS = (
     "Author",
@@ -138,7 +140,7 @@ def validate_local_package(plugin_name: str, item: dict) -> None:
         )
 
 
-def validate_target_manifest() -> None:
+def validate_target_manifest() -> set[str]:
     items = load_json(TARGET_PATH)
     if not isinstance(items, list):
         fail("TargetSelector.json root must be a JSON array")
@@ -180,6 +182,8 @@ def validate_target_manifest() -> None:
 
         validate_local_package(internal_name, item)
 
+    return seen_internal_names
+
 
 def validate_sync_config() -> None:
     config = load_json(SYNC_CONFIG_PATH)
@@ -204,9 +208,76 @@ def validate_sync_config() -> None:
             fail(f"{label}: plugins must be an array of strings")
 
 
+def validate_release_config(target_internal_names: set[str]) -> None:
+    config = load_json(RELEASE_CONFIG_PATH)
+    if not isinstance(config, dict):
+        fail("scripts/release_sources.json root must be a JSON object")
+
+    sources = config.get("sources")
+    if not isinstance(sources, list):
+        fail("scripts/release_sources.json must contain a sources array")
+
+    seen_internal_names = set()
+    for index, source in enumerate(sources):
+        label = source.get("internal_name", f"source #{index + 1}") if isinstance(source, dict) else f"source #{index + 1}"
+        if not isinstance(source, dict):
+            fail(f"{label}: release source must be a JSON object")
+
+        required_string_fields = (
+            "internal_name",
+            "git_url",
+            "repo",
+            "tag_regex",
+            "asset_name_template",
+        )
+        for field_name in required_string_fields:
+            if not isinstance(source.get(field_name), str) or not source[field_name]:
+                fail(f"{label}: {field_name} must be a non-empty string")
+
+        internal_name = source["internal_name"]
+        if internal_name in seen_internal_names:
+            fail(f"duplicate release source InternalName: {internal_name}")
+        seen_internal_names.add(internal_name)
+
+        if internal_name not in target_internal_names:
+            fail(f"{internal_name}: release source is not present in TargetSelector.json")
+
+        validate_url(label, "git_url", source["git_url"])
+
+        if not re.fullmatch(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+", source["repo"]):
+            fail(f"{label}: repo must be in owner/name form")
+
+        try:
+            re.compile(source["tag_regex"])
+        except re.error as exc:
+            fail(f"{label}: tag_regex is not a valid regular expression: {exc}")
+
+        try:
+            source["asset_name_template"].format(
+                internal_name=internal_name,
+                tag="v1.2.3",
+                version="1.2.3",
+            )
+        except (KeyError, ValueError) as exc:
+            fail(f"{label}: asset_name_template is invalid: {exc}")
+
+        manifest_name = source.get("manifest_name")
+        if manifest_name is not None:
+            if not isinstance(manifest_name, str) or not manifest_name:
+                fail(f"{label}: manifest_name must be a non-empty string when present")
+            manifest_path = Path(manifest_name)
+            if manifest_path.is_absolute() or ".." in manifest_path.parts:
+                fail(f"{label}: manifest_name must be a relative zip member path")
+
+        check_assembly_matches_tag = source.get("check_assembly_matches_tag")
+        if check_assembly_matches_tag is not None and not isinstance(check_assembly_matches_tag, bool):
+            fail(f"{label}: check_assembly_matches_tag must be a boolean when present")
+
+
 def main() -> int:
-    validate_target_manifest()
+    target_internal_names = validate_target_manifest()
     validate_sync_config()
+    validate_release_config(target_internal_names)
     print("TargetSelector manifest validation passed")
     return 0
 

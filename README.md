@@ -11,12 +11,14 @@
 这个仓库里和发布/同步最相关的文件有：
 
 1. `TargetSelector.json`：实际提供给 Dalamud 订阅的插件清单
-2. `scripts/sync_sources.json`：上游来源配置
-3. `scripts/sync_plugin_sources.py`：同步脚本
-4. `scripts/validate_targetselector.py`：提交前校验脚本，防止截断或非法 JSON 进入仓库
-5. `packages/`：本仓库临时托管的修复包目录；只有上游 release 包本身损坏时才使用，正常情况下不应使用
-6. `/.github/workflows/sync-plugin-sources.yml`：GitHub Actions 自动同步与校验工作流
-7. [`PLUGIN_HANDOFF.md`](PLUGIN_HANDOFF.md)：新增/删除/交接插件收录流程与注意事项
+2. `scripts/sync_sources.json`：上游 manifest 来源配置
+3. `scripts/sync_plugin_sources.py`：从上游 manifest 同步版本号、API 和下载链接的脚本
+4. `scripts/release_sources.json`：独立 GitHub Release 来源配置
+5. `scripts/sync_github_releases.py`：从 GitHub Release zip 读取插件 manifest 并同步库链的脚本
+6. `scripts/validate_targetselector.py`：提交前校验脚本，防止截断或非法 JSON 进入仓库
+7. `packages/`：本仓库临时托管的修复包目录；只有上游 release 包本身损坏时才使用，正常情况下不应使用
+8. `/.github/workflows/sync-plugin-sources.yml`：GitHub Actions 自动同步与校验工作流
+9. [`PLUGIN_HANDOFF.md`](PLUGIN_HANDOFF.md)：新增/删除/交接插件收录流程与注意事项
 
 ---
 
@@ -30,8 +32,8 @@
 
 - 当前清单只保留 **Dalamud API 15** 插件，不要把已删除的 API 14 自有条目重新加回订阅源。
 - 来自 `MyDalamudRepo` 的插件：先在 `TargetSelector.json` 里有完整条目，再把 `InternalName` 加到 `scripts/sync_sources.json`；同步脚本不会自动新增条目。
-- 手动维护插件不要随便加入 `scripts/sync_sources.json`，除非确认有稳定上游 manifest 且同步脚本能处理。
-- `README.md`、`UPDATE.md`、`PLUGIN_HANDOFF.md` 保持 UTF-8 with BOM；`TargetSelector.json` 和 `scripts/sync_sources.json` 保持 UTF-8 无 BOM。
+- 独立 GitHub Release 插件优先加入 `scripts/release_sources.json`，不要误加到 `scripts/sync_sources.json`；只有确认有稳定上游 manifest 且同步脚本能处理时，才放进 `scripts/sync_sources.json`。
+- `README.md`、`UPDATE.md`、`PLUGIN_HANDOFF.md` 保持 UTF-8 with BOM；`TargetSelector.json`、`scripts/sync_sources.json` 和 `scripts/release_sources.json` 保持 UTF-8 无 BOM。
 - 不要用 PowerShell 控制台肉眼判断 JSON 中文是否乱码，必须用 Python 按 UTF-8/UTF-8-SIG 读取验证。
 
 ---
@@ -82,14 +84,14 @@ Dalamud 里也可以临时填带时间戳的链接测试；确认缓存刷新后
 
 ### 4. 提交前强制要求
 
-每次改 `TargetSelector.json`、`scripts/sync_sources.json` 或同步脚本后，至少运行：
+每次改 `TargetSelector.json`、`scripts/sync_sources.json`、`scripts/release_sources.json` 或同步脚本后，至少运行：
 
 ```powershell
 python scripts/validate_targetselector.py
 git diff --check
 ```
 
-`TargetSelector.json` 必须保持 UTF-8 无 BOM；`README.md`、`UPDATE.md`、`PLUGIN_HANDOFF.md` 必须保持 UTF-8 with BOM。
+`TargetSelector.json`、`scripts/sync_sources.json` 和 `scripts/release_sources.json` 必须保持 UTF-8 无 BOM；`README.md`、`UPDATE.md`、`PLUGIN_HANDOFF.md` 必须保持 UTF-8 with BOM。
 
 ---
 
@@ -109,12 +111,26 @@ git diff --check
 
 `https://raw.githubusercontent.com/anmili2022/MyDalamudRepo/main/pluginmaster.json`
 
-## 当前仓库内其他保留条目
+## 当前从独立 GitHub Release 自动同步的插件
 
-除了上面 7 个会自动同步的插件，当前 `TargetSelector.json` 里还保留这些本仓库自己的 API 15 条目：
+除了上面 7 个来自上游 manifest 的插件，目前还会直接检查各自 GitHub Release 并自动同步这 2 个插件：
 
 1. `AutoFollow`
 2. `ActionTimelineReborn`
+
+配置文件：
+
+`/scripts/release_sources.json`
+
+同步脚本：
+
+`/scripts/sync_github_releases.py`
+
+这个脚本会用 `git ls-remote --tags` 找到匹配规则的最新 tag，拼出 release zip 下载链接，下载 zip 并读取其中的插件 manifest。只有 zip 内 manifest 的 `DalamudApiLevel` 仍为 15，且 `AssemblyVersion` 与 tag 版本一致时，才会同步版本号、API 和下载链接。
+
+## 当前仓库内其他保留条目
+
+除了上面 7 个上游 manifest 插件和 2 个 GitHub Release 插件，当前没有额外的纯手动 API 15 条目。
 
 ### AutoFollow 修复包历史说明
 
@@ -126,9 +142,7 @@ git diff --check
 
 这个包只修正 zip 内 `AutoFollow.json` 的 `AssemblyVersion` 和 `RepoUrl`，不修改 `AutoFollow.dll`。
 
-当前 `AutoFollow` 的 `v1.5.0` 官方 release zip 已验证：zip 内 `AutoFollow.json` 和 `AutoFollow.dll` 都是 `1.5.0.0`，因此当前库链已经切回官方下载链接：
-
-`https://github.com/wang3x/AutoFollow/releases/download/v1.5.0/AutoFollow_v1.5.0.zip`
+当前 `AutoFollow` 已接入 `scripts/release_sources.json`，正常情况下由 `scripts/sync_github_releases.py` 自动检查官方 release zip，并从 zip 内 `AutoFollow.json` 读取 `AssemblyVersion`、API 等级和下载链接。脚本读取的是 release zip 内的 manifest，不只看仓库源码里的 JSON；同时会校验 `AssemblyVersion` 与 tag 版本一致，因此可以避免再次把 tag/release 与 zip 内 manifest 版本不一致的包直接写进库链。
 
 以后如果上游 release 包再次出现 manifest 与 DLL 版本不一致，才允许临时使用 `packages/` 中的修复包；上游修复后应尽快切回官方 release zip，并删除不再使用的临时包。
 
@@ -142,12 +156,14 @@ git diff --check
 - 手动触发：仓库 `Actions` 页面里的 `workflow_dispatch`
 - 定时触发：**每 6 小时** 自动检查一次
 - 工作流文件：`/.github/workflows/sync-plugin-sources.yml`
-- 实际同步脚本：`/scripts/sync_plugin_sources.py`
-- 上游来源配置：`/scripts/sync_sources.json`
+- 上游 manifest 同步脚本：`/scripts/sync_plugin_sources.py`
+- 上游 manifest 来源配置：`/scripts/sync_sources.json`
+- GitHub Release 同步脚本：`/scripts/sync_github_releases.py`
+- GitHub Release 来源配置：`/scripts/release_sources.json`
 
-### 这个脚本会同步哪些字段
+### 这些脚本会同步哪些字段
 
-当前脚本会从上游清单同步这些字段：
+当前自动同步会覆盖这些字段：
 
 - `AssemblyVersion`
 - `ApplicableVersion`
@@ -173,6 +189,7 @@ git diff --check
 
 - 如果你只是想跟上游版本号和下载链接，直接跑同步脚本就够了
 - 如果你还想改中文文案、图标、标签或仓库地址，需要手动编辑 `TargetSelector.json`
+- GitHub Release 同步脚本会从 release zip 内 manifest 读取字段；如果 manifest 没有 `ApplicableVersion`，则保留 `TargetSelector.json` 里的现有值。
 
 ---
 
@@ -196,6 +213,7 @@ git rebase origin/main
 
 ```powershell
 python scripts/sync_plugin_sources.py
+python scripts/sync_github_releases.py
 ```
 
 如果配置没问题，而且上游没有新变化，脚本会输出：
@@ -214,16 +232,16 @@ git diff --stat
 python scripts/validate_targetselector.py
 ```
 
-建议用 Python 验证当前同步的 7 个插件版本：
+建议用 Python 验证当前自动同步的 9 个插件版本：
 
 ```powershell
-python --% -c "import json; from pathlib import Path; obj=json.loads(Path(r'E:\git\TargetSelector\TargetSelector.json').read_text(encoding='utf-8-sig')); names=('DalamudACT','PluginDockStandalone','PartyIcons','Saucy','StarlightBreaker','WondrousTailsSolver','日随伴侣卫月版'); print('\\n'.join('{} {}'.format(i['InternalName'], i['AssemblyVersion']) for i in obj if i.get('InternalName') in names))"
+python --% -c "import json; from pathlib import Path; obj=json.loads(Path(r'E:\git\TargetSelector\TargetSelector.json').read_text(encoding='utf-8-sig')); names=('DalamudACT','PluginDockStandalone','PartyIcons','Saucy','StarlightBreaker','WondrousTailsSolver','日随伴侣卫月版','AutoFollow','ActionTimelineReborn'); print('\\n'.join('{} {}'.format(i['InternalName'], i['AssemblyVersion']) for i in obj if i.get('InternalName') in names))"
 ```
 
 ## 4. 提交并推送
 
 ```powershell
-git add -- TargetSelector.json scripts/sync_sources.json scripts/validate_targetselector.py .github/workflows/sync-plugin-sources.yml README.md UPDATE.md PLUGIN_HANDOFF.md
+git add -- TargetSelector.json scripts/sync_sources.json scripts/release_sources.json scripts/sync_plugin_sources.py scripts/sync_github_releases.py scripts/validate_targetselector.py .github/workflows/sync-plugin-sources.yml README.md UPDATE.md PLUGIN_HANDOFF.md
 git commit -m "chore: sync plugin sources"
 git push origin main
 ```
@@ -271,6 +289,7 @@ skip: SomePlugin is not present in TargetSelector.json
 
 ```powershell
 python scripts/sync_plugin_sources.py
+python scripts/sync_github_releases.py
 ```
 
 ## 4. 如果需要本仓库自己的文案/图标，再手动改
@@ -309,12 +328,13 @@ git rebase origin/main
 
 ```powershell
 python scripts/sync_plugin_sources.py
+python scripts/sync_github_releases.py
 ```
 
 再重新提交推送：
 
 ```powershell
-git add -- TargetSelector.json scripts/sync_sources.json README.md UPDATE.md
+git add -- TargetSelector.json scripts/sync_sources.json scripts/release_sources.json scripts/sync_plugin_sources.py scripts/sync_github_releases.py scripts/validate_targetselector.py .github/workflows/sync-plugin-sources.yml README.md UPDATE.md PLUGIN_HANDOFF.md
 git commit -m "chore: sync plugin sources"
 git push origin main
 ```
@@ -333,6 +353,7 @@ git push origin main
 
 - `TargetSelector.json`
 - `scripts/sync_sources.json`
+- `scripts/release_sources.json`
 
 当前是按 UTF-8 处理的，PowerShell 控制台里看到乱码，不一定代表文件真的坏了。
 
@@ -344,10 +365,11 @@ python --% -c "import json; from pathlib import Path; obj=json.loads(Path(r'E:\g
 
 ## 3. 优先让脚本改版本号和下载链接，不手工到处替换
 
-只要是已经接入 `scripts/sync_sources.json` 的插件，优先跑：
+只要是已经接入 `scripts/sync_sources.json` 或 `scripts/release_sources.json` 的插件，优先跑：
 
 ```powershell
 python scripts/sync_plugin_sources.py
+python scripts/sync_github_releases.py
 ```
 
 而不是手动在 `TargetSelector.json` 里到处找版本号和下载链接替换。
@@ -372,15 +394,16 @@ cd E:\git\TargetSelector
 git fetch origin main
 git rebase origin/main
 python scripts/sync_plugin_sources.py
+python scripts/sync_github_releases.py
 git status --short --untracked-files=all
 git diff --stat
-git add -- TargetSelector.json scripts/sync_sources.json README.md UPDATE.md
+git add -- TargetSelector.json scripts/sync_sources.json scripts/release_sources.json scripts/sync_plugin_sources.py scripts/sync_github_releases.py scripts/validate_targetselector.py .github/workflows/sync-plugin-sources.yml README.md UPDATE.md PLUGIN_HANDOFF.md
 git commit -m "chore: sync plugin sources"
 git push origin main
 ```
 
 如果只记 3 条，就记这三条：
 
-1. **先 rebase，再同步**
+1. **先 rebase，再同步上游 manifest 和 GitHub Release**
 2. **新插件先补 `TargetSelector.json`，再加 `sync_sources.json`**
 3. **中文和版本用 Python 验证，不靠控制台肉眼猜**

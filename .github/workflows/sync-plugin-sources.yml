@@ -8,19 +8,27 @@ on:
     paths:
       - "TargetSelector.json"
       - "scripts/sync_sources.json"
+      - "scripts/release_sources.json"
       - "scripts/sync_plugin_sources.py"
+      - "scripts/sync_github_releases.py"
       - "scripts/validate_targetselector.py"
       - ".github/workflows/sync-plugin-sources.yml"
   pull_request:
     paths:
       - "TargetSelector.json"
       - "scripts/sync_sources.json"
+      - "scripts/release_sources.json"
       - "scripts/sync_plugin_sources.py"
+      - "scripts/sync_github_releases.py"
       - "scripts/validate_targetselector.py"
       - ".github/workflows/sync-plugin-sources.yml"
 
 permissions:
   contents: write
+
+concurrency:
+  group: sync-plugin-sources
+  cancel-in-progress: false
 
 jobs:
   validate-and-sync:
@@ -41,6 +49,10 @@ jobs:
       - name: Sync upstream plugin fields
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         run: python scripts/sync_plugin_sources.py
+
+      - name: Sync GitHub release plugin fields
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: python scripts/sync_github_releases.py
 
       - name: Validate manifests after sync
         run: python scripts/validate_targetselector.py
