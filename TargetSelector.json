@@ -132,7 +132,7 @@
         "Author": "StarHeartHunt",
         "Name": "日随伴侣",
         "InternalName": "日随伴侣卫月版",
-        "AssemblyVersion": "1.0.3.0",
+        "AssemblyVersion": "1.0.4.0",
         "Description": "帮助你记录每日随机任务、导出报告，并实时同步到 DungeonLogger。\n\nHelp you to record your daily roulettes, export reports, and sync with DungeonLogger in real time.",
         "ApplicableVersion": "any",
         "Tags": [
@@ -154,9 +154,9 @@
         "IsTestingExclusive": "False",
         "DownloadCount": 0,
         "LastUpdate": "1778834563",
-        "DownloadLinkInstall": "https://github.com/anmili2022/RouletteRecorder.Dalamud/releases/download/v1.0.3.0/latest.zip",
-        "DownloadLinkTesting": "https://github.com/anmili2022/RouletteRecorder.Dalamud/releases/download/v1.0.3.0/latest.zip",
-        "DownloadLinkUpdate": "https://github.com/anmili2022/RouletteRecorder.Dalamud/releases/download/v1.0.3.0/latest.zip",
+        "DownloadLinkInstall": "https://github.com/anmili2022/RouletteRecorder.Dalamud/releases/download/v1.0.4.0/latest.zip",
+        "DownloadLinkTesting": "https://github.com/anmili2022/RouletteRecorder.Dalamud/releases/download/v1.0.4.0/latest.zip",
+        "DownloadLinkUpdate": "https://github.com/anmili2022/RouletteRecorder.Dalamud/releases/download/v1.0.4.0/latest.zip",
         "RepoUrl": "https://github.com/anmili2022/RouletteRecorder.Dalamud"
     },
     {
@@ -208,9 +208,9 @@
             "https://raw.githubusercontent.com/ArchiDog1998/ActionTimelineReborn/main/Images/example.gif"
         ],
         "AcceptsFeedback": true,
-        "AssemblyVersion": "7.4.0.1",
-        "DownloadLinkInstall": "https://github.com/anmili2022/ActionTimelineReborn/releases/download/7.4.0.1/ActionTimelineReborn.zip",
-        "DownloadLinkTesting": "https://github.com/anmili2022/ActionTimelineReborn/releases/download/7.4.0.1/ActionTimelineReborn.zip",
-        "DownloadLinkUpdate": "https://github.com/anmili2022/ActionTimelineReborn/releases/download/7.4.0.1/ActionTimelineReborn.zip"
+        "AssemblyVersion": "7.5.0.5",
+        "DownloadLinkInstall": "https://github.com/anmili2022/ActionTimelineReborn/releases/download/7.5.0.5/ActionTimelineReborn.zip",
+        "DownloadLinkTesting": "https://github.com/anmili2022/ActionTimelineReborn/releases/download/7.5.0.5/ActionTimelineReborn.zip",
+        "DownloadLinkUpdate": "https://github.com/anmili2022/ActionTimelineReborn/releases/download/7.5.0.5/ActionTimelineReborn.zip"
     }
 ]
