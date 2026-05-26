@@ -44,12 +44,12 @@
             "asset_name_template": "latest.zip"
         },
         {
-            "internal_name": "日随伴侣卫月版",
+            "internal_name": "RouletteBuddy",
             "git_url": "https://github.com/anmili2022/RouletteRecorder.Dalamud.git",
             "repo": "anmili2022/RouletteRecorder.Dalamud",
             "tag_regex": "^v(?P<version>\\d+\\.\\d+\\.\\d+\\.\\d+)$",
             "asset_name_template": "latest.zip",
-            "manifest_name": "RouletteRecorder.Dalamud.json"
+            "manifest_name": "RouletteBuddy.json"
         },
         {
             "internal_name": "AutoFollow",

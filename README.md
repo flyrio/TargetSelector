@@ -107,7 +107,7 @@ git diff --check
 4. `Saucy`
 5. `StarlightBreaker`
 6. `WondrousTailsSolver`
-7. `日随伴侣卫月版`
+7. `RouletteBuddy`
 8. `AutoFollow`
 9. `ActionTimelineReborn`
 
@@ -124,7 +124,7 @@ git diff --check
 特殊情况：
 
 - `PluginDockStandalone` 使用固定 `latest` tag，因此配置了 `fixed_tag`，并从 zip 内 manifest 判断版本。
-- `日随伴侣卫月版` 的 zip 内 manifest 文件名是 `RouletteRecorder.Dalamud.json`，因此配置了 `manifest_name`。
+- `RouletteBuddy` 的 zip 内 manifest 文件名是 `RouletteBuddy.json`，因此配置了 `manifest_name`。
 
 ## 当前 MyDalamudRepo 备用配置
 
@@ -240,7 +240,7 @@ python scripts/validate_targetselector.py
 建议用 Python 验证当前自动同步的 9 个插件版本：
 
 ```powershell
-python --% -c "import json; from pathlib import Path; obj=json.loads(Path(r'E:\git\TargetSelector\TargetSelector.json').read_text(encoding='utf-8-sig')); names=('DalamudACT','PluginDockStandalone','PartyIcons','Saucy','StarlightBreaker','WondrousTailsSolver','日随伴侣卫月版','AutoFollow','ActionTimelineReborn'); print('\\n'.join('{} {}'.format(i['InternalName'], i['AssemblyVersion']) for i in obj if i.get('InternalName') in names))"
+python --% -c "import json; from pathlib import Path; obj=json.loads(Path(r'E:\git\TargetSelector\TargetSelector.json').read_text(encoding='utf-8-sig')); names=('DalamudACT','PluginDockStandalone','PartyIcons','Saucy','StarlightBreaker','WondrousTailsSolver','RouletteBuddy','AutoFollow','ActionTimelineReborn'); print('\\n'.join('{} {}'.format(i['InternalName'], i['AssemblyVersion']) for i in obj if i.get('InternalName') in names))"
 ```
 
 ## 4. 提交并推送
@@ -375,7 +375,7 @@ git push origin main
 更稳的方式是用 Python 按 UTF-8 读取：
 
 ```powershell
-python --% -c "import json; from pathlib import Path; obj=json.loads(Path(r'E:\git\TargetSelector\TargetSelector.json').read_text(encoding='utf-8-sig')); print('\\n'.join('{}\\n{}'.format(i.get('Name'), i.get('Description')) for i in obj if i.get('InternalName') in ('DalamudACT','StarlightBreaker','WondrousTailsSolver','日随伴侣卫月版')))"
+python --% -c "import json; from pathlib import Path; obj=json.loads(Path(r'E:\git\TargetSelector\TargetSelector.json').read_text(encoding='utf-8-sig')); print('\\n'.join('{}\\n{}'.format(i.get('Name'), i.get('Description')) for i in obj if i.get('InternalName') in ('DalamudACT','StarlightBreaker','WondrousTailsSolver','RouletteBuddy')))"
 ```
 
 ## 3. 优先让脚本改版本号和下载链接，不手工到处替换

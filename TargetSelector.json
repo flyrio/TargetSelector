@@ -131,7 +131,7 @@
     {
         "Author": "StarHeartHunt",
         "Name": "日随伴侣",
-        "InternalName": "日随伴侣卫月版",
+        "InternalName": "RouletteBuddy",
         "AssemblyVersion": "1.0.4.0",
         "Description": "帮助你记录每日随机任务、导出报告，并实时同步到 DungeonLogger。\n\nHelp you to record your daily roulettes, export reports, and sync with DungeonLogger in real time.",
         "ApplicableVersion": "any",
