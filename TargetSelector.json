@@ -13,7 +13,7 @@
             "ACT",
             "DPS"
         ],
-        "IconUrl": "https://raw.githubusercontent.com/flyrio/TargetSelector/main/DalamudACT.jpg",
+        "IconUrl": "https://raw.githubusercontent.com/anmili2022/DalamudACT/main/DalamudACT/images/icon.png",
         "DownloadLinkInstall": "https://github.com/anmili2022/DalamudACT/releases/download/0.15.2.39/DalamudACT.zip",
         "DownloadLinkTesting": "https://github.com/anmili2022/DalamudACT/releases/download/0.15.2.39/DalamudACT.zip",
         "DownloadLinkUpdate": "https://github.com/anmili2022/DalamudACT/releases/download/0.15.2.39/DalamudACT.zip"
