@@ -52,7 +52,7 @@
             "mgp",
             "automation"
         ],
-        "IconUrl": "https://love.puni.sh/resources/saucy.png",
+        "IconUrl": "https://s3.puni.sh/media/plugin/7/icon-bl3wub19h2u.png",
         "DownloadLinkInstall": "https://github.com/anmili2022/SaucyCN/releases/download/v1.6.0.0/SaucyCN.zip",
         "DownloadLinkTesting": "https://github.com/anmili2022/SaucyCN/releases/download/v1.6.0.0/SaucyCN.zip",
         "DownloadLinkUpdate": "https://github.com/anmili2022/SaucyCN/releases/download/v1.6.0.0/SaucyCN.zip"
@@ -81,7 +81,7 @@
         "Author": "Loskh",
         "Name": "StarlightBreaker",
         "InternalName": "StarlightBreaker",
-        "AssemblyVersion": "2.15.2.0",
+        "AssemblyVersion": "2.15.4.0",
         "Description": "关闭屏蔽词过滤，并特殊显示聊天频道或招募板发出的屏蔽词。 Disable word-filter blocking and specially highlight filtered words from chat channels or the Party Finder.",
         "Punchline": "关闭屏蔽词过滤，并高亮聊天和招募板里的屏蔽词。 Disable word-filter blocking and highlight filtered words in chat and Party Finder.",
         "ApplicableVersion": "any",
@@ -93,10 +93,10 @@
         "LoadPriority": 0,
         "IconUrl": "https://raw.githubusercontent.com/anmili2022/StarlightBreaker/main/StarlightBreaker.Dalamud/icon.png",
         "AcceptsFeedback": true,
-        "DownloadLinkInstall": "https://github.com/anmili2022/StarlightBreaker/releases/download/v2.15.2/StarlightBreaker-v2.15.2.zip",
-        "DownloadLinkUpdate": "https://github.com/anmili2022/StarlightBreaker/releases/download/v2.15.2/StarlightBreaker-v2.15.2.zip",
+        "DownloadLinkInstall": "https://github.com/anmili2022/StarlightBreaker/releases/download/v2.15.4/StarlightBreaker-v2.15.4.zip",
+        "DownloadLinkUpdate": "https://github.com/anmili2022/StarlightBreaker/releases/download/v2.15.4/StarlightBreaker-v2.15.4.zip",
         "TestingDalamudApiLevel": 15,
-        "DownloadLinkTesting": "https://github.com/anmili2022/StarlightBreaker/releases/download/v2.15.2/StarlightBreaker-v2.15.2.zip",
+        "DownloadLinkTesting": "https://github.com/anmili2022/StarlightBreaker/releases/download/v2.15.4/StarlightBreaker-v2.15.4.zip",
         "Tags": [
             "chat",
             "filter",
