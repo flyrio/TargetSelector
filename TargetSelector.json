@@ -11,7 +11,8 @@
         "TestingDalamudApiLevel": 15,
         "Tags": [
             "ACT",
-            "DPS"
+            "DPS",
+            "anmi"
         ],
         "IconUrl": "https://raw.githubusercontent.com/anmili2022/DalamudACT/main/DalamudACT/images/icon.png",
         "DownloadLinkInstall": "https://github.com/anmili2022/DalamudACT/releases/download/0.15.2.44/DalamudACT.zip",
@@ -29,7 +30,8 @@
         "DalamudApiLevel": 15,
         "TestingDalamudApiLevel": 15,
         "Tags": [
-            "UI"
+            "UI",
+            "anmi"
         ],
         "IconUrl": "https://raw.githubusercontent.com/flyrio/TargetSelector/ea0297a1aeed3b04c1b42d7079f2c541b9e4516b/fox2.png",
         "DownloadLinkInstall": "https://github.com/anmili2022/xivPartyIcons/releases/download/1.2.3.8/PartyIcons.zip",
@@ -50,7 +52,8 @@
         "Tags": [
             "gold saucer",
             "mgp",
-            "automation"
+            "automation",
+            "anmi"
         ],
         "IconUrl": "https://s3.puni.sh/media/plugin/7/icon-bl3wub19h2u.png",
         "DownloadLinkInstall": "https://github.com/anmili2022/SaucyCN/releases/download/v1.6.0.0/SaucyCN.zip",
@@ -70,7 +73,8 @@
         "Tags": [
             "UI",
             "Utilities",
-            "Dock"
+            "Dock",
+            "anmi"
         ],
         "IconUrl": "https://raw.githubusercontent.com/flyrio/PluginDockStandalone/main/images/icon.png",
         "DownloadLinkInstall": "https://github.com/anmili2022/PluginDockStandalone/releases/download/latest/latest.zip",
@@ -100,7 +104,8 @@
         "Tags": [
             "chat",
             "filter",
-            "party finder"
+            "party finder",
+            "anmi"
         ]
     },
     {
@@ -115,7 +120,8 @@
         "Tags": [
             "wondrous-tails",
             "probability",
-            "utility"
+            "utility",
+            "anmi"
         ],
         "DalamudApiLevel": 15,
         "LoadRequiredState": 0,
@@ -141,7 +147,8 @@
             "指导者",
             "roulette",
             "mentor",
-            "plugin"
+            "plugin",
+            "anmi"
         ],
         "DalamudApiLevel": 15,
         "TestingDalamudApiLevel": 15,
@@ -177,7 +184,8 @@
             "auto",
             "dungeon",
             "vnavmesh",
-            "ipc"
+            "ipc",
+            "anmi"
         ],
         "DownloadLinkInstall": "https://github.com/wang3x/AutoFollow/releases/download/v1.5.6/AutoFollow_v1.5.6.zip",
         "DownloadLinkTesting": "https://github.com/wang3x/AutoFollow/releases/download/v1.5.6/AutoFollow_v1.5.6.zip",
@@ -192,7 +200,8 @@
         "Description": "Configurable timeline display of all the actions you use. / 可配置的实时技能时间轴，显示你使用过的所有技能。",
         "ApplicableVersion": "any",
         "Tags": [
-            "UI"
+            "UI",
+            "anmi"
         ],
         "CategoryTags": [
             "UI"
