@@ -4,7 +4,7 @@
         "Name": "DPS统计",
         "InternalName": "DalamudACT",
         "Description": "怎么输出那么低，谁在划水",
-        "AssemblyVersion": "0.15.2.63",
+        "AssemblyVersion": "0.15.2.64",
         "RepoUrl": "https://github.com/wozaiha/DalamudACT",
         "ApplicableVersion": "any",
         "DalamudApiLevel": 15,
@@ -15,9 +15,9 @@
             "anmi"
         ],
         "IconUrl": "https://raw.githubusercontent.com/anmili2022/DalamudACT/main/DalamudACT/images/icon.png",
-        "DownloadLinkInstall": "https://github.com/anmili2022/DalamudACT/releases/download/0.15.2.63/DalamudACT.zip",
-        "DownloadLinkTesting": "https://github.com/anmili2022/DalamudACT/releases/download/0.15.2.63/DalamudACT.zip",
-        "DownloadLinkUpdate": "https://github.com/anmili2022/DalamudACT/releases/download/0.15.2.63/DalamudACT.zip"
+        "DownloadLinkInstall": "https://github.com/anmili2022/DalamudACT/releases/download/0.15.2.64/DalamudACT.zip",
+        "DownloadLinkTesting": "https://github.com/anmili2022/DalamudACT/releases/download/0.15.2.64/DalamudACT.zip",
+        "DownloadLinkUpdate": "https://github.com/anmili2022/DalamudACT/releases/download/0.15.2.64/DalamudACT.zip"
     },
     {
         "Author": "shdwp, Avaflow, abashby, nebel,Shiyuvi(汉化)",
@@ -139,7 +139,7 @@
         "Author": "StarHeartHunt",
         "Name": "日随伴侣",
         "InternalName": "RouletteBuddy",
-        "AssemblyVersion": "1.0.7.0",
+        "AssemblyVersion": "1.0.7.1",
         "Description": "帮助你记录每日随机任务、导出报告，并实时同步到 DungeonLogger。\n\nHelp you to record your daily roulettes, export reports, and sync with DungeonLogger in real time.",
         "ApplicableVersion": "any",
         "Tags": [
@@ -162,9 +162,9 @@
         "IsTestingExclusive": "False",
         "DownloadCount": 0,
         "LastUpdate": "1778834563",
-        "DownloadLinkInstall": "https://github.com/anmili2022/RouletteRecorder.Dalamud/releases/download/v1.0.7.0/latest.zip",
-        "DownloadLinkTesting": "https://github.com/anmili2022/RouletteRecorder.Dalamud/releases/download/v1.0.7.0/latest.zip",
-        "DownloadLinkUpdate": "https://github.com/anmili2022/RouletteRecorder.Dalamud/releases/download/v1.0.7.0/latest.zip",
+        "DownloadLinkInstall": "https://github.com/anmili2022/RouletteRecorder.Dalamud/releases/download/v1.0.7.1/latest.zip",
+        "DownloadLinkTesting": "https://github.com/anmili2022/RouletteRecorder.Dalamud/releases/download/v1.0.7.1/latest.zip",
+        "DownloadLinkUpdate": "https://github.com/anmili2022/RouletteRecorder.Dalamud/releases/download/v1.0.7.1/latest.zip",
         "RepoUrl": "https://github.com/anmili2022/RouletteRecorder.Dalamud",
         "IconUrl": "https://raw.githubusercontent.com/anmili2022/RouletteRecorder.Dalamud/refs/heads/master/images/icon.png"
     },
