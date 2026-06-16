@@ -219,9 +219,9 @@
             "https://raw.githubusercontent.com/ArchiDog1998/ActionTimelineReborn/main/Images/example.gif"
         ],
         "AcceptsFeedback": true,
-        "AssemblyVersion": "7.5.0.5",
-        "DownloadLinkInstall": "https://github.com/anmili2022/ActionTimelineReborn/releases/download/7.5.0.5/ActionTimelineReborn.zip",
-        "DownloadLinkTesting": "https://github.com/anmili2022/ActionTimelineReborn/releases/download/7.5.0.5/ActionTimelineReborn.zip",
-        "DownloadLinkUpdate": "https://github.com/anmili2022/ActionTimelineReborn/releases/download/7.5.0.5/ActionTimelineReborn.zip"
+        "AssemblyVersion": "7.5.0.6",
+        "DownloadLinkInstall": "https://github.com/anmili2022/ActionTimelineReborn/releases/download/7.5.0.6/ActionTimelineReborn.zip",
+        "DownloadLinkTesting": "https://github.com/anmili2022/ActionTimelineReborn/releases/download/7.5.0.6/ActionTimelineReborn.zip",
+        "DownloadLinkUpdate": "https://github.com/anmili2022/ActionTimelineReborn/releases/download/7.5.0.6/ActionTimelineReborn.zip"
     }
 ]
