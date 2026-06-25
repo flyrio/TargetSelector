@@ -64,6 +64,13 @@
             "repo": "anmili2022/ActionTimelineReborn",
             "tag_regex": "^(?P<version>\\d+\\.\\d+\\.\\d+\\.\\d+)$",
             "asset_name_template": "ActionTimelineReborn.zip"
+        },
+        {
+            "internal_name": "TextAdvance",
+            "git_url": "https://github.com/anmili2022/TextAdvance.git",
+            "repo": "anmili2022/TextAdvance",
+            "tag_regex": "^(?P<version>\\d+\\.\\d+\\.\\d+\\.\\d+)$",
+            "asset_name_template": "TextAdvance-{version}.zip"
         }
     ]
 }

@@ -223,5 +223,33 @@
         "DownloadLinkInstall": "https://github.com/anmili2022/ActionTimelineReborn/releases/download/7.5.0.6/ActionTimelineReborn.zip",
         "DownloadLinkTesting": "https://github.com/anmili2022/ActionTimelineReborn/releases/download/7.5.0.6/ActionTimelineReborn.zip",
         "DownloadLinkUpdate": "https://github.com/anmili2022/ActionTimelineReborn/releases/download/7.5.0.6/ActionTimelineReborn.zip"
+    },
+    {
+        "Author": "NightmareXIV",
+        "Name": "TextAdvance汉化版",
+        "InternalName": "TextAdvance",
+        "AssemblyVersion": "3.3.0.1",
+        "Description": "任务速通辅助工具。自动跳过字幕框、自动确认过场动画跳过。\n\nQuest speedrunning assistance tool. Automatically skips subtitle boxes and confirms cutscene skipping.",
+        "Punchline": "Quest speedrunning assistance tool. Automatically skips subtitle boxes and confirms cutscene skipping",
+        "ApplicableVersion": "any",
+        "RepoUrl": "https://github.com/anmili2022/TextAdvance",
+        "DalamudApiLevel": 15,
+        "TestingDalamudApiLevel": 15,
+        "LoadRequiredState": 0,
+        "LoadSync": false,
+        "CanUnloadAsync": false,
+        "LoadPriority": 0,
+        "AcceptsFeedback": true,
+        "Tags": [
+            "quest",
+            "speedrun",
+            "cutscene",
+            "skip",
+            "anmi"
+        ],
+        "IconUrl": "https://raw.githubusercontent.com/NightmareXIV/TextAdvance/master/TextAdvance/Media/Icon.png",
+        "DownloadLinkInstall": "https://github.com/anmili2022/TextAdvance/releases/download/3.3.0.1/TextAdvance-3.3.0.1.zip",
+        "DownloadLinkTesting": "https://github.com/anmili2022/TextAdvance/releases/download/3.3.0.1/TextAdvance-3.3.0.1.zip",
+        "DownloadLinkUpdate": "https://github.com/anmili2022/TextAdvance/releases/download/3.3.0.1/TextAdvance-3.3.0.1.zip"
     }
 ]
