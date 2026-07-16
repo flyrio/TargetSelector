@@ -256,7 +256,7 @@
         "Author": "Aireil",
         "Name": "FFlogs Viewer CN",
         "InternalName": "FFLogsViewer",
-        "AssemblyVersion": "2.5.3.1",
+        "AssemblyVersion": "2.5.3.2",
         "Description": "在游戏内查看 FF Logs 排名百分比。添加右键菜单来打开角色日志。布局、样式、统计、默认指标等均可在设置中自定义。",
         "Punchline": "在游戏内查看 FF Logs 排名百分比。",
         "ApplicableVersion": "any",
@@ -277,8 +277,8 @@
             "https://github.com/Aireil/FFLogsViewer/raw/master/res/image1.png",
             "https://github.com/Aireil/FFLogsViewer/raw/master/res/image2.png"
         ],
-        "DownloadLinkInstall": "https://github.com/anmili2022/FFLogsViewer/releases/download/2.5.3.1/FFLogsViewer.zip",
-        "DownloadLinkTesting": "https://github.com/anmili2022/FFLogsViewer/releases/download/2.5.3.1/FFLogsViewer.zip",
-        "DownloadLinkUpdate": "https://github.com/anmili2022/FFLogsViewer/releases/download/2.5.3.1/FFLogsViewer.zip"
+        "DownloadLinkInstall": "https://github.com/anmili2022/FFLogsViewer/releases/download/2.5.3.2/FFLogsViewer.zip",
+        "DownloadLinkTesting": "https://github.com/anmili2022/FFLogsViewer/releases/download/2.5.3.2/FFLogsViewer.zip",
+        "DownloadLinkUpdate": "https://github.com/anmili2022/FFLogsViewer/releases/download/2.5.3.2/FFLogsViewer.zip"
     }
 ]
