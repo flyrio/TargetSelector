@@ -280,5 +280,36 @@
         "DownloadLinkInstall": "https://github.com/anmili2022/FFLogsViewer/releases/download/2.5.3.2/FFLogsViewer.zip",
         "DownloadLinkTesting": "https://github.com/anmili2022/FFLogsViewer/releases/download/2.5.3.2/FFLogsViewer.zip",
         "DownloadLinkUpdate": "https://github.com/anmili2022/FFLogsViewer/releases/download/2.5.3.2/FFLogsViewer.zip"
+    },
+    {
+        "Author": "YourName",
+        "Name": "新月岛史官",
+        "InternalName": "Chronicler",
+        "AssemblyVersion": "0.1.0.0",
+        "Description": "进入新月岛后自动记录南征/北征 CE/FATE 出现时间，支持导入/导出 xyd.zzmelon.com 分享码，生成喊话，并监听游戏内喊话自动同步状态。",
+        "Punchline": "本地记录新月岛 CE/FATE 出现时间，并兼容 xyd 分享码和喊话。",
+        "ApplicableVersion": "any",
+        "RepoUrl": "https://github.com/anmili2022/Chronicler",
+        "DalamudApiLevel": 15,
+        "TestingDalamudApiLevel": 15,
+        "LoadRequiredState": 0,
+        "LoadSync": false,
+        "CanUnloadAsync": false,
+        "LoadPriority": 0,
+        "AcceptsFeedback": true,
+        "Tags": [
+            "crescent",
+            "xyd",
+            "boss",
+            "timer",
+            "sharecode",
+            "anmi"
+        ],
+        "CategoryTags": [
+            "boss"
+        ],
+        "DownloadLinkInstall": "https://github.com/anmili2022/Chronicler/releases/download/v0.1.0.0/Chronicler.zip",
+        "DownloadLinkTesting": "https://github.com/anmili2022/Chronicler/releases/download/v0.1.0.0/Chronicler.zip",
+        "DownloadLinkUpdate": "https://github.com/anmili2022/Chronicler/releases/download/v0.1.0.0/Chronicler.zip"
     }
 ]
