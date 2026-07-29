@@ -308,6 +308,7 @@
         "CategoryTags": [
             "boss"
         ],
+        "IconUrl": "https://raw.githubusercontent.com/anmili2022/Chronicler/main/images/icon.png",
         "DownloadLinkInstall": "https://github.com/anmili2022/Chronicler/releases/download/v0.1.0.0/Chronicler.zip",
         "DownloadLinkTesting": "https://github.com/anmili2022/Chronicler/releases/download/v0.1.0.0/Chronicler.zip",
         "DownloadLinkUpdate": "https://github.com/anmili2022/Chronicler/releases/download/v0.1.0.0/Chronicler.zip"
