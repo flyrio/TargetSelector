@@ -85,6 +85,13 @@
             "repo": "anmili2022/Chronicler",
             "tag_regex": "^v(?P<version>\\d+\\.\\d+\\.\\d+\\.\\d+)$",
             "asset_name_template": "Chronicler.zip"
+        },
+        {
+            "internal_name": "Phantom",
+            "git_url": "https://github.com/anmili2022/Phantom.git",
+            "repo": "anmili2022/Phantom",
+            "tag_regex": "^v(?P<version>\\d+\\.\\d+\\.\\d+)$",
+            "asset_name_template": "Phantom.zip"
         }
     ]
 }

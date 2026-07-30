@@ -312,5 +312,31 @@
         "DownloadLinkInstall": "https://github.com/anmili2022/Chronicler/releases/download/v0.2.0.9/Chronicler.zip",
         "DownloadLinkTesting": "https://github.com/anmili2022/Chronicler/releases/download/v0.2.0.9/Chronicler.zip",
         "DownloadLinkUpdate": "https://github.com/anmili2022/Chronicler/releases/download/v0.2.0.9/Chronicler.zip"
+    },
+    {
+        "Author": "Anmi",
+        "Name": "幻境武器助手",
+        "InternalName": "Phantom",
+        "AssemblyVersion": "0.1.0.0",
+        "Description": "基于灰机 Wiki 幻境武器资料，提供半影、本影、黯影、蚀影、秘影阶段的材料清单、一次性流程勾选和手动进度追踪。",
+        "Punchline": "追踪幻境武器阶段材料、以太与战斗记忆进度。",
+        "ApplicableVersion": "any",
+        "RepoUrl": "https://github.com/anmili2022/Phantom",
+        "DalamudApiLevel": 15,
+        "TestingDalamudApiLevel": 15,
+        "LoadRequiredState": 0,
+        "LoadSync": false,
+        "CanUnloadAsync": false,
+        "LoadPriority": 0,
+        "AcceptsFeedback": true,
+        "Tags": [
+            "phantom",
+            "weapon",
+            "tracker",
+            "anmi"
+        ],
+        "DownloadLinkInstall": "https://github.com/anmili2022/Phantom/releases/download/v0.1.0/Phantom.zip",
+        "DownloadLinkTesting": "https://github.com/anmili2022/Phantom/releases/download/v0.1.0/Phantom.zip",
+        "DownloadLinkUpdate": "https://github.com/anmili2022/Phantom/releases/download/v0.1.0/Phantom.zip"
     }
 ]
