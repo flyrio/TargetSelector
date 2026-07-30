@@ -329,6 +329,7 @@
         "CanUnloadAsync": false,
         "LoadPriority": 0,
         "AcceptsFeedback": true,
+        "IconUrl": "https://raw.githubusercontent.com/anmili2022/Phantom/main/images/icon.png",
         "Tags": [
             "phantom",
             "weapon",
