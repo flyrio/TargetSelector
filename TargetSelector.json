@@ -285,7 +285,7 @@
         "Author": "Anmi",
         "Name": "新月岛史官",
         "InternalName": "Chronicler",
-        "AssemblyVersion": "0.2.0.15",
+        "AssemblyVersion": "0.2.0.16",
         "Description": "进入新月岛后自动记录南征/北征 CE/FATE 出现时间，支持导入/导出 xyd.zzmelon.com 分享码，生成喊话，并监听游戏内喊话自动同步状态。",
         "Punchline": "本地记录新月岛 CE/FATE 出现时间，并兼容 xyd 分享码和喊话。",
         "ApplicableVersion": "any",
@@ -309,15 +309,15 @@
             "boss"
         ],
         "IconUrl": "https://raw.githubusercontent.com/anmili2022/Chronicler/main/images/icon.png",
-        "DownloadLinkInstall": "https://github.com/anmili2022/Chronicler/releases/download/v0.2.0.15/Chronicler.zip",
-        "DownloadLinkTesting": "https://github.com/anmili2022/Chronicler/releases/download/v0.2.0.15/Chronicler.zip",
-        "DownloadLinkUpdate": "https://github.com/anmili2022/Chronicler/releases/download/v0.2.0.15/Chronicler.zip"
+        "DownloadLinkInstall": "https://github.com/anmili2022/Chronicler/releases/download/v0.2.0.16/Chronicler.zip",
+        "DownloadLinkTesting": "https://github.com/anmili2022/Chronicler/releases/download/v0.2.0.16/Chronicler.zip",
+        "DownloadLinkUpdate": "https://github.com/anmili2022/Chronicler/releases/download/v0.2.0.16/Chronicler.zip"
     },
     {
         "Author": "Anmi",
         "Name": "幻境武器助手",
         "InternalName": "Phantom",
-        "AssemblyVersion": "0.1.7.0",
+        "AssemblyVersion": "0.1.8.0",
         "Description": "基于灰机 Wiki 幻境武器资料，提供半影、本影、黯影、蚀影、秘影阶段的材料清单、一次性流程勾选和手动进度追踪。",
         "Punchline": "追踪幻境武器阶段材料、以太与战斗记忆进度。",
         "ApplicableVersion": "any",
@@ -336,8 +336,8 @@
             "tracker",
             "anmi"
         ],
-        "DownloadLinkInstall": "https://github.com/anmili2022/Phantom/releases/download/0.1.7.0/Phantom.zip",
-        "DownloadLinkTesting": "https://github.com/anmili2022/Phantom/releases/download/0.1.7.0/Phantom.zip",
-        "DownloadLinkUpdate": "https://github.com/anmili2022/Phantom/releases/download/0.1.7.0/Phantom.zip"
+        "DownloadLinkInstall": "https://github.com/anmili2022/Phantom/releases/download/0.1.8.0/Phantom.zip",
+        "DownloadLinkTesting": "https://github.com/anmili2022/Phantom/releases/download/0.1.8.0/Phantom.zip",
+        "DownloadLinkUpdate": "https://github.com/anmili2022/Phantom/releases/download/0.1.8.0/Phantom.zip"
     }
 ]
