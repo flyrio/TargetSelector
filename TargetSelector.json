@@ -174,7 +174,7 @@
         "InternalName": "AutoFollow",
         "Punchline": "日随顶随摸鱼好帮手，跟随队友解放双手",
         "Description": "最拟真的跟随插件，基于vnavmesh寻路，自动疾跑追赶，可与其他三方输出及躲避插件协同工作。",
-        "AssemblyVersion": "1.9.0.0",
+        "AssemblyVersion": "1.9.1.0",
         "RepoUrl": "https://github.com/wang3x/AutoFollow",
         "ApplicableVersion": "any",
         "DalamudApiLevel": 15,
@@ -187,9 +187,9 @@
             "ipc",
             "anmi"
         ],
-        "DownloadLinkInstall": "https://github.com/wang3x/AutoFollow/releases/download/v1.9.0/AutoFollow-v1.9.0.zip",
-        "DownloadLinkTesting": "https://github.com/wang3x/AutoFollow/releases/download/v1.9.0/AutoFollow-v1.9.0.zip",
-        "DownloadLinkUpdate": "https://github.com/wang3x/AutoFollow/releases/download/v1.9.0/AutoFollow-v1.9.0.zip",
+        "DownloadLinkInstall": "https://github.com/wang3x/AutoFollow/releases/download/v1.9.1/AutoFollow-v1.9.1.zip",
+        "DownloadLinkTesting": "https://github.com/wang3x/AutoFollow/releases/download/v1.9.1/AutoFollow-v1.9.1.zip",
+        "DownloadLinkUpdate": "https://github.com/wang3x/AutoFollow/releases/download/v1.9.1/AutoFollow-v1.9.1.zip",
         "IconUrl": "https://huiji-public.huijistatic.com/ff14/uploads/b/bb/Old000887.png"
     },
     {
@@ -317,7 +317,7 @@
         "Author": "Anmi",
         "Name": "幻境武器助手",
         "InternalName": "Phantom",
-        "AssemblyVersion": "0.1.25.0",
+        "AssemblyVersion": "0.1.26.0",
         "Description": "基于灰机 Wiki 幻境武器资料，提供半影、本影、黯影、蚀影、秘影阶段的材料清单、一次性流程勾选和手动进度追踪。",
         "Punchline": "追踪幻境武器阶段材料、以太与战斗记忆进度。",
         "ApplicableVersion": "any",
@@ -336,8 +336,8 @@
             "tracker",
             "anmi"
         ],
-        "DownloadLinkInstall": "https://github.com/anmili2022/Phantom/releases/download/0.1.25.0/Phantom.zip",
-        "DownloadLinkTesting": "https://github.com/anmili2022/Phantom/releases/download/0.1.25.0/Phantom.zip",
-        "DownloadLinkUpdate": "https://github.com/anmili2022/Phantom/releases/download/0.1.25.0/Phantom.zip"
+        "DownloadLinkInstall": "https://github.com/anmili2022/Phantom/releases/download/0.1.26.0/Phantom.zip",
+        "DownloadLinkTesting": "https://github.com/anmili2022/Phantom/releases/download/0.1.26.0/Phantom.zip",
+        "DownloadLinkUpdate": "https://github.com/anmili2022/Phantom/releases/download/0.1.26.0/Phantom.zip"
     }
 ]
