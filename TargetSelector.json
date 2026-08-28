@@ -317,7 +317,7 @@
         "Author": "Anmi",
         "Name": "肝武助手",
         "InternalName": "Phantom",
-        "AssemblyVersion": "0.1.31.0",
+        "AssemblyVersion": "0.1.32.0",
         "Description": "基于灰机 Wiki 幻境武器资料，提供半影、本影、黯影、蚀影、秘影阶段的材料清单、一次性流程勾选和手动进度追踪。",
         "Punchline": "追踪幻境武器阶段材料、以太与战斗记忆进度。",
         "ApplicableVersion": "any",
@@ -336,8 +336,8 @@
             "tracker",
             "anmi"
         ],
-        "DownloadLinkInstall": "https://github.com/anmili2022/Phantom/releases/download/0.1.31.0/Phantom.zip",
-        "DownloadLinkTesting": "https://github.com/anmili2022/Phantom/releases/download/0.1.31.0/Phantom.zip",
-        "DownloadLinkUpdate": "https://github.com/anmili2022/Phantom/releases/download/0.1.31.0/Phantom.zip"
+        "DownloadLinkInstall": "https://github.com/anmili2022/Phantom/releases/download/0.1.32.0/Phantom.zip",
+        "DownloadLinkTesting": "https://github.com/anmili2022/Phantom/releases/download/0.1.32.0/Phantom.zip",
+        "DownloadLinkUpdate": "https://github.com/anmili2022/Phantom/releases/download/0.1.32.0/Phantom.zip"
     }
 ]
