@@ -339,5 +339,35 @@
         "DownloadLinkInstall": "https://github.com/anmili2022/Phantom/releases/download/0.1.35.0/Phantom.zip",
         "DownloadLinkTesting": "https://github.com/anmili2022/Phantom/releases/download/0.1.35.0/Phantom.zip",
         "DownloadLinkUpdate": "https://github.com/anmili2022/Phantom/releases/download/0.1.35.0/Phantom.zip"
+    },
+    {
+        "Author": "Anmi",
+        "Name": "驯兽师助手",
+        "InternalName": "Beastmaster",
+        "AssemblyVersion": "0.1.2.0",
+        "Description": "追踪驯兽师任务链和魔兽图鉴收集进度，支持捕获消息自动记录、任务与图鉴目标导航，并可配合 vnavmesh 和 Lifestream 完成同地图移动及跨地图传送。",
+        "Punchline": "追踪驯兽师成长和魔兽图鉴收集进度。",
+        "ApplicableVersion": "any",
+        "RepoUrl": "https://github.com/anmili2022/Beastmaster",
+        "DalamudApiLevel": 15,
+        "TestingDalamudApiLevel": 15,
+        "LoadRequiredState": 0,
+        "LoadSync": false,
+        "CanUnloadAsync": false,
+        "LoadPriority": 0,
+        "AcceptsFeedback": true,
+        "Tags": [
+            "beastmaster",
+            "tracker",
+            "utility",
+            "anmi"
+        ],
+        "CategoryTags": [
+            "Utility"
+        ],
+        "IconUrl": "https://raw.githubusercontent.com/anmili2022/Beastmaster/main/images/icon.png",
+        "DownloadLinkInstall": "https://github.com/anmili2022/Beastmaster/releases/download/0.1.2.0/Beastmaster.zip",
+        "DownloadLinkTesting": "https://github.com/anmili2022/Beastmaster/releases/download/0.1.2.0/Beastmaster.zip",
+        "DownloadLinkUpdate": "https://github.com/anmili2022/Beastmaster/releases/download/0.1.2.0/Beastmaster.zip"
     }
 ]
