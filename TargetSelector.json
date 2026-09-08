@@ -285,7 +285,7 @@
         "Author": "Anmi",
         "Name": "新月岛史官",
         "InternalName": "Chronicler",
-        "AssemblyVersion": "0.2.0.37",
+        "AssemblyVersion": "0.2.0.38",
         "Description": "进入新月岛后自动记录南征/北征 CE/FATE 出现时间，支持导入/导出 xyd.zzmelon.com 分享码，生成喊话，并监听游戏内喊话自动同步状态。",
         "Punchline": "本地记录新月岛 CE/FATE 出现时间，并兼容 xyd 分享码和喊话。",
         "ApplicableVersion": "any",
@@ -309,9 +309,9 @@
             "boss"
         ],
         "IconUrl": "https://raw.githubusercontent.com/anmili2022/Chronicler/main/images/icon.png",
-        "DownloadLinkInstall": "https://github.com/anmili2022/Chronicler/releases/download/v0.2.0.37/Chronicler.zip",
-        "DownloadLinkTesting": "https://github.com/anmili2022/Chronicler/releases/download/v0.2.0.37/Chronicler.zip",
-        "DownloadLinkUpdate": "https://github.com/anmili2022/Chronicler/releases/download/v0.2.0.37/Chronicler.zip"
+        "DownloadLinkInstall": "https://github.com/anmili2022/Chronicler/releases/download/v0.2.0.38/Chronicler.zip",
+        "DownloadLinkTesting": "https://github.com/anmili2022/Chronicler/releases/download/v0.2.0.38/Chronicler.zip",
+        "DownloadLinkUpdate": "https://github.com/anmili2022/Chronicler/releases/download/v0.2.0.38/Chronicler.zip"
     },
     {
         "Author": "Anmi",
@@ -344,7 +344,7 @@
         "Author": "Anmi",
         "Name": "驯兽师助手",
         "InternalName": "Beastmaster",
-        "AssemblyVersion": "0.1.6.0",
+        "AssemblyVersion": "0.1.7.0",
         "Description": "追踪驯兽师任务链和魔兽图鉴收集进度，支持捕获消息自动记录、任务与图鉴目标导航，并可配合 vnavmesh 和 Lifestream 完成同地图移动及跨地图传送。",
         "Punchline": "追踪驯兽师成长和魔兽图鉴收集进度。",
         "ApplicableVersion": "any",
@@ -366,8 +366,8 @@
             "Utility"
         ],
         "IconUrl": "https://raw.githubusercontent.com/anmili2022/Beastmaster/main/images/icon.png",
-        "DownloadLinkInstall": "https://github.com/anmili2022/Beastmaster/releases/download/0.1.6.0/Beastmaster.zip",
-        "DownloadLinkTesting": "https://github.com/anmili2022/Beastmaster/releases/download/0.1.6.0/Beastmaster.zip",
-        "DownloadLinkUpdate": "https://github.com/anmili2022/Beastmaster/releases/download/0.1.6.0/Beastmaster.zip"
+        "DownloadLinkInstall": "https://github.com/anmili2022/Beastmaster/releases/download/0.1.7.0/Beastmaster.zip",
+        "DownloadLinkTesting": "https://github.com/anmili2022/Beastmaster/releases/download/0.1.7.0/Beastmaster.zip",
+        "DownloadLinkUpdate": "https://github.com/anmili2022/Beastmaster/releases/download/0.1.7.0/Beastmaster.zip"
     }
 ]
