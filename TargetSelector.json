@@ -24,7 +24,7 @@
         "Name": "Party Icons",
         "InternalName": "PartyIcons",
         "Description": "根据当前内容调整玩家姓名板。例如，您可以显示副本位置（通过监听聊天自动分配）、职业图标或带有职业图标的名称。\n\nJobIcons的作者haplo、daemitus、Loskh、wozaiha通过逆向工程实现了这一功能，没有他们这个插件将不可能实现！",
-        "AssemblyVersion": "1.2.3.8",
+        "AssemblyVersion": "1.2.3.9",
         "RepoUrl": "https://github.com/nebel/xivPartyIcons",
         "ApplicableVersion": "any",
         "DalamudApiLevel": 15,
@@ -34,9 +34,9 @@
             "anmi"
         ],
         "IconUrl": "https://raw.githubusercontent.com/flyrio/TargetSelector/ea0297a1aeed3b04c1b42d7079f2c541b9e4516b/fox2.png",
-        "DownloadLinkInstall": "https://github.com/anmili2022/xivPartyIcons/releases/download/1.2.3.8/PartyIcons.zip",
-        "DownloadLinkTesting": "https://github.com/anmili2022/xivPartyIcons/releases/download/1.2.3.8/PartyIcons.zip",
-        "DownloadLinkUpdate": "https://github.com/anmili2022/xivPartyIcons/releases/download/1.2.3.8/PartyIcons.zip"
+        "DownloadLinkInstall": "https://github.com/anmili2022/xivPartyIcons/releases/download/1.2.3.9/PartyIcons.zip",
+        "DownloadLinkTesting": "https://github.com/anmili2022/xivPartyIcons/releases/download/1.2.3.9/PartyIcons.zip",
+        "DownloadLinkUpdate": "https://github.com/anmili2022/xivPartyIcons/releases/download/1.2.3.9/PartyIcons.zip"
     },
     {
         "Author": "Taurenkey (Puni.sh),Shiyuvi(汉化)",
