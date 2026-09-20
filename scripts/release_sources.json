@@ -99,6 +99,13 @@
             "repo": "anmili2022/Beastmaster",
             "tag_regex": "^(?P<version>\\d+\\.\\d+\\.\\d+\\.\\d+)$",
             "asset_name_template": "Beastmaster.zip"
+        },
+        {
+            "internal_name": "ArenaPilot",
+            "git_url": "https://github.com/anmili2022/ArenaPilot.git",
+            "repo": "anmili2022/ArenaPilot",
+            "tag_regex": "^(?P<version>\\d+\\.\\d+\\.\\d+\\.\\d+)$",
+            "asset_name_template": "ArenaPilot.zip"
         }
     ]
 }
