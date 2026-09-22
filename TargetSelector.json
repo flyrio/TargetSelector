@@ -317,7 +317,7 @@
         "Author": "Anmi",
         "Name": "肝武助手",
         "InternalName": "Phantom",
-        "AssemblyVersion": "0.1.36.0",
+        "AssemblyVersion": "0.1.37.0",
         "Description": "基于灰机 Wiki 幻境武器资料，提供半影、本影、黯影、蚀影、秘影阶段的材料清单、一次性流程勾选和手动进度追踪。",
         "Punchline": "追踪幻境武器阶段材料、以太与战斗记忆进度。",
         "ApplicableVersion": "any",
@@ -336,9 +336,9 @@
             "tracker",
             "anmi"
         ],
-        "DownloadLinkInstall": "https://github.com/anmili2022/Phantom/releases/download/0.1.36.0/Phantom.zip",
-        "DownloadLinkTesting": "https://github.com/anmili2022/Phantom/releases/download/0.1.36.0/Phantom.zip",
-        "DownloadLinkUpdate": "https://github.com/anmili2022/Phantom/releases/download/0.1.36.0/Phantom.zip"
+        "DownloadLinkInstall": "https://github.com/anmili2022/Phantom/releases/download/0.1.37.0/Phantom.zip",
+        "DownloadLinkTesting": "https://github.com/anmili2022/Phantom/releases/download/0.1.37.0/Phantom.zip",
+        "DownloadLinkUpdate": "https://github.com/anmili2022/Phantom/releases/download/0.1.37.0/Phantom.zip"
     },
     {
         "Author": "Anmi",
@@ -376,7 +376,7 @@
         "InternalName": "ArenaPilot",
         "Description": "自动执行已支持的斗兽奇弈流程，包括入场、编队、路线导航、战斗准备、奖励领取、休息、宝箱、商店和最终结算。",
         "Punchline": "斗兽奇弈自动爬塔助手。",
-        "AssemblyVersion": "0.2.4.6",
+        "AssemblyVersion": "0.2.4.7",
         "RepoUrl": "https://github.com/anmili2022/ArenaPilot",
         "ApplicableVersion": "any",
         "DalamudApiLevel": 15,
@@ -388,8 +388,8 @@
             "anmi"
         ],
         "IconUrl": "https://raw.githubusercontent.com/anmili2022/ArenaPilot/main/images/icon.png",
-        "DownloadLinkInstall": "https://github.com/anmili2022/ArenaPilot/releases/download/0.2.4.6/ArenaPilot.zip",
-        "DownloadLinkTesting": "https://github.com/anmili2022/ArenaPilot/releases/download/0.2.4.6/ArenaPilot.zip",
-        "DownloadLinkUpdate": "https://github.com/anmili2022/ArenaPilot/releases/download/0.2.4.6/ArenaPilot.zip"
+        "DownloadLinkInstall": "https://github.com/anmili2022/ArenaPilot/releases/download/0.2.4.7/ArenaPilot.zip",
+        "DownloadLinkTesting": "https://github.com/anmili2022/ArenaPilot/releases/download/0.2.4.7/ArenaPilot.zip",
+        "DownloadLinkUpdate": "https://github.com/anmili2022/ArenaPilot/releases/download/0.2.4.7/ArenaPilot.zip"
     }
 ]
