@@ -315,7 +315,7 @@
         "Author": "Anmi",
         "Name": "肝武助手",
         "InternalName": "Phantom",
-        "AssemblyVersion": "0.1.53.0",
+        "AssemblyVersion": "0.1.54.0",
         "Description": "统一追踪幻武、深层迷宫武器、旧肝武、特殊工具、绝武与妖表收藏。支持全系列按角色持有同步、秘影与 FATE 导航、妖表奖励扫描和雇员库存缓存读取。",
         "Punchline": "追踪幻境武器阶段材料、以太与战斗记忆进度。",
         "ApplicableVersion": "any",
@@ -334,9 +334,9 @@
             "tracker",
             "anmi"
         ],
-        "DownloadLinkInstall": "https://github.com/anmili2022/Phantom/releases/download/0.1.53.0/Phantom.zip",
-        "DownloadLinkTesting": "https://github.com/anmili2022/Phantom/releases/download/0.1.53.0/Phantom.zip",
-        "DownloadLinkUpdate": "https://github.com/anmili2022/Phantom/releases/download/0.1.53.0/Phantom.zip"
+        "DownloadLinkInstall": "https://github.com/anmili2022/Phantom/releases/download/0.1.54.0/Phantom.zip",
+        "DownloadLinkTesting": "https://github.com/anmili2022/Phantom/releases/download/0.1.54.0/Phantom.zip",
+        "DownloadLinkUpdate": "https://github.com/anmili2022/Phantom/releases/download/0.1.54.0/Phantom.zip"
     },
     {
         "Author": "Anmi",
