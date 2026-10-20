@@ -315,7 +315,7 @@
         "Author": "Anmi",
         "Name": "肝武助手",
         "InternalName": "Phantom",
-        "AssemblyVersion": "0.1.59.0",
+        "AssemblyVersion": "0.1.60.0",
         "Description": "肝武助手用于管理最终幻想 XIV 的长期武器与工具收藏。支持幻武、深层迷宫武器、雅武、古武、魂武、优武、义武、曼武、天钢、莫雯、宇宙工具和七个绝本武器的按角色持有同步，并提供秘影目标、FATE 导航、妖怪手表奖励扫描、全系列总览和雇员库存缓存读取。支持 vnavmesh 与 Lifestream 导航辅助。",
         "Punchline": "统一追踪幻武、深层迷宫武器、旧肝武、特殊工具、绝武与妖表收藏。",
         "ApplicableVersion": "any",
@@ -334,9 +334,9 @@
             "tracker",
             "anmi"
         ],
-        "DownloadLinkInstall": "https://github.com/anmili2022/Phantom/releases/download/0.1.59.0/Phantom.zip",
-        "DownloadLinkTesting": "https://github.com/anmili2022/Phantom/releases/download/0.1.59.0/Phantom.zip",
-        "DownloadLinkUpdate": "https://github.com/anmili2022/Phantom/releases/download/0.1.59.0/Phantom.zip"
+        "DownloadLinkInstall": "https://github.com/anmili2022/Phantom/releases/download/0.1.60.0/Phantom.zip",
+        "DownloadLinkTesting": "https://github.com/anmili2022/Phantom/releases/download/0.1.60.0/Phantom.zip",
+        "DownloadLinkUpdate": "https://github.com/anmili2022/Phantom/releases/download/0.1.60.0/Phantom.zip"
     },
     {
         "Author": "Anmi",
