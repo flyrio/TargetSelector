@@ -154,3 +154,22 @@ python scripts/sync_github_releases.py
 1. **先 rebase，再同步 GitHub Release，再校验**
 2. **新插件先补 `TargetSelector.json`，再优先加 `release_sources.json`**
 3. **中文和版本用 Python 验证，不靠控制台猜**
+
+---
+
+## 手动更新插件时同步说明文字
+
+自动同步脚本只同步版本号、API 等级和下载链接，**不会**同步文案。
+手动更新某个插件版本时，必须同时从发行包内的插件清单读取并同步这些字段：
+
+- `Description`（详情页说明）
+- `Punchline`（列表页单行简介）
+- `Name`（显示名称）
+
+标准做法（以 Phantom 为例）：
+
+1. 下载对应版本发行包
+2. 读取包内 `<插件名>.json`，拿到 `InternalName`、`AssemblyVersion`、`DalamudApiLevel` 和文案字段
+3. 更新 `AssemblyVersion` + 三个下载链接 + 有变化的文案字段
+4. 跑 `python scripts/validate_targetselector.py` 后提交推送
+
